@@ -10,6 +10,7 @@ Repositório de documentações e estudos dirigidos, com índice, exemplos de c�
 |--------|-----------|
 | [**1. Design Patterns**](./design-patterns/README.md) | Padrões de projeto mais utilizados, com exemplos em Java, C#, TypeScript/Node, React, Clojure e diagramas. |
 | [**2. APIs com Clojure**](./clojure-apis/README.md) | Estudo dirigido para criar e consumir APIs em Clojure: do Hello World ao acesso a bancos de dados e APIs REST. Inclui instalação (WSL/Ubuntu e macOS). |
+| [**3. Melhores práticas de desenvolvimento**](./melhores-praticas-desenvolvimento/README.md) | Código limpo, controle de versão, testes, documentação, segurança e performance – práticas consolidadas para desenvolvimento de software. |
 
 ---
 
@@ -25,7 +26,6 @@ Cada estudo fica em um diretório próprio, com:
 
 ## Próximos estudos
 
-- Melhores práticas de desenvolvimento
 - Logs de aplicação - Levels e melhores práticas
 - Git/GitHub
 - Git Flow e Commit Semântico
