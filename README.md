@@ -23,6 +23,61 @@ Cada estudo fica em um diretório próprio, com:
 
 ---
 
+## Próximos estudos
+
+- Melhores práticas de desenvolvimento
+- Logs de aplicação - Levels e melhores práticas
+- Git/GitHub
+- Git Flow e Commit Semântico
+- Versionamneto de Aplicações
+- GitActions
+- Kubernetes.
+- Docker
+- Arquitetura Hexagonal(Exemplos em C#, Java, Javascript(NodeJs/ReactJs), Cloujure)
+- clean architecture(Exemplos em C#, Java, Javascript(NodeJs/ReactJs), Cloujure)
+- Arquitetura de Microserviços
+- GRPC
+- RESTFULL
+- Programação Funcional(Exemplos em react e cloujure)
+- Orientação a Objetos
+- Grafana
+- Zabbix
+- ReactJS - ContextAPI
+- ReactJS - Redux - Além do controle de estado
+- ReactJS - Utilizando tawilnd Css
+- ReactJS - WebSoccets
+- ReactNative
+- Flutter
+- Microfrontedn Utilizando Module Federation
+- Microfrontedn Utilizando SingleSPA
+- Redis
+- Kafka
+- RabittMQ
+- SQS
+- Kafka
+- Debugando aplicações Cloujure no VSCODE/Cursor
+- Principais diferenças entre os serviçso de mensageria Kafka, RabittMQ, SQS
+- Microsserviços horizontalmente escaláveis, escritos principalmente em Clojure, utilizando Finagle e aproveitando técnicas de programação funcional e arquitetura hexagonal.
+- Tarefas de alto desempenho e comunicação entre serviços usando Kafka.
+- Integração e implantação contínuas na AWS.
+- Armazenamento de dados no Datomic.
+- Armazenamento de dados no DynamoDB.
+- Monitoramento e observabilidade com Prometheus.
+- Utilizando Cache(Redis) em aplicações Clojure
+- Prevenção de Vulnerabilidades com Trivy/Datadog/AWS Inspector
+- Teste(Unitários, Integrados, Regressivos)
+- playwright
+- Cypress
+- Selenium
+- NojeJS - Criando um websoccket
+- Cloujure - Criando um websoccket
+- NodeJS - Puro
+- NodeJS - Express
+- NodeJS - NestJS
+- NextJS
+
+---
+
 ## Licença
 
 Este repositório utiliza uma licença híbrida:
@@ -40,4 +95,4 @@ Licença: CC BY 4.0
 
 ---
 
-*Documentações em constante evolução. Sugestões e contribuições são bem-vindas.*
+*Documentações em constante evolução. Sugestões e contribuições são bem-vindas.* 
