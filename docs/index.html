@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Study Materials</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" id="highlight-theme-light" media="(prefers-color-scheme: light)">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" id="highlight-theme-dark" media="(prefers-color-scheme: dark)">
+</head>
+<body>
+  <header class="header">
+    <button type="button" class="menu-btn" id="menu-btn" aria-label="Abrir menu">☰</button>
+    <h1 class="header-title">Study Materials</h1>
+    <div class="header-actions">
+      <div id="google-translate" class="translate-wrap"></div>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Alternar tema">
+        <span class="theme-icon theme-icon-dark" aria-hidden="true">🌙</span>
+        <span class="theme-icon theme-icon-light" aria-hidden="true">☀️</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="sidebar-overlay" id="sidebar-overlay" aria-hidden="true"></div>
+  <div class="layout">
+    <aside class="sidebar" id="sidebar" aria-label="Navegação">
+      <nav class="nav" id="nav">
+        <p class="nav-loading" id="nav-loading">Carregando…</p>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <div class="content" id="content">
+        <p class="content-placeholder" id="content-placeholder">Escolha um estudo ou capítulo no menu.</p>
+        <div class="markdown-body" id="markdown-body" hidden></div>
+        <div class="content-error" id="content-error" hidden></div>
+        <div class="content-loading" id="content-loading" hidden>Carregando…</div>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.0/marked.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.1/mermaid.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/javascript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/clojure.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/json.min.js"></script>
+  <script src="app.js"></script>
+  <!-- Optional: Google Translate -->
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement(
+        { pageLanguage: 'pt', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false },
+        'google-translate'
+      );
+    }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async defer></script>
+</body>
+</html>
