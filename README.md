@@ -13,6 +13,7 @@ Repositório de documentações e estudos dirigidos, com índice, exemplos de c�
 | [**3. Melhores práticas de desenvolvimento**](./melhores-praticas-desenvolvimento/README.md) | Código limpo, controle de versão, testes, documentação, segurança e performance – práticas consolidadas para desenvolvimento de software. |
 | [**4. Casos de Uso**](./casos-uso/README.md) | Desafios de arquitetura: situações-problema com múltiplas soluções, prós/contras e diagramas (Kubernetes, Kafka, Redis, S3, microserviços). |
 | [**5. Versionamento, Git e Pull Requests**](./versionamento-git-pr/README.md) | Versionamento de aplicações (SemVer), Git/GitHub, Git Flow, commit semântico e melhores práticas para criação e validação de PRs. |
+| [**6. Logs de aplicação**](./logs-aplicacao/README.md) | Níveis de log (TRACE a FATAL), quando usar cada um e melhores práticas: estrutura, segurança, correlação e operação. |
 
 ---
 
@@ -28,7 +29,6 @@ Cada estudo fica em um diretório próprio, com:
 
 ## Próximos estudos
 
-- Logs de aplicação - Levels e melhores práticas
 - GitActions
 - Kubernetes.
 - Docker
