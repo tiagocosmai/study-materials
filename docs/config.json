@@ -1,0 +1,76 @@
+{
+  "repo": "tiagocosmai/study-materials",
+  "branch": "main",
+  "studies": [
+    {
+      "id": "home",
+      "title": "Início",
+      "readme": "README.md",
+      "chapters": []
+    },
+    {
+      "id": "design-patterns",
+      "title": "Design Patterns",
+      "readme": "design-patterns/README.md",
+      "chapters": [
+        { "title": "Visão geral", "path": "design-patterns/01-visao-geral.md" },
+        { "title": "Padrões criacionais", "path": "design-patterns/02-padroes-criacionais.md" },
+        { "title": "Padrões estruturais", "path": "design-patterns/03-padroes-estruturais.md" },
+        { "title": "Padrões comportamentais", "path": "design-patterns/04-padroes-comportamentais.md" }
+      ]
+    },
+    {
+      "id": "clojure-apis",
+      "title": "APIs com Clojure",
+      "readme": "clojure-apis/README.md",
+      "chapters": [
+        { "title": "Instalação", "path": "clojure-apis/01-instalacao.md" },
+        { "title": "Hello World", "path": "clojure-apis/02-hello-world.md" },
+        { "title": "Funções práticas", "path": "clojure-apis/03-funcoes-praticas.md" },
+        { "title": "API REST", "path": "clojure-apis/04-api-rest.md" },
+        { "title": "Banco de dados", "path": "clojure-apis/05-banco-de-dados.md" },
+        { "title": "Consumir APIs", "path": "clojure-apis/06-consumir-apis.md" }
+      ]
+    },
+    {
+      "id": "melhores-praticas",
+      "title": "Melhores práticas de desenvolvimento",
+      "readme": "melhores-praticas-desenvolvimento/README.md",
+      "chapters": [
+        { "title": "Visão geral", "path": "melhores-praticas-desenvolvimento/01-visao-geral.md" },
+        { "title": "Código limpo", "path": "melhores-praticas-desenvolvimento/02-codigo-limpo.md" },
+        { "title": "Controle de versão", "path": "melhores-praticas-desenvolvimento/03-controle-de-versao.md" },
+        { "title": "Testes e qualidade", "path": "melhores-praticas-desenvolvimento/04-testes-e-qualidade.md" },
+        { "title": "Documentação", "path": "melhores-praticas-desenvolvimento/05-documentacao.md" },
+        { "title": "Segurança e performance", "path": "melhores-praticas-desenvolvimento/06-seguranca-e-performance.md" }
+      ]
+    },
+    {
+      "id": "casos-uso",
+      "title": "Casos de Uso",
+      "readme": "casos-uso/README.md",
+      "chapters": [
+        { "title": "Desafios de arquitetura", "path": "casos-uso/desafios-arquitetura.md" }
+      ]
+    },
+    {
+      "id": "versionamento-git-pr",
+      "title": "Versionamento, Git e PR",
+      "readme": "versionamento-git-pr/README.md",
+      "chapters": [
+        { "title": "Versionamento de aplicações", "path": "versionamento-git-pr/01-versionamento-aplicacoes.md" },
+        { "title": "Git e GitHub", "path": "versionamento-git-pr/02-git-github.md" },
+        { "title": "Git Flow e commit semântico", "path": "versionamento-git-pr/03-git-flow-commit-semantico.md" },
+        { "title": "Melhores práticas PR", "path": "versionamento-git-pr/04-melhores-praticas-pull-requests.md" }
+      ]
+    },
+    {
+      "id": "logs-aplicacao",
+      "title": "Logs de aplicação",
+      "readme": "logs-aplicacao/README.md",
+      "chapters": [
+        { "title": "Níveis e melhores práticas", "path": "logs-aplicacao/01-levels-e-boas-praticas.md" }
+      ]
+    }
+  ]
+}

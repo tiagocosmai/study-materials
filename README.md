@@ -15,6 +15,8 @@ Repositório de documentações e estudos dirigidos, com índice, exemplos de c�
 | [**5. Versionamento, Git e Pull Requests**](./versionamento-git-pr/README.md) | Versionamento de aplicações (SemVer), Git/GitHub, Git Flow, commit semântico e melhores práticas para criação e validação de PRs. |
 | [**6. Logs de aplicação**](./logs-aplicacao/README.md) | Níveis de log (TRACE a FATAL), quando usar cada um e melhores práticas: estrutura, segurança, correlação e operação. |
 
+O conteúdo pode ser visualizado em **GitHub Pages** (pasta [docs/](./docs/)): site estático que carrega os markdowns dinamicamente via GitHub raw, com tema claro/escuro e layout responsivo.
+
 ---
 
 ## Estrutura de cada documentação
