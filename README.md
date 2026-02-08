@@ -4,6 +4,26 @@ Repositório de documentações e estudos dirigidos, com índice, exemplos de c�
 
 ---
 
+## Sobre mim
+
+Sou **Senior Software Engineer** com mais de 20 anos de experiência em desenvolvimento de software, atuando desde a concepção de soluções até a entrega e sustentação de produtos em produção.
+
+Ao longo da minha carreira, transitei entre engenharia de software, arquitetura e liderança técnica, liderando equipes multidisciplinares e desenvolvendo sistemas de alta performance, especialmente em ambientes complexos e orientados a negócio.
+
+Tenho forte atuação com **Node.js**, **React**, arquitetura de sistemas distribuídos e integração com plataformas de grande escala, além de experiência sólida em produtos de precificação, e-commerce, pagamentos e sistemas corporativos.
+
+Valorizo qualidade de código, boas práticas, colaboração entre times e alinhamento técnico com objetivos de negócio. Acredito em tecnologia como meio para gerar impacto real, escalável e sustentável.
+
+Atualmente atuo como Senior Software Engineer na **Future Secure AI**, mantendo uma postura de aprendizado contínuo e evolução profissional.
+
+**Links**
+
+- [LinkedIn](https://www.linkedin.com/in/tiagocosmai/)
+- [GitHub](https://github.com/tiagocosmai)
+- [tiagocosmai@gmail.com](mailto:tiagocosmai@gmail.com)
+
+---
+
 ## Índice
 
 | Estudo | Descrição |
