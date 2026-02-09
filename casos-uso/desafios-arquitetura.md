@@ -14,9 +14,13 @@ Nesta seção são apresentados problemas de arquitetura típicos de ecossistema
 
 ## Situação 1: Ingestão e processamento de eventos em alto volume
 
-**Problema:** Aplicações móveis e web disparam milhões de eventos por minuto (cliques, transações, sinais de vida). É preciso ingerir, validar, enriquecer e persistir sem perder dados e com latência aceitável para o negócio.
+**Problema:** Aplicações móveis e web disparam milhões de eventos por minuto (cliques, transações, sinais de vida). É preciso ingerir, validar, enriquecer e persistir sem perder dados e com latência aceitável para o negócio. O sistema deve suportar picos de tráfego sem degradação e permitir reprocessamento ou replay quando necessário (ex.: correção de bug ou nova regra de enriquecimento).
 
 **Exemplos de aplicação:** registrar cada tentativa de pagamento de boleto ou documento; sinal de vida do app (heartbeat); evento “transação iniciada” ou “tela de extrato visualizada”; auditoria de ações para compliance e análise de comportamento.
+
+**Escopo**
+- **Dentro do escopo:** ingestão em tempo quase real, validação de payload, enriquecimento (geolocalização, contexto), persistência em storage (DB e/ou objeto), retenção configurável, idempotência e ordenação por partição/chave.
+- **Fora do escopo:** processamento analítico pesado (batch noturno), real-time analytics em stream (agregações contínuas), entrega de eventos a sistemas externos via webhook.
 
 ### Solução A: API → Kafka → Consumers → S3 + DB
 
@@ -110,9 +114,13 @@ flowchart LR
 
 ## Situação 2: Saldo e histórico de transações com consistência forte
 
-**Problema:** Vários microserviços precisam ler e atualizar saldo e histórico de transações. É obrigatório: consistência forte, auditoria e suporte a alto volume de leitura.
+**Problema:** Vários microserviços precisam ler e atualizar saldo e histórico de transações. É obrigatório: consistência forte (leitura refletindo a última escrita aceita), auditoria rastreável e suporte a alto volume de leitura sem comprometer a integridade dos débitos e créditos. Concorrência e idempotência (ex.: retentativas de pagamento) devem ser tratadas de forma segura.
 
 **Exemplos de aplicação:** realizar transferência entre contas; pagar um boleto ou documento; consultar extrato bancário; debitar/creditar em compra com cartão; consultar saldo na tela inicial do app; conciliação e auditoria regulatória.
+
+**Escopo**
+- **Dentro do escopo:** modelo de dados de saldo e movimentações, garantias de consistência (ACID ou equivalente), cache de leitura, auditoria e rastreabilidade, idempotência de operações de escrita.
+- **Fora do escopo:** integração com gateways de pagamento externos, disputas e chargebacks, liquidação entre instituições, relatórios regulatórios agregados (podem consumir as mesmas fontes).
 
 ### Solução A: DB transacional único (fonte da verdade) + cache de leitura (Redis)
 
@@ -185,9 +193,13 @@ flowchart TB
 
 ## Situação 3: Notificações em tempo quase real para milhões de usuários
 
-**Problema:** Enviar push, e-mail e SMS de forma personalizada, com rate limit por usuário e por canal, fallback entre provedores e alta disponibilidade.
+**Problema:** Enviar push, e-mail e SMS de forma personalizada, com rate limit por usuário e por canal, fallback entre provedores e alta disponibilidade. A latência entre o evento que dispara a notificação e a entrega deve ser baixa (segundos), e a falha de um canal (ex.: provedor de SMS indisponível) não pode travar os demais. Preferências do usuário (canal prioritário, horário silencioso) devem ser respeitadas.
 
 **Exemplos de aplicação:** avisar que um boleto foi pago; alerta de transação em outra cidade; confirmação de transferência recebida; comunicado de manutenção programada; código de verificação (2FA) por SMS ou e-mail; lembrete de fatura.
+
+**Escopo**
+- **Dentro do escopo:** roteamento por canal (push, e-mail, SMS), rate limit por usuário e por canal, fallback entre provedores, preferências e templates, deduplicação, retry e dead-letter.
+- **Fora do escopo:** criação de conteúdo da mensagem (isso vem do sistema que publica o evento), gestão de preferências na UI, métricas de entrega e abertura (podem ser feitas por outro consumidor dos mesmos eventos).
 
 ### Solução A: Kafka por canal (push, email, SMS) → consumers → provedores
 
@@ -277,9 +289,13 @@ flowchart LR
 
 ## Situação 4: Deploy de serviços críticos sem downtime e com compatibilidade
 
-**Problema:** Serviços que tratam transações e contratos precisam ser atualizados sem derrubar tráfego, com rollback rápido e compatibilidade entre versões antigas e novas (clientes e outros serviços).
+**Problema:** Serviços que tratam transações e contratos precisam ser atualizados sem derrubar tráfego, com rollback rápido e compatibilidade entre versões antigas e novas (clientes e outros serviços). Requisitos típicos: zero downtime, possibilidade de voltar atrás em minutos em caso de problema, e garantia de que clientes ou outros serviços que ainda usam contratos antigos continuem funcionando durante e após o deploy.
 
 **Exemplos de aplicação:** publicar nova versão do serviço de pagamento de boletos; atualizar o serviço que consulta extrato e saldo; liberar nova versão da API de transações; corrigir bug crítico no fluxo de transferência sem interromper o uso.
+
+**Escopo**
+- **Dentro do escopo:** estratégia de deploy (blue/green, canary, rolling), troca de tráfego, rollback, compatibilidade de API e de dados entre versões, tratamento de conexões longas e estado em memória.
+- **Fora do escopo:** pipeline de CI/CD completo, testes automatizados de regressão, versionamento semântico de API (podem ser pré-requisitos, mas não são desenhados neste caso).
 
 ### Solução A: Blue/Green no Kubernetes (dois deployments, switch de tráfego)
 
@@ -337,6 +353,194 @@ flowchart LR
 
 ---
 
+## Situação 5: Cache distribuído e invalidação em múltiplos serviços
+
+**Problema:** Vários microserviços precisam ler dados que mudam com frequência moderada (catálogo, preços, perfil de usuário). É necessário reduzir carga na fonte de verdade (DB ou outro serviço) e manter a latência de leitura baixa, garantindo que o cache reflita alterações em tempo aceitável e sem inconsistências prolongadas entre serviços.
+
+**Exemplos de aplicação:** cache de catálogo de produtos para listagem e busca; cache de preços e promoções na camada de exibição; cache de perfil e preferências do usuário; redução de carga no DB de transações para consultas de extrato ou saldo.
+
+**Escopo**
+- **Dentro do escopo:** estratégia de cache (aside, through, write-through), invalidação (TTL, evento, explícita), consistência entre cache e fonte, compartilhamento de cache entre instâncias (Redis).
+- **Fora do escopo:** escolha da fonte de verdade (já existe), política de expiração por tipo de dado (pode ser parametrizada no escopo).
+
+### Solução A: Cache-aside com TTL fixo
+
+```mermaid
+flowchart LR
+  subgraph Services
+    S1[Service A]
+    S2[Service B]
+  end
+  subgraph Cache
+    R[Redis]
+  end
+  subgraph Source
+    DB[(DB)]
+  end
+  S1 & S2 --> R
+  S1 & S2 --> DB
+  R -.->|miss| DB
+```
+
+**O que acontece:** Cada serviço, ao precisar de um dado, primeiro consulta o Redis (chave por entidade, ex.: `product:123`). Se existir (hit), devolve. Se não (miss), consulta o DB, grava no Redis com TTL (ex.: 5 min) e devolve. Escritas vão direto ao DB; o cache não é atualizado na escrita, apenas expira após o TTL. Simples de implementar; a inconsistência é limitada ao TTL. Para dados que mudam pouco, TTL maior reduz carga no DB; para dados que mudam muito, TTL menor reduz inconsistência às custas de mais hits ao DB.
+
+- **Prós:** Implementação simples; sem dependência de eventos; cada serviço controla seu uso do cache.
+- **Contras:** Janela de inconsistência até o TTL; escritas não invalidam o cache; pode haver stampede no DB quando muitas chaves expiram ao mesmo tempo.
+
+### Solução B: Invalidação dirigida por eventos (Kafka)
+
+```mermaid
+flowchart LR
+  subgraph Write
+    API[API]
+    K[Kafka]
+  end
+  subgraph Consumers
+    C[Cache Invalidator]
+  end
+  subgraph Cache
+    R[Redis]
+  end
+  API --> K
+  K --> C --> R
+```
+
+**O que acontece:** Quando um dado é alterado (ex.: preço atualizado), o serviço que faz a escrita publica um evento no Kafka (ex.: `PrecoAtualizado`, `ProdutoAlterado`) com o identificador da entidade. Um consumer dedicado (ou um por tipo de entidade) lê o evento e invalida a chave correspondente no Redis (delete ou atualiza). As leituras continuam cache-aside: miss busca no DB e preenche o cache. Assim, a invalidação é imediata após o processamento do evento; a janela de inconsistência fica na ordem da latência do pipeline (Kafka + consumer).
+
+- **Prós:** Cache atualizado logo após a mudança; desacoplamento entre quem escreve e quem invalida; replay possível para re-invalidar em massa.
+- **Contras:** Dependência do Kafka e do consumer; latência de propagação; necessidade de idempotência na invalidação.
+
+### Solução C: Write-through + cache compartilhado com publicação de atualização
+
+```mermaid
+flowchart TB
+  subgraph Services
+    S[Service]
+  end
+  subgraph Cache
+    R[Redis]
+  end
+  subgraph DB
+    D[(DB)]
+  end
+  S -->|write| R
+  R -->|write-through| D
+  S -->|read| R
+  R -.->|miss| D
+```
+
+**O que acontece:** Todas as escritas passam pelo Redis: o serviço grava no Redis e o Redis (ou um componente em frente) persiste no DB em write-through. Leituras leem do Redis; miss vai ao DB e preenche o cache. Opcionalmente, após write-through bem-sucedido, um evento é publicado (Kafka ou interno) para que outras réplicas de cache ou outros serviços atualizem suas visões. Assim, a escrita é a única que atualiza o cache; outros nós podem ser atualizados por evento. Útil quando há um “owner” claro do dado e múltiplos leitores.
+
+- **Prós:** Consistência forte na escrita (cache e DB atualizados juntos); leituras sempre no cache quando há write recente.
+- **Contras:** Escrita mais lenta (dois destinos); Redis vira ponto crítico; padrão write-through exige disciplina em todos os escritores.
+
+---
+
+## Situação 6: E-commerce – listagem, precificação, promoções, venda e estoque
+
+**Problema:** Construir um fluxo de e-commerce com listagem de produtos, precificação, promoções, frete, venda e cancelamento, garantindo que o usuário veja apenas produtos com preço definido, que preços e promoções sejam atualizados em todas as etapas (carrinho, checkout, pagamento) e que o estoque seja reservado no carrinho e efetivado (ou devolvido) no pagamento ou cancelamento. No pagamento, preços e promoções devem ser validados novamente de forma síncrona; no cancelamento, itens devem voltar ao estoque.
+
+**Exemplos de aplicação:** vitrine de produtos com preço e promoção em tempo quase real; carrinho com reserva de estoque (locação); checkout com atualização de frete, preço e promoção; pagamento com validação final de preço/promoção; cancelamento com devolução de estoque.
+
+**Escopo**
+- **Dentro do escopo:** microserviços de disponibilidade/listagem, precificação, promoções, frete, venda/cancelamento e estoque; regra “produto visível só com preço”; atualização de preço/promoção/frete em cada etapa; reserva (locação) de estoque no carrinho; confirmação de dedução no pagamento; devolução no cancelamento; validação síncrona no pagamento.
+- **Fora do escopo:** gateway de pagamento externo (integração genérica), catálogo de produtos (origem dos dados), UI do app (apenas consumo das APIs/eventos).
+
+### Solução A: Comunicação por Kafka (streaming) + validação REST no pagamento
+
+```mermaid
+flowchart TB
+  subgraph Catalog
+    AV[Disponibilidade / Listagem]
+    PR[Precificação]
+    PM[Promoções]
+  end
+  subgraph Kafka
+    K1[precos]
+    K2[promocoes]
+    K3[eventos-venda]
+  end
+  subgraph App
+    APP[App / API Gateway]
+  end
+  subgraph Services
+    FR[Frete]
+    VD[Venda / Cancelamento]
+    ES[Estoque]
+  end
+  PR --> K1
+  PM --> K2
+  K1 & K2 --> AV
+  AV -->|produto só visível se tem preço| APP
+  APP --> FR
+  APP --> VD
+  VD --> K3
+  K3 --> ES
+  VD -->|REST: valida preço/promo no pagamento| PR
+  VD -->|devolve estoque no cancelamento| ES
+```
+
+**O que acontece:** Os microserviços de **precificação** e **promoções** publicam atualizações em streams Kafka (ex.: tópicos `precos` e `promocoes`). O serviço de **disponibilidade/listagem** consome esses streams e mantém uma visão “produto + preço + promoção”: um produto só entra (ou permanece) na listagem quando existe ao menos um preço para ele. O app consulta a listagem e, em cada etapa da venda (carrinho, checkout), consome a mesma visão atualizada (ou reconsulta preço/promoção e frete via serviços que também consomem Kafka). O **frete** é outro microserviço, consultado quando o carrinho ou endereço muda. O **venda/cancelamento** orquestra: ao colocar no carrinho, reserva estoque (locação) no microserviço de **estoque**; ao confirmar pagamento, chama via **REST** o serviço de precificação (e promoções) para validar preço e promoção finais e, se ok, confirma a dedução do estoque; ao cancelar, devolve as unidades ao estoque. Em todas as etapas intermediárias, preço, promoção e frete são atualizados (via dados já enriquecidos pelos streams ou por consulta síncrona aos serviços que alimentam os streams). Esta solução prioriza consistência eventual na vitrine e carrinho, com validação forte e síncrona apenas no momento do pagamento.
+
+- **Prós:** Vitrine e carrinho sempre com preço/promoção atualizados via streaming; desacoplamento entre precificação, promoções e listagem; validação crítica no pagamento evita divergência; estoque reservado e confirmado/devolvido de forma clara.
+- **Contras:** Latência de propagação nos streams; complexidade operacional (Kafka, consumers, idempotência); necessidade de definir bem tópicos e contratos dos eventos.
+
+### Solução B: APIs REST síncronas em todas as etapas
+
+```mermaid
+flowchart LR
+  subgraph App
+    APP[App]
+  end
+  subgraph Services
+    AV[Listagem]
+    PR[Precificação]
+    PM[Promoções]
+    FR[Frete]
+    VD[Venda]
+    ES[Estoque]
+  end
+  APP --> AV & PR & PM & FR & VD & ES
+  VD --> PR & PM & ES
+```
+
+**O que acontece:** A **listagem** é uma API que agrega dados de catálogo; ao exibir produtos, o app ou o BFF chama **precificação** e **promoções** por produto (ou em lote) e filtra no próprio app os que têm preço. Em cada etapa (carrinho, checkout), o app chama de novo precificação, promoções e **frete**. No pagamento, **venda** chama precificação e promoções (REST) para validar e depois **estoque** para confirmar dedução; no cancelamento, venda chama estoque para devolver. A reserva no carrinho é uma chamada REST ao estoque (locação); a confirmação no pagamento é outra chamada (confirma dedução). Tudo síncrono: sem Kafka, mais simples de raciocinar e debugar, mas com maior acoplamento e carga nas APIs a cada interação.
+
+- **Prós:** Modelo simples; sem dependência de mensageria; validação e regras sempre na hora; fácil de testar e operar.
+- **Contras:** Muitas chamadas síncronas; latência e disponibilidade em cadeia; listagem e carrinho podem ficar pesados se precisarem de preço/promoção para muitos itens.
+
+### Solução C: Híbrido – eventos para visão de vitrine, REST para orquestração de venda
+
+```mermaid
+flowchart TB
+  subgraph Events
+    K[Kafka]
+  end
+  subgraph Read
+    AV[Listagem / Cache]
+  end
+  subgraph Orchestration
+    VD[Venda]
+  end
+  subgraph REST
+    PR[Precificação]
+    PM[Promoções]
+    FR[Frete]
+    ES[Estoque]
+  end
+  PR & PM --> K
+  K --> AV
+  AV -->|vitrine| APP
+  VD -->|REST em cada etapa + pagamento| PR & PM & FR & ES
+```
+
+**O que acontece:** A **vitrine** (listagem) é alimentada por eventos Kafka (preço e promoção); o produto só aparece quando há preço. O carrinho e o checkout, porém, são orquestrados pelo serviço de **venda** via chamadas REST: a cada mudança de carrinho ou etapa, venda chama precificação, promoções e frete para obter valores atuais e reserva/confirmação no estoque. No pagamento, validação REST de preço e promoção e confirmação de estoque; no cancelamento, devolução via REST ao estoque. Combina vitrine sempre atualizada por evento com fluxo de venda explícito e síncrono.
+
+- **Prós:** Vitrine leve e atualizada por stream; fluxo de venda previsível e auditável via REST; validação no pagamento e estoque claros.
+- **Contras:** Dois padrões (eventos + REST); serviço de venda central e com muitas dependências síncronas.
+
+---
+
 ## Resumo de trade-offs recorrentes
 
 | Tema | Trade-off |
@@ -345,5 +549,7 @@ flowchart LR
 | **Consistência vs escala** | DB único + cache é mais simples e forte consistência; event sourcing e sharding escalam melhor com consistência eventual ou por entidade. |
 | **Acoplamento vs operação** | Menos componentes (fila única, um serviço) simplificam; mais componentes (Kafka por canal, serviço por canal) isolam e escalam de forma independente. |
 | **Deploy** | Blue/Green = rollback rápido e recurso duplicado; Canary = rollout gradual; Feature flags = flexibilidade sem novo deploy, com dívida de flags. |
+| **Cache** | TTL = simples e janela de inconsistência limitada; invalidação por evento = mais atualizado, com dependência de mensageria; write-through = consistência forte, cache como ponto crítico. |
+| **E-commerce (preço/estoque)** | Kafka em todo o fluxo = vitrine e etapas sempre atualizadas, validação REST só no pagamento; REST em tudo = mais simples, mais acoplado; híbrido = vitrine por evento, venda por REST. |
 
 *Use estes cenários para praticar desenho no quadro e discussão de trade-offs em entrevistas.*
