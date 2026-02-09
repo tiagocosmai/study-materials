@@ -52,8 +52,10 @@ Cada estudo fica em um diretório próprio, com:
 ## Próximos estudos
 
 - GitActions
-- Kubernetes.
+- Kubernetes
 - Docker
+- ArgoCD
+- Jenkins
 - Arquitetura Hexagonal(Exemplos em C#, Java, Javascript(NodeJs/ReactJs), Cloujure)
 - clean architecture(Exemplos em C#, Java, Javascript(NodeJs/ReactJs), Cloujure)
 - Arquitetura de Microserviços
@@ -69,13 +71,14 @@ Cada estudo fica em um diretório próprio, com:
 - ReactJS - WebSoccets
 - ReactNative
 - Flutter
-- Microfrontedn Utilizando Module Federation
-- Microfrontedn Utilizando SingleSPA
+- Microfrontend Utilizando Module Federation
+- Microfrontend Utilizando SingleSPA
 - Redis
 - Kafka
 - RabittMQ
 - SQS
 - Kafka
+- Variaveis de Ambiente(Vault, Consul, SecretManagers, ConfigMap, HelmCharts, etc)
 - Debugando aplicações Cloujure no VSCODE/Cursor
 - Principais diferenças entre os serviçso de mensageria Kafka, RabittMQ, SQS
 - Microsserviços horizontalmente escaláveis, escritos principalmente em Clojure, utilizando Finagle e aproveitando técnicas de programação funcional e arquitetura hexagonal.
@@ -85,7 +88,7 @@ Cada estudo fica em um diretório próprio, com:
 - Armazenamento de dados no DynamoDB.
 - Monitoramento e observabilidade com Prometheus.
 - Utilizando Cache(Redis) em aplicações Clojure
-- Prevenção de Vulnerabilidades com Trivy/Datadog/AWS Inspector
+- Prevenção e detecção de Vulnerabilidades com Trivy/Datadog/AWS Inspector
 - Teste(Unitários, Integrados, Regressivos)
 - playwright
 - Cypress
@@ -96,6 +99,11 @@ Cada estudo fica em um diretório próprio, com:
 - NodeJS - Express
 - NodeJS - NestJS
 - NextJS
+- Engenharia de Prompts
+- n8n
+- langwise/flowise
+- LLM/SLM
+- Cloujure + IA
 
 ---
 
