@@ -34,6 +34,7 @@ Atualmente atuo como Senior Software Engineer na **Future Secure AI**, mantendo 
 | [**4. Casos de Uso**](./casos-uso/README.md) | Desafios de arquitetura: situações-problema com múltiplas soluções, prós/contras e diagramas (Kubernetes, Kafka, Redis, S3, microserviços). |
 | [**5. Versionamento, Git e Pull Requests**](./versionamento-git-pr/README.md) | Versionamento de aplicações (SemVer), Git/GitHub, Git Flow, commit semântico e melhores práticas para criação e validação de PRs. |
 | [**6. Logs de aplicação**](./logs-aplicacao/README.md) | Níveis de log (TRACE a FATAL), quando usar cada um e melhores práticas: estrutura, segurança, correlação e operação. |
+| [**7. DevOps**](./devops/README.md) | Conceitos (DevOps, DevSecOps, SRE, GitOps), Docker, Kubernetes, GitHub Actions, Argo CD e Jenkins. |
 
 O conteúdo pode ser visualizado em **GitHub Pages** (pasta [docs/](./docs/)): site estático que carrega os markdowns dinamicamente via GitHub raw, com tema claro/escuro e layout responsivo.
 
@@ -51,20 +52,24 @@ Cada estudo fica em um diretório próprio, com:
 
 ## Próximos estudos
 
-- GitActions
-- Kubernetes
-- Docker
-- ArgoCD
-- Jenkins
+- Algoritimo
+- Estrutura de Dados
+- Fluxograma
+- Dagrama de Sequencia
+- Dagrama de Estados
+- UML
+- Diagrama Entidade Relacionamento
+- Programação Procedural
+- Programação Orientada a Eventos
+- Orientação a Objetos
+- Programação Funcional(Exemplos em react e cloujure)
+- Bancos de Dados Relacional
+- Bancos de Dados não Relacional
 - Arquitetura Hexagonal(Exemplos em C#, Java, Javascript(NodeJs/ReactJs), Cloujure)
 - clean architecture(Exemplos em C#, Java, Javascript(NodeJs/ReactJs), Cloujure)
 - Arquitetura de Microserviços
 - GRPC
 - RESTFULL
-- Programação Funcional(Exemplos em react e cloujure)
-- Orientação a Objetos
-- Grafana
-- Zabbix
 - ReactJS - ContextAPI
 - ReactJS - Redux - Além do controle de estado
 - ReactJS - Utilizando tawilnd Css
@@ -100,11 +105,13 @@ Cada estudo fica em um diretório próprio, com:
 - NodeJS - NestJS
 - NextJS
 - Engenharia de Prompts
+- Construção de Agentes de IA
 - n8n
 - langwise/flowise
 - LLM/SLM
 - Cloujure + IA
-
+- Grafana
+- Zabbix
 ---
 
 ## Licença
