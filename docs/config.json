@@ -71,6 +71,19 @@
       "chapters": [
         { "title": "Níveis e melhores práticas", "path": "logs-aplicacao/01-levels-e-boas-praticas.md" }
       ]
+    },
+    {
+      "id": "devops",
+      "title": "DevOps",
+      "readme": "devops/README.md",
+      "chapters": [
+        { "title": "Conceitos DevOps, DevSecOps", "path": "devops/01-conceitos-devops-devsecops.md" },
+        { "title": "Docker", "path": "devops/02-docker.md" },
+        { "title": "Kubernetes", "path": "devops/03-kubernetes.md" },
+        { "title": "GitHub Actions", "path": "devops/04-github-actions.md" },
+        { "title": "Argo CD", "path": "devops/05-argocd.md" },
+        { "title": "Jenkins", "path": "devops/06-jenkins.md" }
+      ]
     }
   ]
 }
