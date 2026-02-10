@@ -1,6 +1,13 @@
 # Documentação para Estudo
 
+[![License (docs)](https://img.shields.io/badge/License%20(docs)-CC%20BY%204.0-lightgrey)](LICENSE-docs)
+[![License (code)](https://img.shields.io/badge/License%20(code)-MIT-green)](LICENSE-code)
+[![GitHub Pages](https://img.shields.io/badge/View_on-GitHub_Pages-222?style=flat-square&logo=github)](https://tiagocosmai.github.io/study-materials/)
+[![Maintained](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/tiagocosmai/study-materials/graphs/commit-activity)
+
 Repositório de documentações e estudos dirigidos, com índice, exemplos de código e referências.
+
+**Ver online:** [https://tiagocosmai.github.io/study-materials/](https://tiagocosmai.github.io/study-materials/)
 
 ---
 
@@ -35,8 +42,14 @@ Atualmente atuo como Senior Software Engineer na **Future Secure AI**, mantendo 
 | [**5. Versionamento, Git e Pull Requests**](./versionamento-git-pr/README.md) | Versionamento de aplicações (SemVer), Git/GitHub, Git Flow, commit semântico e melhores práticas para criação e validação de PRs. |
 | [**6. Logs de aplicação**](./logs-aplicacao/README.md) | Níveis de log (TRACE a FATAL), quando usar cada um e melhores práticas: estrutura, segurança, correlação e operação. |
 | [**7. DevOps**](./devops/README.md) | Conceitos (DevOps, DevSecOps, SRE, GitOps), Docker, Kubernetes, GitHub Actions, Argo CD e Jenkins. |
+| [**8. Microsserviços Clojure/Finagle**](./microsservicos-clojure-finagle/README.md) | Microsserviços escaláveis em Clojure com Finagle, programação funcional e arquitetura hexagonal. |
+| [**9. Kafka – alto desempenho**](./kafka-alto-desempenho/README.md) | Tarefas de alto desempenho e comunicação entre serviços com Apache Kafka. |
+| [**10. CI/CD na AWS**](./ci-cd-aws/README.md) | Integração e implantação contínuas na AWS (CodePipeline, CodeBuild, CodeDeploy, ECR). |
+| [**11. Datomic**](./datomic/README.md) | Armazenamento de dados no Datomic: modelo imutável, temporal, transações e Datalog. |
+| [**12. DynamoDB**](./dynamodb/README.md) | Armazenamento de dados no Amazon DynamoDB: modelo, chaves, operações e boas práticas. |
+| [**13. Prometheus e observabilidade**](./prometheus-observabilidade/README.md) | Monitoramento e observabilidade com Prometheus, PromQL, Alertmanager e Grafana. |
 
-O conteúdo pode ser visualizado em **GitHub Pages** (pasta [docs/](./docs/)): site estático que carrega os markdowns dinamicamente via GitHub raw, com tema claro/escuro e layout responsivo.
+O conteúdo pode ser visualizado em **[GitHub Pages](https://tiagocosmai.github.io/study-materials/)** (pasta [docs/](./docs/)): site estático que carrega os markdowns dinamicamente via GitHub raw, com tema claro/escuro e layout responsivo.
 
 ---
 
@@ -70,6 +83,7 @@ Cada estudo fica em um diretório próprio, com:
 - Arquitetura de Microserviços
 - GRPC
 - RESTFULL
+- Principais praticas de normalização e padronização de request/response
 - ReactJS - ContextAPI
 - ReactJS - Redux - Além do controle de estado
 - ReactJS - Utilizando tawilnd Css
@@ -83,15 +97,10 @@ Cada estudo fica em um diretório próprio, com:
 - RabittMQ
 - SQS
 - Kafka
+- Utilizando o redis como fila
 - Variaveis de Ambiente(Vault, Consul, SecretManagers, ConfigMap, HelmCharts, etc)
 - Debugando aplicações Cloujure no VSCODE/Cursor
 - Principais diferenças entre os serviçso de mensageria Kafka, RabittMQ, SQS
-- Microsserviços horizontalmente escaláveis, escritos principalmente em Clojure, utilizando Finagle e aproveitando técnicas de programação funcional e arquitetura hexagonal.
-- Tarefas de alto desempenho e comunicação entre serviços usando Kafka.
-- Integração e implantação contínuas na AWS.
-- Armazenamento de dados no Datomic.
-- Armazenamento de dados no DynamoDB.
-- Monitoramento e observabilidade com Prometheus.
 - Utilizando Cache(Redis) em aplicações Clojure
 - Prevenção e detecção de Vulnerabilidades com Trivy/Datadog/AWS Inspector
 - Teste(Unitários, Integrados, Regressivos)
