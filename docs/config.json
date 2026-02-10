@@ -84,6 +84,66 @@
         { "title": "Argo CD", "path": "devops/05-argocd.md" },
         { "title": "Jenkins", "path": "devops/06-jenkins.md" }
       ]
+    },
+    {
+      "id": "microsservicos-clojure-finagle",
+      "title": "Microsserviços Clojure/Finagle",
+      "readme": "microsservicos-clojure-finagle/README.md",
+      "chapters": [
+        { "title": "Visão geral e arquitetura", "path": "microsservicos-clojure-finagle/01-visao-geral-arquitetura.md" },
+        { "title": "Finagle e comunicação", "path": "microsservicos-clojure-finagle/02-finagle-comunicacao.md" },
+        { "title": "Arquitetura hexagonal e implementação", "path": "microsservicos-clojure-finagle/03-hexagonal-implementacao.md" }
+      ]
+    },
+    {
+      "id": "kafka-alto-desempenho",
+      "title": "Kafka – alto desempenho",
+      "readme": "kafka-alto-desempenho/README.md",
+      "chapters": [
+        { "title": "Conceitos e modelo", "path": "kafka-alto-desempenho/01-conceitos-modelo.md" },
+        { "title": "Particionamento e consumidores", "path": "kafka-alto-desempenho/02-particionamento-consumidores.md" },
+        { "title": "Padrões e integração", "path": "kafka-alto-desempenho/03-padroes-integracao.md" }
+      ]
+    },
+    {
+      "id": "ci-cd-aws",
+      "title": "CI/CD na AWS",
+      "readme": "ci-cd-aws/README.md",
+      "chapters": [
+        { "title": "Conceitos e serviços", "path": "ci-cd-aws/01-conceitos-servicos.md" },
+        { "title": "Pipeline: build e artefatos", "path": "ci-cd-aws/02-pipeline-build-artefatos.md" },
+        { "title": "Deploy e IaC", "path": "ci-cd-aws/03-deploy-iac.md" }
+      ]
+    },
+    {
+      "id": "datomic",
+      "title": "Datomic",
+      "readme": "datomic/README.md",
+      "chapters": [
+        { "title": "Modelo de dados e conceitos", "path": "datomic/01-modelo-conceitos.md" },
+        { "title": "Transações e consultas", "path": "datomic/02-transacoes-consultas.md" },
+        { "title": "Arquitetura e operação", "path": "datomic/03-arquitetura-operacao.md" }
+      ]
+    },
+    {
+      "id": "dynamodb",
+      "title": "DynamoDB",
+      "readme": "dynamodb/README.md",
+      "chapters": [
+        { "title": "Modelo de dados e chaves", "path": "dynamodb/01-modelo-chaves.md" },
+        { "title": "Operações e índices", "path": "dynamodb/02-operacoes-indices.md" },
+        { "title": "Capacidade e boas práticas", "path": "dynamodb/03-capacidade-boas-praticas.md" }
+      ]
+    },
+    {
+      "id": "prometheus-observabilidade",
+      "title": "Prometheus e observabilidade",
+      "readme": "prometheus-observabilidade/README.md",
+      "chapters": [
+        { "title": "Conceitos e métricas", "path": "prometheus-observabilidade/01-conceitos-metricas.md" },
+        { "title": "Coleta e PromQL", "path": "prometheus-observabilidade/02-coleta-promql.md" },
+        { "title": "Alertas e Grafana", "path": "prometheus-observabilidade/03-alertas-grafana.md" }
+      ]
     }
   ]
 }
