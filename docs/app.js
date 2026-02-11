@@ -15,6 +15,10 @@
   const menuBtn = $('menu-btn');
   const sidebarOverlay = $('sidebar-overlay');
   const themeToggle = $('theme-toggle');
+  const navFilterWrap = $('nav-filter-wrap');
+  const navFilter = $('nav-filter');
+  const footerRepoLink = $('footer-repo-link');
+  const footerLicenseLink = $('footer-license-link');
 
   function getBaseDir(path) {
     const parts = path.split('/');
@@ -42,26 +46,79 @@
   function buildNav() {
     if (!config || !config.studies) return;
     navLoading.hidden = true;
+    if (navFilterWrap) navFilterWrap.hidden = false;
     let html = '';
     config.studies.forEach((study) => {
       const readmePath = study.readme;
-      html += `<p class="nav-study">${escapeHtml(study.title)}</p><ul class="nav-list">`;
-      html += `<li class="nav-item"><a class="nav-link nav-link-readme" href="#${encodeHash(readmePath)}" data-path="${escapeAttr(readmePath)}">README</a></li>`;
+      const subjectTitle = escapeHtml(study.title);
+      html += `<div class="nav-study-group" data-study-id="${escapeAttr(study.id)}">`;
+      html += `<div class="nav-study-row" role="button" tabindex="0" aria-expanded="true" aria-label="${escapeAttr(study.title)}">`;
+      html += `<span class="nav-study-toggle" aria-hidden="true">▼</span>`;
+      html += `<a class="nav-link-subject" href="#${encodeHash(readmePath)}" data-path="${escapeAttr(readmePath)}">${subjectTitle}</a>`;
+      html += `</div><ul class="nav-list">`;
       (study.chapters || []).forEach((ch) => {
-        html += `<li class="nav-item"><a class="nav-link" href="#${encodeHash(ch.path)}" data-path="${escapeAttr(ch.path)}">${escapeHtml(ch.title)}</a></li>`;
+        html += `<li class="nav-item" data-chapter-title="${escapeAttr(ch.title.toLowerCase())}" data-study-title="${escapeAttr(study.title.toLowerCase())}">`;
+        html += `<a class="nav-link" href="#${encodeHash(ch.path)}" data-path="${escapeAttr(ch.path)}">${escapeHtml(ch.title)}</a></li>`;
       });
-      html += '</ul>';
+      html += '</ul></div>';
     });
     nav.innerHTML = html;
 
-    nav.querySelectorAll('.nav-link').forEach((a) => {
+    nav.querySelectorAll('.nav-link, .nav-link-subject').forEach((a) => {
       a.addEventListener('click', (e) => {
         e.preventDefault();
+        e.stopPropagation();
         const path = a.getAttribute('data-path');
-        loadPage(path);
-        setActiveLink(path);
-        closeSidebarMobile();
+        if (path) {
+          loadPage(path);
+          setActiveLink(path);
+          closeSidebarMobile();
+        }
       });
+    });
+
+    nav.querySelectorAll('.nav-study-row').forEach((row) => {
+      row.addEventListener('click', (e) => {
+        if (e.target.closest('a')) return;
+        const group = row.closest('.nav-study-group');
+        if (group) {
+          const expanded = group.getAttribute('aria-expanded') !== 'true';
+          group.classList.toggle('is-collapsed', !expanded);
+          row.setAttribute('aria-expanded', expanded);
+        }
+      });
+      row.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          row.click();
+        }
+      });
+    });
+
+    if (navFilter) {
+      navFilter.value = '';
+      navFilter.addEventListener('input', applyNavFilter);
+    }
+  }
+
+  function applyNavFilter() {
+    const q = (navFilter.value || '').trim().toLowerCase();
+    nav.querySelectorAll('.nav-study-group').forEach((group) => {
+      const row = group.querySelector('.nav-study-row');
+      const studyTitle = (config.studies.find((s) => s.id === group.dataset.studyId) || {}).title || '';
+      const items = group.querySelectorAll('.nav-item');
+      let anyVisible = false;
+      items.forEach((li) => {
+        const match = !q || li.dataset.chapterTitle.includes(q) || li.dataset.studyTitle.includes(q) || studyTitle.toLowerCase().includes(q);
+        li.classList.toggle('is-hidden', !match);
+        if (match) anyVisible = true;
+      });
+      const readmeMatches = !q || studyTitle.toLowerCase().includes(q);
+      group.classList.toggle('is-hidden', !readmeMatches && !anyVisible);
+      if (row) {
+        group.classList.remove('is-collapsed');
+        row.setAttribute('aria-expanded', 'true');
+      }
     });
   }
 
@@ -70,7 +127,7 @@
   }
 
   function setActiveLink(path) {
-    nav.querySelectorAll('.nav-link').forEach((a) => {
+    nav.querySelectorAll('.nav-link, .nav-link-subject').forEach((a) => {
       a.classList.toggle('is-active', a.getAttribute('data-path') === path);
     });
   }
@@ -289,11 +346,25 @@
     securityLevel: 'loose',
   });
 
+  function initFooter() {
+    if (!config || !config.repo) return;
+    const base = `https://github.com/${config.repo}`;
+    if (footerRepoLink) {
+      footerRepoLink.href = base;
+      footerRepoLink.textContent = config.repo;
+    }
+    if (footerLicenseLink) {
+      footerLicenseLink.href = `${base}/blob/${config.branch || 'main'}/LICENSE-docs`;
+      footerLicenseLink.textContent = 'License';
+    }
+  }
+
   fetch('config.json?v=' + (window.__CONFIG_VERSION || 2))
     .then((r) => r.json())
     .then((c) => {
       config = c;
       buildNav();
+      initFooter();
       parseHash();
       if (!window.location.hash) showContent(true, false, false, false);
     })
