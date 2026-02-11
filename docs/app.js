@@ -289,7 +289,7 @@
     securityLevel: 'loose',
   });
 
-  fetch('config.json')
+  fetch('config.json?v=' + (window.__CONFIG_VERSION || 2))
     .then((r) => r.json())
     .then((c) => {
       config = c;
