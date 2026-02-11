@@ -144,6 +144,20 @@
         { "title": "Coleta e PromQL", "path": "prometheus-observabilidade/02-coleta-promql.md" },
         { "title": "Alertas e Grafana", "path": "prometheus-observabilidade/03-alertas-grafana.md" }
       ]
+    },
+    {
+      "id": "teoria-analise-diagramas",
+      "title": "Teoria, análise e diagramas",
+      "readme": "teoria-analise-diagramas/README.md",
+      "chapters": [
+        { "title": "Algoritmos em contextos reais", "path": "teoria-analise-diagramas/01-algoritmos.md" },
+        { "title": "Estruturas de dados na prática", "path": "teoria-analise-diagramas/02-estrutura-dados.md" },
+        { "title": "Fluxograma: símbolos e cenários", "path": "teoria-analise-diagramas/03-fluxograma.md" },
+        { "title": "Diagrama de sequência: símbolos e cenários", "path": "teoria-analise-diagramas/04-diagrama-sequencia.md" },
+        { "title": "Diagrama de estados: símbolos e cenários", "path": "teoria-analise-diagramas/05-diagrama-estados.md" },
+        { "title": "UML: visões e diagramas", "path": "teoria-analise-diagramas/06-uml.md" },
+        { "title": "Diagrama ER: símbolos e modelos", "path": "teoria-analise-diagramas/07-diagrama-er.md" }
+      ]
     }
   ]
 }
