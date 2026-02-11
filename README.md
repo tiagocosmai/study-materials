@@ -48,6 +48,7 @@ Atualmente atuo como Senior Software Engineer na **Future Secure AI**, mantendo 
 | [**11. Datomic**](./datomic/README.md) | Armazenamento de dados no Datomic: modelo imutável, temporal, transações e Datalog. |
 | [**12. DynamoDB**](./dynamodb/README.md) | Armazenamento de dados no Amazon DynamoDB: modelo, chaves, operações e boas práticas. |
 | [**13. Prometheus e observabilidade**](./prometheus-observabilidade/README.md) | Monitoramento e observabilidade com Prometheus, PromQL, Alertmanager e Grafana. |
+| [**14. Teoria, análise e diagramas**](./teoria-analise-diagramas/README.md) | Algoritmos, estruturas de dados, fluxograma, diagrama de sequência/estados, UML e ER: índice de símbolos e exemplos em cenários reais e complexos. |
 
 O conteúdo pode ser visualizado em **[GitHub Pages](https://tiagocosmai.github.io/study-materials/)** (pasta [docs/](./docs/)): site estático que carrega os markdowns dinamicamente via GitHub raw, com tema claro/escuro e layout responsivo.
 
@@ -65,13 +66,6 @@ Cada estudo fica em um diretório próprio, com:
 
 ## Próximos estudos
 
-- Algoritimo
-- Estrutura de Dados
-- Fluxograma
-- Dagrama de Sequencia
-- Dagrama de Estados
-- UML
-- Diagrama Entidade Relacionamento
 - Programação Procedural
 - Programação Orientada a Eventos
 - Orientação a Objetos
