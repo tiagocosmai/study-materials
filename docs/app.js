@@ -161,8 +161,8 @@
         if (!r.ok) throw new Error(r.status === 404 ? 'Página não encontrada.' : `Erro ${r.status}`);
         return r.text();
       })
-      .then((md) => {
-        renderMarkdown(md, path);
+      .then(async (md) => {
+        await renderMarkdown(md, path);
         showContent(false, true, false, false);
       })
       .catch((err) => {
@@ -171,7 +171,7 @@
       });
   }
 
-  function renderMarkdown(md, path) {
+  async function renderMarkdown(md, path) {
     const baseDir = getBaseDir(path);
     marked.setOptions({
       gfm: true,
@@ -195,15 +195,17 @@
       hljs.highlightElement(el);
     });
 
-    markdownBody.querySelectorAll('.mermaid').forEach((el) => {
+    const mermaidNodes = markdownBody.querySelectorAll('.mermaid');
+    for (const el of mermaidNodes) {
       const content = el.textContent;
       try {
-        mermaid.run({ nodes: [el], suppressErrors: true });
+        const result = mermaid.run({ nodes: [el], suppressErrors: true });
+        if (result && typeof result.then === 'function') await result;
       } catch (e) {
         el.textContent = content;
         el.classList.add('mermaid-error');
       }
-    });
+    }
 
     const theme = document.documentElement.getAttribute('data-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     markdownBody.querySelectorAll('.mermaid svg').forEach((svg) => {
