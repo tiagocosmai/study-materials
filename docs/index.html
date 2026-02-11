@@ -24,9 +24,14 @@
   <div class="sidebar-overlay" id="sidebar-overlay" aria-hidden="true"></div>
   <div class="layout">
     <aside class="sidebar" id="sidebar" aria-label="Navegação">
-      <nav class="nav" id="nav">
-        <p class="nav-loading" id="nav-loading">Carregando…</p>
-      </nav>
+      <div class="nav-filter-wrap" id="nav-filter-wrap" hidden>
+        <input type="search" class="nav-filter" id="nav-filter" placeholder="Filtrar estudos…" aria-label="Filtrar menu">
+      </div>
+      <div class="sidebar-scroll">
+        <nav class="nav" id="nav">
+          <p class="nav-loading" id="nav-loading">Carregando…</p>
+        </nav>
+      </div>
     </aside>
 
     <main class="main">
@@ -36,6 +41,11 @@
         <div class="content-error" id="content-error" hidden></div>
         <div class="content-loading" id="content-loading" hidden>Carregando…</div>
       </div>
+      <footer class="footer" id="footer">
+        <a href="#" id="footer-repo-link">Repository</a>
+        <span aria-hidden="true"> · </span>
+        <a href="#" id="footer-license-link">License</a>
+      </footer>
     </main>
   </div>
 
