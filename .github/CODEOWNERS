@@ -1,0 +1,12 @@
+# Responsáveis por revisão de código/conteúdo.
+# Padrões são aplicados da última linha correspondente para cima.
+# Documentação: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Padrão: todo o repositório
+* @tiagocosmai
+
+# Site estático (GitHub Pages)
+/docs/ @tiagocosmai
+
+# Configuração do repositório
+.github/ @tiagocosmai
