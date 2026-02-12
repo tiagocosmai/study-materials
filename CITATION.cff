@@ -1,0 +1,26 @@
+# Citation File Format - https://citation-file-format.github.io/
+cff-version: 1.2.0
+title: "Study Materials - Documentação para Estudo"
+message: "If you use this software, please cite it as below."
+type: documentation
+authors:
+  - family-names: "Cosmai"
+    given-names: "Tiago"
+    email: "tiagocosmai@gmail.com"
+    orcid: null
+url: "https://github.com/tiagocosmai/study-materials"
+repository-code: "https://github.com/tiagocosmai/study-materials"
+license: CC-BY-4.0
+version: 1.0.0
+date-released: 2025-01-01
+keywords:
+  - documentation
+  - study
+  - software engineering
+  - design patterns
+  - tutorials
+abstract: >
+  Repositório de documentações e estudos dirigidos, com índice, exemplos de código
+  e referências. Inclui temas como design patterns, APIs com Clojure, DevOps,
+  versionamento e Git, Kafka, DynamoDB, Prometheus, teoria e diagramas (UML, ER),
+  entre outros. Conteúdo disponível em Markdown e via site estático (GitHub Pages).

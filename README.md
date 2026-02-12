@@ -110,12 +110,8 @@ Este repositório utiliza uma licença híbrida:
 
 Consulte os arquivos `LICENSE-docs` e `LICENSE-code` para mais detalhes.
 
-### Como citar
-
-Autor: Tiago Cosmai  
-Repositório: https://github.com/tiagocosmai/study-materials  
-Licença: CC BY 4.0
-
 ---
 
-*Documentações em constante evolução. Sugestões e contribuições são bem-vindas.* 
+## Contribuir e citar
+
+Como contribuir com sugestões ou PRs e como citar este repositório: **[CONTRIBUTING.md](./CONTRIBUTING.md)**. 
