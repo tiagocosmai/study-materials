@@ -20,7 +20,6 @@ classDiagram
         +notify()
     }
     class Observer {
-        <<interface>>
         +update()
     }
 ```
@@ -160,9 +159,12 @@ Permite percorrer elementos de uma coleção sem expor sua representação inter
 
 ```mermaid
 classDiagram
+    class Aggregate
+    class Iterator {
+        +next()
+        +hasNext()
+    }
     Aggregate --> Iterator : creates
-    Iterator : +next()
-    Iterator : +hasNext()
 ```
 
 ### Em linguagens modernas

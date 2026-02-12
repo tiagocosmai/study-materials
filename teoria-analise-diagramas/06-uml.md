@@ -53,10 +53,9 @@ classDiagram
     -sku: string
     -quantity: int
     -unitPrice: Money
-    +total(): Money
+    +total()
   }
   class Payment {
-    <<abstract>>
     +amount: Money
     +status: PaymentStatus
     +authorize()
@@ -80,9 +79,9 @@ classDiagram
     +confirm()
     +release()
   }
-  Order "1" --> "*" OrderItem : contains
-  Order "1" --> "1" Payment : has
-  Order "1" --> "*" StockReservation : holds
+  Order --> OrderItem : contains
+  Order --> Payment : has
+  Order --> StockReservation : holds
   Payment <|-- CreditCardPayment
   Payment <|-- PixPayment
 ```

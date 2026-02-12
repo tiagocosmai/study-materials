@@ -6,7 +6,7 @@
       "id": "home",
       "title": "Início",
       "readme": "README.md",
-      "chapters": []
+      "chapters": [{ "title": "Sobre mim", "path": "aboutme/README.md" }]
     },
     {
       "id": "design-patterns",
