@@ -33,6 +33,7 @@ Repositório de documentações e estudos dirigidos, com índice, exemplos de c�
 | [**12. DynamoDB**](./dynamodb/README.md) | Armazenamento de dados no Amazon DynamoDB: modelo, chaves, operações e boas práticas. |
 | [**13. Prometheus e observabilidade**](./prometheus-observabilidade/README.md) | Monitoramento e observabilidade com Prometheus, PromQL, Alertmanager e Grafana. |
 | [**14. Teoria, análise e diagramas**](./teoria-analise-diagramas/README.md) | Algoritmos, estruturas de dados, fluxograma, diagrama de sequência/estados, UML e ER: índice de símbolos e exemplos em cenários reais e complexos. |
+| [**15. Paradigmas de programação**](./paradigmas-programacao/README.md) | Procedural, orientado a objetos, orientado a eventos, funcional (React e Clojure), declarativo e reativo: conceitos, quando usar, diagramas e exemplos em C, Java, TypeScript, React e Clojure. |
 
 O conteúdo pode ser visualizado em **[GitHub Pages](https://tiagocosmai.github.io/study-materials/)** (pasta [docs/](./docs/)): site estático que carrega os markdowns dinamicamente via GitHub raw, com tema claro/escuro e layout responsivo.
 
@@ -50,17 +51,23 @@ Cada estudo fica em um diretório próprio, com:
 
 ## Próximos estudos
 
-- Programação Procedural
-- Programação Orientada a Eventos
-- Orientação a Objetos
-- Programação Funcional(Exemplos em react e cloujure)
 - Bancos de Dados Relacional
 - Bancos de Dados não Relacional
 - Arquitetura Hexagonal(Exemplos em C#, Java, Javascript(NodeJs/ReactJs), Cloujure)
 - clean architecture(Exemplos em C#, Java, Javascript(NodeJs/ReactJs), Cloujure)
+- SOLID
 - Arquitetura de Microserviços
+- Websocket
+- Http
+- Webhooks
+- Server-Sent Events(SSE)
+- MQTT
+- WebRTC
 - GRPC
 - RESTFULL
+- GraphQL
+- SOAP
+- Falcor
 - Principais praticas de normalização e padronização de request/response
 - ReactJS - ContextAPI
 - ReactJS - Redux - Além do controle de estado
