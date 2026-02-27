@@ -47,24 +47,52 @@
     return resolved.join('/');
   }
 
+  function renderStudyGroup(study) {
+    const readmePath = study.readme;
+    const subjectTitle = escapeHtml(study.title);
+    let html = `<div class="nav-study-group" data-study-id="${escapeAttr(study.id)}">`;
+    html += `<div class="nav-study-row" role="button" tabindex="0" aria-expanded="true" aria-label="${escapeAttr(study.title)}">`;
+    html += `<span class="nav-study-toggle" aria-hidden="true">▼</span>`;
+    html += `<a class="nav-link-subject" href="#${encodeHash(readmePath)}" data-path="${escapeAttr(readmePath)}">${subjectTitle}</a>`;
+    html += `</div><ul class="nav-list">`;
+    (study.chapters || []).forEach((ch) => {
+      html += `<li class="nav-item" data-chapter-title="${escapeAttr(ch.title.toLowerCase())}" data-study-title="${escapeAttr(study.title.toLowerCase())}">`;
+      html += `<a class="nav-link" href="#${encodeHash(ch.path)}" data-path="${escapeAttr(ch.path)}">${escapeHtml(ch.title)}</a></li>`;
+    });
+    html += '</ul></div>';
+    return html;
+  }
+
   function buildNav() {
     if (!config || !config.studies) return;
     navLoading.hidden = true;
     if (navFilterWrap) navFilterWrap.hidden = false;
-    let html = '';
+    const sectionOrder = config.sectionOrder || [];
+    const bySection = {};
+    const noSection = [];
     config.studies.forEach((study) => {
-      const readmePath = study.readme;
-      const subjectTitle = escapeHtml(study.title);
-      html += `<div class="nav-study-group" data-study-id="${escapeAttr(study.id)}">`;
-      html += `<div class="nav-study-row" role="button" tabindex="0" aria-expanded="true" aria-label="${escapeAttr(study.title)}">`;
-      html += `<span class="nav-study-toggle" aria-hidden="true">▼</span>`;
-      html += `<a class="nav-link-subject" href="#${encodeHash(readmePath)}" data-path="${escapeAttr(readmePath)}">${subjectTitle}</a>`;
-      html += `</div><ul class="nav-list">`;
-      (study.chapters || []).forEach((ch) => {
-        html += `<li class="nav-item" data-chapter-title="${escapeAttr(ch.title.toLowerCase())}" data-study-title="${escapeAttr(study.title.toLowerCase())}">`;
-        html += `<a class="nav-link" href="#${encodeHash(ch.path)}" data-path="${escapeAttr(ch.path)}">${escapeHtml(ch.title)}</a></li>`;
-      });
-      html += '</ul></div>';
+      const section = study.section || '';
+      if (!section) {
+        noSection.push(study);
+      } else {
+        if (!bySection[section]) bySection[section] = [];
+        bySection[section].push(study);
+      }
+    });
+    let html = '';
+    noSection.forEach((study) => { html += renderStudyGroup(study); });
+    sectionOrder.forEach((sectionName) => {
+      const studies = bySection[sectionName];
+      if (studies && studies.length) {
+        html += `<p class="nav-section">${escapeHtml(sectionName)}</p>`;
+        studies.forEach((study) => { html += renderStudyGroup(study); });
+      }
+    });
+    Object.keys(bySection).forEach((sectionName) => {
+      if (!sectionOrder.includes(sectionName)) {
+        html += `<p class="nav-section">${escapeHtml(sectionName)}</p>`;
+        bySection[sectionName].forEach((study) => { html += renderStudyGroup(study); });
+      }
     });
     nav.innerHTML = html;
 
