@@ -1,6 +1,13 @@
 {
   "repo": "tiagocosmai/study-materials",
   "branch": "main",
+  "sectionOrder": [
+    "Fundamentos e práticas",
+    "APIs e arquitetura",
+    "Operação e observabilidade",
+    "DevOps e infraestrutura",
+    "Dados e persistência"
+  ],
   "studies": [
     {
       "id": "home",
@@ -12,6 +19,7 @@
       "id": "design-patterns",
       "title": "Design Patterns",
       "readme": "design-patterns/README.md",
+      "section": "Fundamentos e práticas",
       "chapters": [
         { "title": "Visão geral", "path": "design-patterns/01-visao-geral.md" },
         { "title": "Padrões criacionais", "path": "design-patterns/02-padroes-criacionais.md" },
@@ -20,22 +28,10 @@
       ]
     },
     {
-      "id": "clojure-apis",
-      "title": "APIs com Clojure",
-      "readme": "clojure-apis/README.md",
-      "chapters": [
-        { "title": "Instalação", "path": "clojure-apis/01-instalacao.md" },
-        { "title": "Hello World", "path": "clojure-apis/02-hello-world.md" },
-        { "title": "Funções práticas", "path": "clojure-apis/03-funcoes-praticas.md" },
-        { "title": "API REST", "path": "clojure-apis/04-api-rest.md" },
-        { "title": "Banco de dados", "path": "clojure-apis/05-banco-de-dados.md" },
-        { "title": "Consumir APIs", "path": "clojure-apis/06-consumir-apis.md" }
-      ]
-    },
-    {
       "id": "melhores-praticas",
       "title": "Melhores práticas de desenvolvimento",
       "readme": "melhores-praticas-desenvolvimento/README.md",
+      "section": "Fundamentos e práticas",
       "chapters": [
         { "title": "Visão geral", "path": "melhores-praticas-desenvolvimento/01-visao-geral.md" },
         { "title": "Código limpo", "path": "melhores-praticas-desenvolvimento/02-codigo-limpo.md" },
@@ -46,17 +42,10 @@
       ]
     },
     {
-      "id": "casos-uso",
-      "title": "Casos de Uso",
-      "readme": "casos-uso/README.md",
-      "chapters": [
-        { "title": "Desafios de arquitetura", "path": "casos-uso/desafios-arquitetura.md" }
-      ]
-    },
-    {
       "id": "versionamento-git-pr",
       "title": "Versionamento, Git e PR",
       "readme": "versionamento-git-pr/README.md",
+      "section": "Fundamentos e práticas",
       "chapters": [
         { "title": "Versionamento de aplicações", "path": "versionamento-git-pr/01-versionamento-aplicacoes.md" },
         { "title": "Git e GitHub", "path": "versionamento-git-pr/02-git-github.md" },
@@ -65,90 +54,10 @@
       ]
     },
     {
-      "id": "logs-aplicacao",
-      "title": "Logs de aplicação",
-      "readme": "logs-aplicacao/README.md",
-      "chapters": [
-        { "title": "Níveis e melhores práticas", "path": "logs-aplicacao/01-levels-e-boas-praticas.md" }
-      ]
-    },
-    {
-      "id": "devops",
-      "title": "DevOps",
-      "readme": "devops/README.md",
-      "chapters": [
-        { "title": "Conceitos DevOps, DevSecOps", "path": "devops/01-conceitos-devops-devsecops.md" },
-        { "title": "Docker", "path": "devops/02-docker.md" },
-        { "title": "Kubernetes", "path": "devops/03-kubernetes.md" },
-        { "title": "GitHub Actions", "path": "devops/04-github-actions.md" },
-        { "title": "Argo CD", "path": "devops/05-argocd.md" },
-        { "title": "Jenkins", "path": "devops/06-jenkins.md" }
-      ]
-    },
-    {
-      "id": "microsservicos-clojure-finagle",
-      "title": "Microsserviços Clojure/Finagle",
-      "readme": "microsservicos-clojure-finagle/README.md",
-      "chapters": [
-        { "title": "Visão geral e arquitetura", "path": "microsservicos-clojure-finagle/01-visao-geral-arquitetura.md" },
-        { "title": "Finagle e comunicação", "path": "microsservicos-clojure-finagle/02-finagle-comunicacao.md" },
-        { "title": "Arquitetura hexagonal e implementação", "path": "microsservicos-clojure-finagle/03-hexagonal-implementacao.md" }
-      ]
-    },
-    {
-      "id": "kafka-alto-desempenho",
-      "title": "Kafka – alto desempenho",
-      "readme": "kafka-alto-desempenho/README.md",
-      "chapters": [
-        { "title": "Conceitos e modelo", "path": "kafka-alto-desempenho/01-conceitos-modelo.md" },
-        { "title": "Particionamento e consumidores", "path": "kafka-alto-desempenho/02-particionamento-consumidores.md" },
-        { "title": "Padrões e integração", "path": "kafka-alto-desempenho/03-padroes-integracao.md" }
-      ]
-    },
-    {
-      "id": "ci-cd-aws",
-      "title": "CI/CD na AWS",
-      "readme": "ci-cd-aws/README.md",
-      "chapters": [
-        { "title": "Conceitos e serviços", "path": "ci-cd-aws/01-conceitos-servicos.md" },
-        { "title": "Pipeline: build e artefatos", "path": "ci-cd-aws/02-pipeline-build-artefatos.md" },
-        { "title": "Deploy e IaC", "path": "ci-cd-aws/03-deploy-iac.md" }
-      ]
-    },
-    {
-      "id": "datomic",
-      "title": "Datomic",
-      "readme": "datomic/README.md",
-      "chapters": [
-        { "title": "Modelo de dados e conceitos", "path": "datomic/01-modelo-conceitos.md" },
-        { "title": "Transações e consultas", "path": "datomic/02-transacoes-consultas.md" },
-        { "title": "Arquitetura e operação", "path": "datomic/03-arquitetura-operacao.md" }
-      ]
-    },
-    {
-      "id": "dynamodb",
-      "title": "DynamoDB",
-      "readme": "dynamodb/README.md",
-      "chapters": [
-        { "title": "Modelo de dados e chaves", "path": "dynamodb/01-modelo-chaves.md" },
-        { "title": "Operações e índices", "path": "dynamodb/02-operacoes-indices.md" },
-        { "title": "Capacidade e boas práticas", "path": "dynamodb/03-capacidade-boas-praticas.md" }
-      ]
-    },
-    {
-      "id": "prometheus-observabilidade",
-      "title": "Prometheus e observabilidade",
-      "readme": "prometheus-observabilidade/README.md",
-      "chapters": [
-        { "title": "Conceitos e métricas", "path": "prometheus-observabilidade/01-conceitos-metricas.md" },
-        { "title": "Coleta e PromQL", "path": "prometheus-observabilidade/02-coleta-promql.md" },
-        { "title": "Alertas e Grafana", "path": "prometheus-observabilidade/03-alertas-grafana.md" }
-      ]
-    },
-    {
       "id": "teoria-analise-diagramas",
       "title": "Teoria, análise e diagramas",
       "readme": "teoria-analise-diagramas/README.md",
+      "section": "Fundamentos e práticas",
       "chapters": [
         { "title": "Algoritmos em contextos reais", "path": "teoria-analise-diagramas/01-algoritmos.md" },
         { "title": "Estruturas de dados na prática", "path": "teoria-analise-diagramas/02-estrutura-dados.md" },
@@ -160,9 +69,100 @@
       ]
     },
     {
+      "id": "clojure-apis",
+      "title": "APIs com Clojure",
+      "readme": "clojure-apis/README.md",
+      "section": "APIs e arquitetura",
+      "chapters": [
+        { "title": "Instalação", "path": "clojure-apis/01-instalacao.md" },
+        { "title": "Hello World", "path": "clojure-apis/02-hello-world.md" },
+        { "title": "Funções práticas", "path": "clojure-apis/03-funcoes-praticas.md" },
+        { "title": "API REST", "path": "clojure-apis/04-api-rest.md" },
+        { "title": "Banco de dados", "path": "clojure-apis/05-banco-de-dados.md" },
+        { "title": "Consumir APIs", "path": "clojure-apis/06-consumir-apis.md" }
+      ]
+    },
+    {
+      "id": "casos-uso",
+      "title": "Casos de Uso",
+      "readme": "casos-uso/README.md",
+      "section": "APIs e arquitetura",
+      "chapters": [
+        { "title": "Desafios de arquitetura", "path": "casos-uso/desafios-arquitetura.md" }
+      ]
+    },
+    {
+      "id": "logs-aplicacao",
+      "title": "Logs de aplicação",
+      "readme": "logs-aplicacao/README.md",
+      "section": "Operação e observabilidade",
+      "chapters": [
+        { "title": "Níveis e melhores práticas", "path": "logs-aplicacao/01-levels-e-boas-praticas.md" }
+      ]
+    },
+    {
+      "id": "prometheus-observabilidade",
+      "title": "Prometheus e observabilidade",
+      "readme": "prometheus-observabilidade/README.md",
+      "section": "Operação e observabilidade",
+      "chapters": [
+        { "title": "Conceitos e métricas", "path": "prometheus-observabilidade/01-conceitos-metricas.md" },
+        { "title": "Coleta e PromQL", "path": "prometheus-observabilidade/02-coleta-promql.md" },
+        { "title": "Alertas e Grafana", "path": "prometheus-observabilidade/03-alertas-grafana.md" }
+      ]
+    },
+    {
+      "id": "devops",
+      "title": "DevOps",
+      "readme": "devops/README.md",
+      "section": "DevOps e infraestrutura",
+      "chapters": [
+        { "title": "Conceitos DevOps, DevSecOps", "path": "devops/01-conceitos-devops-devsecops.md" },
+        { "title": "Docker", "path": "devops/02-docker.md" },
+        { "title": "Kubernetes", "path": "devops/03-kubernetes.md" },
+        { "title": "GitHub Actions", "path": "devops/04-github-actions.md" },
+        { "title": "Argo CD", "path": "devops/05-argocd.md" },
+        { "title": "Jenkins", "path": "devops/06-jenkins.md" }
+      ]
+    },
+    {
+      "id": "ci-cd-aws",
+      "title": "CI/CD na AWS",
+      "readme": "ci-cd-aws/README.md",
+      "section": "DevOps e infraestrutura",
+      "chapters": [
+        { "title": "Conceitos e serviços", "path": "ci-cd-aws/01-conceitos-servicos.md" },
+        { "title": "Pipeline: build e artefatos", "path": "ci-cd-aws/02-pipeline-build-artefatos.md" },
+        { "title": "Deploy e IaC", "path": "ci-cd-aws/03-deploy-iac.md" }
+      ]
+    },
+    {
+      "id": "microsservicos-clojure-finagle",
+      "title": "Microsserviços Clojure/Finagle",
+      "readme": "microsservicos-clojure-finagle/README.md",
+      "section": "DevOps e infraestrutura",
+      "chapters": [
+        { "title": "Visão geral e arquitetura", "path": "microsservicos-clojure-finagle/01-visao-geral-arquitetura.md" },
+        { "title": "Finagle e comunicação", "path": "microsservicos-clojure-finagle/02-finagle-comunicacao.md" },
+        { "title": "Arquitetura hexagonal e implementação", "path": "microsservicos-clojure-finagle/03-hexagonal-implementacao.md" }
+      ]
+    },
+    {
+      "id": "kafka-alto-desempenho",
+      "title": "Kafka – alto desempenho",
+      "readme": "kafka-alto-desempenho/README.md",
+      "section": "DevOps e infraestrutura",
+      "chapters": [
+        { "title": "Conceitos e modelo", "path": "kafka-alto-desempenho/01-conceitos-modelo.md" },
+        { "title": "Particionamento e consumidores", "path": "kafka-alto-desempenho/02-particionamento-consumidores.md" },
+        { "title": "Padrões e integração", "path": "kafka-alto-desempenho/03-padroes-integracao.md" }
+      ]
+    },
+    {
       "id": "bancos-de-dados",
       "title": "Bancos de dados",
       "readme": "bancos-de-dados/README.md",
+      "section": "Dados e persistência",
       "chapters": [
         { "title": "Visão geral: relacional vs não relacional", "path": "bancos-de-dados/01-visao-geral.md" },
         { "title": "Bancos relacionais: conceitos e SQL", "path": "bancos-de-dados/02-relacionais-conceitos-sql.md" },
@@ -175,6 +175,28 @@
         { "title": "DynamoDB e Redis", "path": "bancos-de-dados/09-dynamodb-redis.md" },
         { "title": "ORMs: C#, Node.js, Clojure, Python, Java", "path": "bancos-de-dados/10-orms.md" },
         { "title": "Transações e consistência", "path": "bancos-de-dados/11-transacoes-consistencia.md" }
+      ]
+    },
+    {
+      "id": "datomic",
+      "title": "Datomic",
+      "readme": "datomic/README.md",
+      "section": "Dados e persistência",
+      "chapters": [
+        { "title": "Modelo de dados e conceitos", "path": "datomic/01-modelo-conceitos.md" },
+        { "title": "Transações e consultas", "path": "datomic/02-transacoes-consultas.md" },
+        { "title": "Arquitetura e operação", "path": "datomic/03-arquitetura-operacao.md" }
+      ]
+    },
+    {
+      "id": "dynamodb",
+      "title": "DynamoDB",
+      "readme": "dynamodb/README.md",
+      "section": "Dados e persistência",
+      "chapters": [
+        { "title": "Modelo de dados e chaves", "path": "dynamodb/01-modelo-chaves.md" },
+        { "title": "Operações e índices", "path": "dynamodb/02-operacoes-indices.md" },
+        { "title": "Capacidade e boas práticas", "path": "dynamodb/03-capacidade-boas-praticas.md" }
       ]
     }
   ]

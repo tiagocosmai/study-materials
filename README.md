@@ -33,24 +33,74 @@ Atualmente atuo como Senior Software Engineer na **Future Secure AI**, mantendo 
 
 ## Índice
 
+Os estudos estão organizados por tema. No [site](https://tiagocosmai.github.io/study-materials/) o menu lateral segue a mesma organização.
+
+### Fundamentos e práticas
+
 | Estudo | Descrição |
 |--------|-----------|
-| [**1. Design Patterns**](./design-patterns/README.md) | Padrões de projeto mais utilizados, com exemplos em Java, C#, TypeScript/Node, React, Clojure e diagramas. |
-| [**2. APIs com Clojure**](./clojure-apis/README.md) | Estudo dirigido para criar e consumir APIs em Clojure: do Hello World ao acesso a bancos de dados e APIs REST. Inclui instalação (WSL/Ubuntu e macOS). |
-| [**3. Melhores práticas de desenvolvimento**](./melhores-praticas-desenvolvimento/README.md) | Código limpo, controle de versão, testes, documentação, segurança e performance – práticas consolidadas para desenvolvimento de software. |
-| [**4. Casos de Uso**](./casos-uso/README.md) | Desafios de arquitetura: situações-problema com múltiplas soluções, prós/contras e diagramas (Kubernetes, Kafka, Redis, S3, microserviços). |
-| [**5. Versionamento, Git e Pull Requests**](./versionamento-git-pr/README.md) | Versionamento de aplicações (SemVer), Git/GitHub, Git Flow, commit semântico e melhores práticas para criação e validação de PRs. |
-| [**6. Logs de aplicação**](./logs-aplicacao/README.md) | Níveis de log (TRACE a FATAL), quando usar cada um e melhores práticas: estrutura, segurança, correlação e operação. |
-| [**7. DevOps**](./devops/README.md) | Conceitos (DevOps, DevSecOps, SRE, GitOps), Docker, Kubernetes, GitHub Actions, Argo CD e Jenkins. |
-| [**8. Microsserviços Clojure/Finagle**](./microsservicos-clojure-finagle/README.md) | Microsserviços escaláveis em Clojure com Finagle, programação funcional e arquitetura hexagonal. |
-| [**9. Kafka – alto desempenho**](./kafka-alto-desempenho/README.md) | Tarefas de alto desempenho e comunicação entre serviços com Apache Kafka. |
-| [**10. CI/CD na AWS**](./ci-cd-aws/README.md) | Integração e implantação contínuas na AWS (CodePipeline, CodeBuild, CodeDeploy, ECR). |
-| [**11. Datomic**](./datomic/README.md) | Armazenamento de dados no Datomic: modelo imutável, temporal, transações e Datalog. |
-| [**12. DynamoDB**](./dynamodb/README.md) | Armazenamento de dados no Amazon DynamoDB: modelo, chaves, operações e boas práticas. |
-| [**13. Prometheus e observabilidade**](./prometheus-observabilidade/README.md) | Monitoramento e observabilidade com Prometheus, PromQL, Alertmanager e Grafana. |
-| [**14. Teoria, análise e diagramas**](./teoria-analise-diagramas/README.md) | Algoritmos, estruturas de dados, fluxograma, diagrama de sequência/estados, UML e ER: índice de símbolos e exemplos em cenários reais e complexos. |
-| [**15. Paradigmas de programação**](./paradigmas-programacao/README.md) | Procedural, orientado a objetos, orientado a eventos, funcional (React e Clojure), declarativo e reativo: conceitos, quando usar, diagramas e exemplos em C, Java, TypeScript, React e Clojure. |
-| [**16. Bancos de dados**](./bancos-de-dados/README.md) | Relacionais (MySQL, PostgreSQL, Oracle, Supabase), não relacionais (MongoDB, DynamoDB, Redis), ORMs (C#, Node.js, Clojure, Python, Java), transações e consistência: conceitos, scripts e exemplos. |
+| [**Design Patterns**](./design-patterns/README.md) | Padrões de projeto mais utilizados, com exemplos em Java, C#, TypeScript/Node, React, Clojure e diagramas. |
+| [**Melhores práticas de desenvolvimento**](./melhores-praticas-desenvolvimento/README.md) | Código limpo, controle de versão, testes, documentação, segurança e performance – práticas consolidadas para desenvolvimento de software. |
+| [**Versionamento, Git e Pull Requests**](./versionamento-git-pr/README.md) | Versionamento de aplicações (SemVer), Git/GitHub, Git Flow, commit semântico e melhores práticas para criação e validação de PRs. |
+| [**Teoria, análise e diagramas**](./teoria-analise-diagramas/README.md) | Algoritmos, estruturas de dados, fluxograma, diagrama de sequência/estados, UML e ER: índice de símbolos e exemplos em cenários reais e complexos. |
+| [**Paradigmas de programação**](./paradigmas-programacao/README.md) | Procedural, orientado a objetos, orientado a eventos, funcional (React e Clojure), declarativo e reativo: conceitos, quando usar, diagramas e exemplos em C, Java, TypeScript, React e Clojure. |
+
+*Tópicos planejados:* SOLID · Clean Code · Metodologia ágil (Scrum, Kanban, Six Sigma) · PMI/PMBOK
+
+### APIs e arquitetura
+
+| Estudo | Descrição |
+|--------|-----------|
+| [**APIs com Clojure**](./clojure-apis/README.md) | Estudo dirigido para criar e consumir APIs em Clojure: do Hello World ao acesso a bancos de dados e APIs REST. Inclui instalação (WSL/Ubuntu e macOS). |
+| [**Casos de Uso**](./casos-uso/README.md) | Desafios de arquitetura: situações-problema com múltiplas soluções, prós/contras e diagramas (Kubernetes, Kafka, Redis, S3, microserviços). |
+
+*Tópicos planejados:* Arquitetura hexagonal (C#, Java, JavaScript, Clojure) · Clean Architecture (C#, Java, JavaScript, Clojure) · Arquitetura de microserviços · HTTP · RESTful · GraphQL · SOAP · Falcor · Normalização e padronização de request/response · WebSockets (Node.js, Clojure) · Server-Sent Events (SSE) · Webhooks · MQTT · WebRTC · gRPC · Node.js (puro, Express, NestJS, Next.js) · Debug de aplicações Clojure no VS Code/Cursor
+
+### Operação e observabilidade
+
+| Estudo | Descrição |
+|--------|-----------|
+| [**Logs de aplicação**](./logs-aplicacao/README.md) | Níveis de log (TRACE a FATAL), quando usar cada um e melhores práticas: estrutura, segurança, correlação e operação. |
+| [**Prometheus e observabilidade**](./prometheus-observabilidade/README.md) | Monitoramento e observabilidade com Prometheus, PromQL, Alertmanager e Grafana. |
+
+*Tópicos planejados:* Grafana · Zabbix · Prevenção e detecção de vulnerabilidades (Trivy, Datadog, AWS Inspector)
+
+### DevOps e infraestrutura
+
+| Estudo | Descrição |
+|--------|-----------|
+| [**DevOps**](./devops/README.md) | Conceitos (DevOps, DevSecOps, SRE, GitOps), Docker, Kubernetes, GitHub Actions, Argo CD e Jenkins. |
+| [**CI/CD na AWS**](./ci-cd-aws/README.md) | Integração e implantação contínuas na AWS (CodePipeline, CodeBuild, CodeDeploy, ECR). |
+| [**Microsserviços Clojure/Finagle**](./microsservicos-clojure-finagle/README.md) | Microsserviços escaláveis em Clojure com Finagle, programação funcional e arquitetura hexagonal. |
+| [**Kafka – alto desempenho**](./kafka-alto-desempenho/README.md) | Tarefas de alto desempenho e comunicação entre serviços com Apache Kafka. |
+
+*Tópicos planejados:* Variáveis de ambiente e configuração (Vault, Consul, Secret Managers, ConfigMap, Helm Charts)
+
+### Dados e persistência
+
+| Estudo | Descrição |
+|--------|-----------|
+| [**Bancos de dados**](./bancos-de-dados/README.md) | Relacionais (MySQL, PostgreSQL, Oracle, Supabase), não relacionais (MongoDB, DynamoDB, Redis), ORMs (C#, Node.js, Clojure, Python, Java), transações e consistência: conceitos, scripts e exemplos. |
+| [**Datomic**](./datomic/README.md) | Armazenamento de dados no Datomic: modelo imutável, temporal, transações e Datalog. |
+| [**DynamoDB**](./dynamodb/README.md) | Armazenamento de dados no Amazon DynamoDB: modelo, chaves, operações e boas práticas. |
+
+### Filas e mensageria
+
+*Tópicos planejados:* RabbitMQ · SQS · Diferenças entre Kafka, RabbitMQ e SQS (além do estudo atual de Kafka)
+
+### Frontend
+
+*Tópicos planejados:* React (Context API, Redux, Tailwind CSS, WebSockets) · React Native · Flutter · Microfrontends (Module Federation, Single-SPA)
+
+### Qualidade e testes
+
+*Tópicos planejados:* Testes (unitários, integrados, regressivos) · Playwright · Cypress · Selenium
+
+### Inteligência artificial
+
+*Tópicos planejados:* Engenharia de prompts · Construção de agentes de IA · n8n · LangChain / Flowise · LLM e SLM · Clojure + IA
+
+---
 
 O conteúdo pode ser visualizado em **[GitHub Pages](https://tiagocosmai.github.io/study-materials/)** (pasta [docs/](./docs/)): site estático que carrega os markdowns dinamicamente via GitHub raw, com tema claro/escuro e layout responsivo.
 
@@ -64,60 +114,6 @@ Cada estudo fica em um diretório próprio, com:
 - **imagens/** – diagramas, screenshots e figuras de apoio
 - **Referências** – links para documentação oficial, artigos e recursos recomendados
 
----
-
-## Próximos estudos
-
-- Arquitetura Hexagonal(Exemplos em C#, Java, Javascript(NodeJs/ReactJs), Cloujure)
-- clean architecture(Exemplos em C#, Java, Javascript(NodeJs/ReactJs), Cloujure)
-- SOLID
-- Arquitetura de Microserviços
-- Websocket
-- Http
-- Webhooks
-- Server-Sent Events(SSE)
-- MQTT
-- WebRTC
-- GRPC
-- RESTFULL
-- GraphQL
-- SOAP
-- Falcor
-- Principais praticas de normalização e padronização de request/response
-- ReactJS - ContextAPI
-- ReactJS - Redux - Além do controle de estado
-- ReactJS - Utilizando tawilnd Css
-- ReactJS - WebSoccets
-- ReactNative
-- Flutter
-- Microfrontend Utilizando Module Federation
-- Microfrontend Utilizando SingleSPA
-- Kafka
-- RabittMQ
-- SQS
-- Kafka
-- Variaveis de Ambiente(Vault, Consul, SecretManagers, ConfigMap, HelmCharts, etc)
-- Debugando aplicações Cloujure no VSCODE/Cursor
-- Principais diferenças entre os serviçso de mensageria Kafka, RabittMQ, SQS
-- Prevenção e detecção de Vulnerabilidades com Trivy/Datadog/AWS Inspector
-- Teste(Unitários, Integrados, Regressivos)
-- playwright
-- Cypress
-- Selenium
-- NojeJS - Criando um websoccket
-- Cloujure - Criando um websoccket
-- NodeJS - Puro
-- NodeJS - Express
-- NodeJS - NestJS
-- NextJS
-- Engenharia de Prompts
-- Construção de Agentes de IA
-- n8n
-- langwise/flowise
-- LLM/SLM
-- Cloujure + IA
-- Grafana
-- Zabbix
 ---
 
 ## Licença

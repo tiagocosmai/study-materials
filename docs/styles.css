@@ -162,6 +162,16 @@ body {
 /* ========== Nav ========== */
 .nav { padding: 0.75rem 0; }
 .nav-loading { padding: 0 1rem; color: var(--text-muted); margin: 0; }
+.nav-section {
+  margin: 1rem 0 0.25rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+}
+.nav-section:first-of-type { margin-top: 0; }
 .nav-study {
   margin: 0;
   padding: 0.5rem 1rem;

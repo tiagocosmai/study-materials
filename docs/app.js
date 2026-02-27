@@ -39,18 +39,46 @@
     return resolved.join('/');
   }
 
+  function renderStudy(study) {
+    const readmePath = study.readme;
+    let html = `<p class="nav-study">${escapeHtml(study.title)}</p><ul class="nav-list">`;
+    html += `<li class="nav-item"><a class="nav-link nav-link-readme" href="#${encodeHash(readmePath)}" data-path="${escapeAttr(readmePath)}">README</a></li>`;
+    (study.chapters || []).forEach((ch) => {
+      html += `<li class="nav-item"><a class="nav-link" href="#${encodeHash(ch.path)}" data-path="${escapeAttr(ch.path)}">${escapeHtml(ch.title)}</a></li>`;
+    });
+    html += '</ul>';
+    return html;
+  }
+
   function buildNav() {
     if (!config || !config.studies) return;
     navLoading.hidden = true;
-    let html = '';
+    const sectionOrder = config.sectionOrder || [];
+    const bySection = {};
+    const noSection = [];
     config.studies.forEach((study) => {
-      const readmePath = study.readme;
-      html += `<p class="nav-study">${escapeHtml(study.title)}</p><ul class="nav-list">`;
-      html += `<li class="nav-item"><a class="nav-link nav-link-readme" href="#${encodeHash(readmePath)}" data-path="${escapeAttr(readmePath)}">README</a></li>`;
-      (study.chapters || []).forEach((ch) => {
-        html += `<li class="nav-item"><a class="nav-link" href="#${encodeHash(ch.path)}" data-path="${escapeAttr(ch.path)}">${escapeHtml(ch.title)}</a></li>`;
-      });
-      html += '</ul>';
+      const section = study.section || '';
+      if (!section) {
+        noSection.push(study);
+      } else {
+        if (!bySection[section]) bySection[section] = [];
+        bySection[section].push(study);
+      }
+    });
+    let html = '';
+    noSection.forEach((study) => { html += renderStudy(study); });
+    sectionOrder.forEach((sectionName) => {
+      const studies = bySection[sectionName];
+      if (studies && studies.length) {
+        html += `<p class="nav-section">${escapeHtml(sectionName)}</p>`;
+        studies.forEach((study) => { html += renderStudy(study); });
+      }
+    });
+    Object.keys(bySection).forEach((sectionName) => {
+      if (!sectionOrder.includes(sectionName)) {
+        html += `<p class="nav-section">${escapeHtml(sectionName)}</p>`;
+        bySection[sectionName].forEach((study) => { html += renderStudy(study); });
+      }
     });
     nav.innerHTML = html;
 
