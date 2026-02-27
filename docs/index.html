@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Study Materials</title>
+  <title>Materiais de Estudo</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" id="highlight-theme-light" media="(prefers-color-scheme: light)">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" id="highlight-theme-dark" media="(prefers-color-scheme: dark)">
@@ -11,7 +11,7 @@
 <body>
   <header class="header">
     <button type="button" class="menu-btn" id="menu-btn" aria-label="Abrir menu">☰</button>
-    <h1 class="header-title">Study Materials</h1>
+    <h1 class="header-title">Materiais de Estudo</h1>
     <div class="header-actions">
       <div id="google-translate" class="translate-wrap"></div>
       <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Alternar tema">
@@ -24,23 +24,39 @@
   <div class="sidebar-overlay" id="sidebar-overlay" aria-hidden="true"></div>
   <div class="layout">
     <aside class="sidebar" id="sidebar" aria-label="Navegação">
-      <nav class="nav" id="nav">
-        <p class="nav-loading" id="nav-loading">Carregando…</p>
-      </nav>
+      <div class="nav-filter-wrap" id="nav-filter-wrap" hidden>
+        <input type="search" class="nav-filter" id="nav-filter" placeholder="Filtrar estudos…" aria-label="Filtrar menu">
+        <div class="nav-collapse-actions" id="nav-collapse-actions">
+          <button type="button" class="nav-collapse-btn" id="nav-collapse-all" aria-label="Recolher todos os estudos">Recolher tudo</button>
+          <button type="button" class="nav-collapse-btn" id="nav-expand-all" aria-label="Expandir todos os estudos">Expandir tudo</button>
+        </div>
+      </div>
+      <div class="sidebar-scroll">
+        <nav class="nav" id="nav">
+          <p class="nav-loading" id="nav-loading">Carregando…</p>
+        </nav>
+      </div>
     </aside>
 
-    <main class="main">
+    <main class="main" id="main">
       <div class="content" id="content">
         <p class="content-placeholder" id="content-placeholder">Escolha um estudo ou capítulo no menu.</p>
+        <nav class="content-nav content-nav-top" id="content-nav-top" aria-label="Navegação entre páginas (topo)" hidden></nav>
         <div class="markdown-body" id="markdown-body" hidden></div>
+        <nav class="content-nav" id="content-nav" aria-label="Navegação entre páginas" hidden></nav>
         <div class="content-error" id="content-error" hidden></div>
         <div class="content-loading" id="content-loading" hidden>Carregando…</div>
       </div>
+      <footer class="footer" id="footer">
+        <a href="#" id="footer-repo-link">Repository</a>
+        <span aria-hidden="true"> · </span>
+        <a href="#" id="footer-license-link">License</a>
+      </footer>
     </main>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.0/marked.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.1/mermaid.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.12.0/mermaid.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/javascript.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>

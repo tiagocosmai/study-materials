@@ -14,7 +14,6 @@ Adapta a interface de uma classe existente para outra interface esperada pelo cl
 classDiagram
     class Client
     class Target {
-        <<interface>>
         +request()
     }
     class Adapter {
