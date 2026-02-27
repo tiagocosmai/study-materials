@@ -6,7 +6,7 @@
       "id": "home",
       "title": "Início",
       "readme": "README.md",
-      "chapters": []
+      "chapters": [{ "title": "Sobre mim", "path": "aboutme/README.md" }]
     },
     {
       "id": "design-patterns",
@@ -160,6 +160,20 @@
       ]
     },
     {
+      "id": "paradigmas-programacao",
+      "title": "Paradigmas de programação",
+      "readme": "paradigmas-programacao/README.md",
+      "chapters": [
+        { "title": "Visão geral e mapa dos paradigmas", "path": "paradigmas-programacao/01-visao-geral.md" },
+        { "title": "Programação procedural", "path": "paradigmas-programacao/02-programacao-procedural.md" },
+        { "title": "Programação orientada a objetos", "path": "paradigmas-programacao/03-programacao-orientada-a-objetos.md" },
+        { "title": "Programação orientada a eventos", "path": "paradigmas-programacao/04-programacao-orientada-a-eventos.md" },
+        { "title": "Programação funcional (React e Clojure)", "path": "paradigmas-programacao/05-programacao-funcional.md" },
+        { "title": "Programação declarativa", "path": "paradigmas-programacao/06-programacao-declarativa.md" },
+        { "title": "Programação reativa", "path": "paradigmas-programacao/07-programacao-reativa.md" }
+      ]
+    },
+     {
       "id": "bancos-de-dados",
       "title": "Bancos de dados",
       "readme": "bancos-de-dados/README.md",
@@ -176,6 +190,6 @@
         { "title": "ORMs: C#, Node.js, Clojure, Python, Java", "path": "bancos-de-dados/10-orms.md" },
         { "title": "Transações e consistência", "path": "bancos-de-dados/11-transacoes-consistencia.md" }
       ]
-    }
+     }
   ]
 }

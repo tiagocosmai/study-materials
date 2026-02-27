@@ -15,6 +15,14 @@
   const menuBtn = $('menu-btn');
   const sidebarOverlay = $('sidebar-overlay');
   const themeToggle = $('theme-toggle');
+  const navFilterWrap = $('nav-filter-wrap');
+  const navFilter = $('nav-filter');
+  const navCollapseAll = $('nav-collapse-all');
+  const navExpandAll = $('nav-expand-all');
+  const contentNav = $('content-nav');
+  const contentNavTop = $('content-nav-top');
+  const footerRepoLink = $('footer-repo-link');
+  const footerLicenseLink = $('footer-license-link');
 
   function getBaseDir(path) {
     const parts = path.split('/');
@@ -42,26 +50,94 @@
   function buildNav() {
     if (!config || !config.studies) return;
     navLoading.hidden = true;
+    if (navFilterWrap) navFilterWrap.hidden = false;
     let html = '';
     config.studies.forEach((study) => {
       const readmePath = study.readme;
-      html += `<p class="nav-study">${escapeHtml(study.title)}</p><ul class="nav-list">`;
-      html += `<li class="nav-item"><a class="nav-link nav-link-readme" href="#${encodeHash(readmePath)}" data-path="${escapeAttr(readmePath)}">README</a></li>`;
+      const subjectTitle = escapeHtml(study.title);
+      html += `<div class="nav-study-group" data-study-id="${escapeAttr(study.id)}">`;
+      html += `<div class="nav-study-row" role="button" tabindex="0" aria-expanded="true" aria-label="${escapeAttr(study.title)}">`;
+      html += `<span class="nav-study-toggle" aria-hidden="true">▼</span>`;
+      html += `<a class="nav-link-subject" href="#${encodeHash(readmePath)}" data-path="${escapeAttr(readmePath)}">${subjectTitle}</a>`;
+      html += `</div><ul class="nav-list">`;
       (study.chapters || []).forEach((ch) => {
-        html += `<li class="nav-item"><a class="nav-link" href="#${encodeHash(ch.path)}" data-path="${escapeAttr(ch.path)}">${escapeHtml(ch.title)}</a></li>`;
+        html += `<li class="nav-item" data-chapter-title="${escapeAttr(ch.title.toLowerCase())}" data-study-title="${escapeAttr(study.title.toLowerCase())}">`;
+        html += `<a class="nav-link" href="#${encodeHash(ch.path)}" data-path="${escapeAttr(ch.path)}">${escapeHtml(ch.title)}</a></li>`;
       });
-      html += '</ul>';
+      html += '</ul></div>';
     });
     nav.innerHTML = html;
 
-    nav.querySelectorAll('.nav-link').forEach((a) => {
+    nav.querySelectorAll('.nav-link, .nav-link-subject').forEach((a) => {
       a.addEventListener('click', (e) => {
         e.preventDefault();
+        e.stopPropagation();
         const path = a.getAttribute('data-path');
-        loadPage(path);
-        setActiveLink(path);
-        closeSidebarMobile();
+        if (path) {
+          loadPage(path);
+          setActiveLink(path);
+          closeSidebarMobile();
+        }
       });
+    });
+
+    nav.querySelectorAll('.nav-study-row').forEach((row) => {
+      row.addEventListener('click', (e) => {
+        if (e.target.closest('a')) return;
+        const group = row.closest('.nav-study-group');
+        if (group) {
+          const isExpanded = row.getAttribute('aria-expanded') === 'true';
+          group.classList.toggle('is-collapsed', isExpanded);
+          row.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
+        }
+      });
+      row.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          row.click();
+        }
+      });
+    });
+
+    if (navFilter) {
+      navFilter.value = '';
+      navFilter.addEventListener('input', applyNavFilter);
+    }
+    if (navCollapseAll) {
+      navCollapseAll.addEventListener('click', () => setAllNavGroupsCollapsed(true));
+    }
+    if (navExpandAll) {
+      navExpandAll.addEventListener('click', () => setAllNavGroupsCollapsed(false));
+    }
+  }
+
+  function setAllNavGroupsCollapsed(collapsed) {
+    nav.querySelectorAll('.nav-study-group').forEach((group) => {
+      if (group.classList.contains('is-hidden')) return;
+      const row = group.querySelector('.nav-study-row');
+      group.classList.toggle('is-collapsed', collapsed);
+      if (row) row.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+    });
+  }
+
+  function applyNavFilter() {
+    const q = (navFilter.value || '').trim().toLowerCase();
+    nav.querySelectorAll('.nav-study-group').forEach((group) => {
+      const row = group.querySelector('.nav-study-row');
+      const studyTitle = (config.studies.find((s) => s.id === group.dataset.studyId) || {}).title || '';
+      const items = group.querySelectorAll('.nav-item');
+      let anyVisible = false;
+      items.forEach((li) => {
+        const match = !q || li.dataset.chapterTitle.includes(q) || li.dataset.studyTitle.includes(q) || studyTitle.toLowerCase().includes(q);
+        li.classList.toggle('is-hidden', !match);
+        if (match) anyVisible = true;
+      });
+      const readmeMatches = !q || studyTitle.toLowerCase().includes(q);
+      group.classList.toggle('is-hidden', !readmeMatches && !anyVisible);
+      if (row) {
+        group.classList.remove('is-collapsed');
+        row.setAttribute('aria-expanded', 'true');
+      }
     });
   }
 
@@ -70,7 +146,7 @@
   }
 
   function setActiveLink(path) {
-    nav.querySelectorAll('.nav-link').forEach((a) => {
+    nav.querySelectorAll('.nav-link, .nav-link-subject').forEach((a) => {
       a.classList.toggle('is-active', a.getAttribute('data-path') === path);
     });
   }
@@ -89,11 +165,85 @@
     markdownBody.hidden = !showBody;
     contentError.hidden = !showError;
     contentLoading.hidden = !showLoading;
+    if (contentNav) contentNav.hidden = showPlaceholder || showError || showLoading;
+    if (contentNavTop) contentNavTop.hidden = showPlaceholder || showError || showLoading;
     if (showError) contentError.textContent = '';
   }
 
+  function getFlatPages() {
+    if (!config || !config.studies) return [];
+    const pages = [];
+    config.studies.forEach((study) => {
+      pages.push({ path: study.readme, title: study.title, studyTitle: study.title });
+      (study.chapters || []).forEach((ch) => {
+        pages.push({ path: ch.path, title: ch.title, studyTitle: study.title });
+      });
+    });
+    return pages;
+  }
+
+  function getPrevNext(path) {
+    const pages = getFlatPages();
+    const i = pages.findIndex((p) => p.path === path);
+    if (i < 0) return { prev: null, next: null };
+    return {
+      prev: i > 0 ? pages[i - 1] : null,
+      next: i < pages.length - 1 ? pages[i + 1] : null,
+    };
+  }
+
+  function buildContentNavHtml(prev, next) {
+    let html = '';
+    if (prev) {
+      const label = prev.studyTitle === prev.title ? prev.title : prev.studyTitle + ' / ' + prev.title;
+      html += `<a class="content-nav-prev" href="#${encodeHash(prev.path)}" data-path="${escapeAttr(prev.path)}"><span class="content-nav-label">Anterior ←</span><span class="content-nav-title">${escapeHtml(label)}</span></a>`;
+    } else {
+      html += '<span></span>';
+    }
+    if (next) {
+      const label = next.studyTitle === next.title ? next.title : next.studyTitle + ' / ' + next.title;
+      html += `<a class="content-nav-next" href="#${encodeHash(next.path)}" data-path="${escapeAttr(next.path)}"><span class="content-nav-label">Próximo →</span><span class="content-nav-title">${escapeHtml(label)}</span></a>`;
+    } else {
+      html += '<span></span>';
+    }
+    return html;
+  }
+
+  function renderContentNav(path) {
+    const { prev, next } = getPrevNext(path);
+    if (!prev && !next) {
+      if (contentNav) { contentNav.hidden = true; contentNav.innerHTML = ''; }
+      if (contentNavTop) { contentNavTop.hidden = true; contentNavTop.innerHTML = ''; }
+      return;
+    }
+    const html = buildContentNavHtml(prev, next);
+    if (contentNav) {
+      contentNav.hidden = false;
+      contentNav.innerHTML = html;
+    }
+    if (contentNavTop) {
+      contentNavTop.hidden = false;
+      contentNavTop.innerHTML = html;
+    }
+    const contentEl = $('content');
+    if (contentEl) {
+      contentEl.querySelectorAll('.content-nav a[data-path], .content-nav-top a[data-path]').forEach((a) => {
+        a.addEventListener('click', (e) => {
+          e.preventDefault();
+          const p = a.getAttribute('data-path');
+          loadPage(p);
+          setActiveLink(p);
+          closeSidebarMobile();
+        });
+      });
+    }
+  }
+
+  const mainEl = document.getElementById('main');
+
   function loadPage(path) {
     currentPath = path;
+    if (mainEl) mainEl.scrollTop = 0;
     if (window.location.hash !== '#' + encodeHash(path)) {
       window.location.hash = encodeHash(path);
     }
@@ -104,9 +254,14 @@
         if (!r.ok) throw new Error(r.status === 404 ? 'Página não encontrada.' : `Erro ${r.status}`);
         return r.text();
       })
-      .then((md) => {
-        renderMarkdown(md, path);
+      .then(async (md) => {
+        if (path === 'aboutme/README.md' && config && config.repo) {
+          const repoUrl = 'https://github.com/' + config.repo;
+          md = md.replace(/\{\{REPO_URL\}\}/g, repoUrl).replace(/\{\{REPO\}\}/g, config.repo);
+        }
+        await renderMarkdown(md, path);
         showContent(false, true, false, false);
+        renderContentNav(path);
       })
       .catch((err) => {
         contentError.textContent = err.message || 'Falha ao carregar o conteúdo.';
@@ -114,7 +269,7 @@
       });
   }
 
-  function renderMarkdown(md, path) {
+  async function renderMarkdown(md, path) {
     const baseDir = getBaseDir(path);
     marked.setOptions({
       gfm: true,
@@ -125,7 +280,7 @@
     const origCode = renderer.code.bind(renderer);
     renderer.code = function (code, lang, escaped) {
       if (lang === 'mermaid') {
-        return `<div class="mermaid">${code}</div>`;
+        return `<div class="mermaid">${String(code).trim()}</div>`;
       }
       return origCode(code, lang, escaped);
     };
@@ -138,15 +293,17 @@
       hljs.highlightElement(el);
     });
 
-    markdownBody.querySelectorAll('.mermaid').forEach((el) => {
+    const mermaidNodes = markdownBody.querySelectorAll('.mermaid');
+    for (const el of mermaidNodes) {
       const content = el.textContent;
       try {
-        mermaid.run({ nodes: [el], suppressErrors: true });
+        const result = mermaid.run({ nodes: [el], suppressErrors: true });
+        if (result && typeof result.then === 'function') await result;
       } catch (e) {
         el.textContent = content;
         el.classList.add('mermaid-error');
       }
-    });
+    }
 
     const theme = document.documentElement.getAttribute('data-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     markdownBody.querySelectorAll('.mermaid svg').forEach((svg) => {
@@ -289,11 +446,25 @@
     securityLevel: 'loose',
   });
 
+  function initFooter() {
+    if (!config || !config.repo) return;
+    const base = `https://github.com/${config.repo}`;
+    if (footerRepoLink) {
+      footerRepoLink.href = base;
+      footerRepoLink.textContent = config.repo;
+    }
+    if (footerLicenseLink) {
+      footerLicenseLink.href = `${base}/blob/${config.branch || 'main'}/LICENSE-docs`;
+      footerLicenseLink.textContent = 'License';
+    }
+  }
+
   fetch('config.json?v=' + (window.__CONFIG_VERSION || 2))
     .then((r) => r.json())
     .then((c) => {
       config = c;
       buildNav();
+      initFooter();
       parseHash();
       if (!window.location.hash) showContent(true, false, false, false);
     })
