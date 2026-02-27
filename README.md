@@ -34,6 +34,7 @@ Repositório de documentações e estudos dirigidos, com índice, exemplos de c�
 | [**13. Prometheus e observabilidade**](./prometheus-observabilidade/README.md) | Monitoramento e observabilidade com Prometheus, PromQL, Alertmanager e Grafana. |
 | [**14. Teoria, análise e diagramas**](./teoria-analise-diagramas/README.md) | Algoritmos, estruturas de dados, fluxograma, diagrama de sequência/estados, UML e ER: índice de símbolos e exemplos em cenários reais e complexos. |
 | [**15. Paradigmas de programação**](./paradigmas-programacao/README.md) | Procedural, orientado a objetos, orientado a eventos, funcional (React e Clojure), declarativo e reativo: conceitos, quando usar, diagramas e exemplos em C, Java, TypeScript, React e Clojure. |
+| [**16. Bancos de dados**](./bancos-de-dados/README.md) | Relacionais (MySQL, PostgreSQL, Oracle, Supabase), não relacionais (MongoDB, DynamoDB, Redis), ORMs (C#, Node.js, Clojure, Python, Java), transações e consistência: conceitos, scripts e exemplos. |
 
 O conteúdo pode ser visualizado em **[GitHub Pages](https://tiagocosmai.github.io/study-materials/)** (pasta [docs/](./docs/)): site estático que carrega os markdowns dinamicamente via GitHub raw, com tema claro/escuro e layout responsivo.
 
@@ -51,8 +52,6 @@ Cada estudo fica em um diretório próprio, com:
 
 ## Próximos estudos
 
-- Bancos de Dados Relacional
-- Bancos de Dados não Relacional
 - Arquitetura Hexagonal(Exemplos em C#, Java, Javascript(NodeJs/ReactJs), Cloujure)
 - clean architecture(Exemplos em C#, Java, Javascript(NodeJs/ReactJs), Cloujure)
 - SOLID
@@ -77,16 +76,13 @@ Cada estudo fica em um diretório próprio, com:
 - Flutter
 - Microfrontend Utilizando Module Federation
 - Microfrontend Utilizando SingleSPA
-- Redis
 - Kafka
 - RabittMQ
 - SQS
 - Kafka
-- Utilizando o redis como fila
 - Variaveis de Ambiente(Vault, Consul, SecretManagers, ConfigMap, HelmCharts, etc)
 - Debugando aplicações Cloujure no VSCODE/Cursor
 - Principais diferenças entre os serviçso de mensageria Kafka, RabittMQ, SQS
-- Utilizando Cache(Redis) em aplicações Clojure
 - Prevenção e detecção de Vulnerabilidades com Trivy/Datadog/AWS Inspector
 - Teste(Unitários, Integrados, Regressivos)
 - playwright

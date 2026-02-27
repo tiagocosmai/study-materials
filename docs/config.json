@@ -172,6 +172,24 @@
         { "title": "Programação declarativa", "path": "paradigmas-programacao/06-programacao-declarativa.md" },
         { "title": "Programação reativa", "path": "paradigmas-programacao/07-programacao-reativa.md" }
       ]
-    }
+    },
+     {
+      "id": "bancos-de-dados",
+      "title": "Bancos de dados",
+      "readme": "bancos-de-dados/README.md",
+      "chapters": [
+        { "title": "Visão geral: relacional vs não relacional", "path": "bancos-de-dados/01-visao-geral.md" },
+        { "title": "Bancos relacionais: conceitos e SQL", "path": "bancos-de-dados/02-relacionais-conceitos-sql.md" },
+        { "title": "MySQL", "path": "bancos-de-dados/03-mysql.md" },
+        { "title": "PostgreSQL", "path": "bancos-de-dados/04-postgresql.md" },
+        { "title": "Oracle", "path": "bancos-de-dados/05-oracle.md" },
+        { "title": "Supabase", "path": "bancos-de-dados/06-supabase.md" },
+        { "title": "Bancos não relacionais: conceitos", "path": "bancos-de-dados/07-nao-relacionais-conceitos.md" },
+        { "title": "MongoDB", "path": "bancos-de-dados/08-mongodb.md" },
+        { "title": "DynamoDB e Redis", "path": "bancos-de-dados/09-dynamodb-redis.md" },
+        { "title": "ORMs: C#, Node.js, Clojure, Python, Java", "path": "bancos-de-dados/10-orms.md" },
+        { "title": "Transações e consistência", "path": "bancos-de-dados/11-transacoes-consistencia.md" }
+      ]
+     }
   ]
 }
