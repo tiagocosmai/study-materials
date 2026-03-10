@@ -103,7 +103,8 @@
       "readme": "casos-uso/README.md",
       "section": "APIs e arquitetura",
       "chapters": [
-        { "title": "Desafios de arquitetura", "path": "casos-uso/desafios-arquitetura.md" }
+        { "title": "Desafios de arquitetura", "path": "casos-uso/desafios-arquitetura.md" },
+        { "title": "Case: Engine de Precificação e Promoções -- Arquitetura Distribuída", "path": "casos-uso/tractian.md" }
       ]
     },
     {
