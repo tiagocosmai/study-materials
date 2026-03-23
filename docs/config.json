@@ -108,6 +108,17 @@
       ]
     },
     {
+      "id": "nodejs",
+      "title": "Node.js",
+      "readme": "nodejs/README.md",
+      "section": "APIs e arquitetura",
+      "chapters": [
+        { "title": "Introdução, história e runtime interno", "path": "nodejs/01-introducao-historia-runtime.md" },
+        { "title": "Arquitetura limpa, hexagonal e SOLID", "path": "nodejs/02-arquitetura-limpa-hexagonal-solid.md" },
+        { "title": "Ecossistema, instalação, comparações e referências", "path": "nodejs/03-ecossistema-instalacao-comparacoes.md" }
+      ]
+    },
+    {
       "id": "logs-aplicacao",
       "title": "Logs de aplicação",
       "readme": "logs-aplicacao/README.md",

@@ -37,8 +37,9 @@ Os estudos estão organizados por tema. No [site](https://tiagocosmai.github.io/
 |--------|-----------|
 | [**APIs com Clojure**](./clojure-apis/README.md) | Estudo dirigido para criar e consumir APIs em Clojure: do Hello World ao acesso a bancos de dados e APIs REST. Inclui instalação (WSL/Ubuntu e macOS). |
 | [**Casos de Uso**](./casos-uso/README.md) | Desafios de arquitetura: situações-problema com múltiplas soluções, prós/contras e diagramas (Kubernetes, Kafka, Redis, S3, microserviços). |
+| [**Node.js**](./nodejs/README.md) | Runtime V8 e libuv, *event loop*, história, arquitetura limpa, hexagonal, SOLID, frameworks, ORMs, instalação, comparação com Java e Python, referências. |
 
-*Tópicos planejados:* Arquitetura hexagonal (C#, Java, JavaScript, Clojure) · Clean Architecture (C#, Java, JavaScript, Clojure) · Arquitetura de microserviços · HTTP · RESTful · GraphQL · SOAP · Falcor · Normalização e padronização de request/response · WebSockets (Node.js, Clojure) · Server-Sent Events (SSE) · Webhooks · MQTT · WebRTC · gRPC · Node.js (puro, Express, NestJS, Next.js) · Debug de aplicações Clojure no VS Code/Cursor
+*Tópicos planejados:* Arquitetura hexagonal (C#, Java, JavaScript, Clojure) · Clean Architecture (C#, Java, JavaScript, Clojure) · Arquitetura de microserviços · HTTP · RESTful · GraphQL · SOAP · Falcor · Normalização e padronização de request/response · WebSockets (Node.js, Clojure) · Server-Sent Events (SSE) · Webhooks · MQTT · WebRTC · gRPC · Debug de aplicações Clojure no VS Code/Cursor
 
 ### Operação e observabilidade
 
