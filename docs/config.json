@@ -341,6 +341,10 @@
         {
           "title": "WebRTC",
           "path": "apis-arquitetura/18-webrtc.md"
+        },
+        {
+          "title": "gRPC",
+          "path": "apis-arquitetura/19-grpc.md"
         }
       ]
     },
