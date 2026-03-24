@@ -273,6 +273,10 @@
         {
           "title": "SOLID",
           "path": "apis-arquitetura/01-solid.md"
+        },
+        {
+          "title": "Clean Code",
+          "path": "apis-arquitetura/02-clean-code.md"
         }
       ]
     },
