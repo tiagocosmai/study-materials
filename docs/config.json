@@ -285,6 +285,10 @@
         {
           "title": "Arquitetura hexagonal",
           "path": "apis-arquitetura/04-arquitetura-hexagonal.md"
+        },
+        {
+          "title": "Arquitetura limpa",
+          "path": "apis-arquitetura/05-arquitetura-limpa.md"
         }
       ]
     },
