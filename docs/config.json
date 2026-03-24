@@ -293,6 +293,10 @@
         {
           "title": "Saga",
           "path": "apis-arquitetura/06-saga.md"
+        },
+        {
+          "title": "Microsserviços",
+          "path": "apis-arquitetura/07-arquitetura-microservicos.md"
         }
       ]
     },
