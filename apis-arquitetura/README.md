@@ -13,6 +13,7 @@ Série de artigos sobre **SOLID**, **Clean Code**, **ágil em APIs**, arquitetur
 5. [Arquitetura limpa](./05-arquitetura-limpa.md)
 6. [Saga](./06-saga.md)
 7. [Microsserviços](./07-arquitetura-microservicos.md)
+8. [HTTP](./08-http.md)
 
 ---
 

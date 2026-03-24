@@ -297,6 +297,10 @@
         {
           "title": "Microsserviços",
           "path": "apis-arquitetura/07-arquitetura-microservicos.md"
+        },
+        {
+          "title": "HTTP",
+          "path": "apis-arquitetura/08-http.md"
         }
       ]
     },
