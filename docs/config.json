@@ -13,7 +13,12 @@
       "id": "home",
       "title": "Início",
       "readme": "README.md",
-      "chapters": [{ "title": "Sobre mim", "path": "aboutme/README.md" }]
+      "chapters": [
+        {
+          "title": "Sobre mim",
+          "path": "aboutme/README.md"
+        }
+      ]
     },
     {
       "id": "design-patterns",
@@ -21,10 +26,22 @@
       "readme": "design-patterns/README.md",
       "section": "Fundamentos e práticas",
       "chapters": [
-        { "title": "Visão geral", "path": "design-patterns/01-visao-geral.md" },
-        { "title": "Padrões criacionais", "path": "design-patterns/02-padroes-criacionais.md" },
-        { "title": "Padrões estruturais", "path": "design-patterns/03-padroes-estruturais.md" },
-        { "title": "Padrões comportamentais", "path": "design-patterns/04-padroes-comportamentais.md" }
+        {
+          "title": "Visão geral",
+          "path": "design-patterns/01-visao-geral.md"
+        },
+        {
+          "title": "Padrões criacionais",
+          "path": "design-patterns/02-padroes-criacionais.md"
+        },
+        {
+          "title": "Padrões estruturais",
+          "path": "design-patterns/03-padroes-estruturais.md"
+        },
+        {
+          "title": "Padrões comportamentais",
+          "path": "design-patterns/04-padroes-comportamentais.md"
+        }
       ]
     },
     {
@@ -33,12 +50,30 @@
       "readme": "melhores-praticas-desenvolvimento/README.md",
       "section": "Fundamentos e práticas",
       "chapters": [
-        { "title": "Visão geral", "path": "melhores-praticas-desenvolvimento/01-visao-geral.md" },
-        { "title": "Código limpo", "path": "melhores-praticas-desenvolvimento/02-codigo-limpo.md" },
-        { "title": "Controle de versão", "path": "melhores-praticas-desenvolvimento/03-controle-de-versao.md" },
-        { "title": "Testes e qualidade", "path": "melhores-praticas-desenvolvimento/04-testes-e-qualidade.md" },
-        { "title": "Documentação", "path": "melhores-praticas-desenvolvimento/05-documentacao.md" },
-        { "title": "Segurança e performance", "path": "melhores-praticas-desenvolvimento/06-seguranca-e-performance.md" }
+        {
+          "title": "Visão geral",
+          "path": "melhores-praticas-desenvolvimento/01-visao-geral.md"
+        },
+        {
+          "title": "Código limpo",
+          "path": "melhores-praticas-desenvolvimento/02-codigo-limpo.md"
+        },
+        {
+          "title": "Controle de versão",
+          "path": "melhores-praticas-desenvolvimento/03-controle-de-versao.md"
+        },
+        {
+          "title": "Testes e qualidade",
+          "path": "melhores-praticas-desenvolvimento/04-testes-e-qualidade.md"
+        },
+        {
+          "title": "Documentação",
+          "path": "melhores-praticas-desenvolvimento/05-documentacao.md"
+        },
+        {
+          "title": "Segurança e performance",
+          "path": "melhores-praticas-desenvolvimento/06-seguranca-e-performance.md"
+        }
       ]
     },
     {
@@ -47,10 +82,22 @@
       "readme": "versionamento-git-pr/README.md",
       "section": "Fundamentos e práticas",
       "chapters": [
-        { "title": "Versionamento de aplicações", "path": "versionamento-git-pr/01-versionamento-aplicacoes.md" },
-        { "title": "Git e GitHub", "path": "versionamento-git-pr/02-git-github.md" },
-        { "title": "Git Flow e commit semântico", "path": "versionamento-git-pr/03-git-flow-commit-semantico.md" },
-        { "title": "Melhores práticas PR", "path": "versionamento-git-pr/04-melhores-praticas-pull-requests.md" }
+        {
+          "title": "Versionamento de aplicações",
+          "path": "versionamento-git-pr/01-versionamento-aplicacoes.md"
+        },
+        {
+          "title": "Git e GitHub",
+          "path": "versionamento-git-pr/02-git-github.md"
+        },
+        {
+          "title": "Git Flow e commit semântico",
+          "path": "versionamento-git-pr/03-git-flow-commit-semantico.md"
+        },
+        {
+          "title": "Melhores práticas PR",
+          "path": "versionamento-git-pr/04-melhores-praticas-pull-requests.md"
+        }
       ]
     },
     {
@@ -59,13 +106,34 @@
       "readme": "teoria-analise-diagramas/README.md",
       "section": "Fundamentos e práticas",
       "chapters": [
-        { "title": "Algoritmos em contextos reais", "path": "teoria-analise-diagramas/01-algoritmos.md" },
-        { "title": "Estruturas de dados na prática", "path": "teoria-analise-diagramas/02-estrutura-dados.md" },
-        { "title": "Fluxograma: símbolos e cenários", "path": "teoria-analise-diagramas/03-fluxograma.md" },
-        { "title": "Diagrama de sequência: símbolos e cenários", "path": "teoria-analise-diagramas/04-diagrama-sequencia.md" },
-        { "title": "Diagrama de estados: símbolos e cenários", "path": "teoria-analise-diagramas/05-diagrama-estados.md" },
-        { "title": "UML: visões e diagramas", "path": "teoria-analise-diagramas/06-uml.md" },
-        { "title": "Diagrama ER: símbolos e modelos", "path": "teoria-analise-diagramas/07-diagrama-er.md" }
+        {
+          "title": "Algoritmos em contextos reais",
+          "path": "teoria-analise-diagramas/01-algoritmos.md"
+        },
+        {
+          "title": "Estruturas de dados na prática",
+          "path": "teoria-analise-diagramas/02-estrutura-dados.md"
+        },
+        {
+          "title": "Fluxograma: símbolos e cenários",
+          "path": "teoria-analise-diagramas/03-fluxograma.md"
+        },
+        {
+          "title": "Diagrama de sequência: símbolos e cenários",
+          "path": "teoria-analise-diagramas/04-diagrama-sequencia.md"
+        },
+        {
+          "title": "Diagrama de estados: símbolos e cenários",
+          "path": "teoria-analise-diagramas/05-diagrama-estados.md"
+        },
+        {
+          "title": "UML: visões e diagramas",
+          "path": "teoria-analise-diagramas/06-uml.md"
+        },
+        {
+          "title": "Diagrama ER: símbolos e modelos",
+          "path": "teoria-analise-diagramas/07-diagrama-er.md"
+        }
       ]
     },
     {
@@ -74,10 +142,22 @@
       "readme": "gestao-metodologias/README.md",
       "section": "Fundamentos e práticas",
       "chapters": [
-        { "title": "Scrum", "path": "gestao-metodologias/01-scrum.md" },
-        { "title": "Kanban", "path": "gestao-metodologias/02-kanban.md" },
-        { "title": "Six Sigma", "path": "gestao-metodologias/03-six-sigma.md" },
-        { "title": "PMI / PMBOK", "path": "gestao-metodologias/04-pmi-pmbok.md" }
+        {
+          "title": "Scrum",
+          "path": "gestao-metodologias/01-scrum.md"
+        },
+        {
+          "title": "Kanban",
+          "path": "gestao-metodologias/02-kanban.md"
+        },
+        {
+          "title": "Six Sigma",
+          "path": "gestao-metodologias/03-six-sigma.md"
+        },
+        {
+          "title": "PMI / PMBOK",
+          "path": "gestao-metodologias/04-pmi-pmbok.md"
+        }
       ]
     },
     {
@@ -86,13 +166,34 @@
       "readme": "paradigmas-programacao/README.md",
       "section": "Fundamentos e práticas",
       "chapters": [
-        { "title": "Visão geral e mapa dos paradigmas", "path": "paradigmas-programacao/01-visao-geral.md" },
-        { "title": "Programação procedural", "path": "paradigmas-programacao/02-programacao-procedural.md" },
-        { "title": "Programação orientada a objetos", "path": "paradigmas-programacao/03-programacao-orientada-a-objetos.md" },
-        { "title": "Programação orientada a eventos", "path": "paradigmas-programacao/04-programacao-orientada-a-eventos.md" },
-        { "title": "Programação funcional (React e Clojure)", "path": "paradigmas-programacao/05-programacao-funcional.md" },
-        { "title": "Programação declarativa", "path": "paradigmas-programacao/06-programacao-declarativa.md" },
-        { "title": "Programação reativa", "path": "paradigmas-programacao/07-programacao-reativa.md" }
+        {
+          "title": "Visão geral e mapa dos paradigmas",
+          "path": "paradigmas-programacao/01-visao-geral.md"
+        },
+        {
+          "title": "Programação procedural",
+          "path": "paradigmas-programacao/02-programacao-procedural.md"
+        },
+        {
+          "title": "Programação orientada a objetos",
+          "path": "paradigmas-programacao/03-programacao-orientada-a-objetos.md"
+        },
+        {
+          "title": "Programação orientada a eventos",
+          "path": "paradigmas-programacao/04-programacao-orientada-a-eventos.md"
+        },
+        {
+          "title": "Programação funcional (React e Clojure)",
+          "path": "paradigmas-programacao/05-programacao-funcional.md"
+        },
+        {
+          "title": "Programação declarativa",
+          "path": "paradigmas-programacao/06-programacao-declarativa.md"
+        },
+        {
+          "title": "Programação reativa",
+          "path": "paradigmas-programacao/07-programacao-reativa.md"
+        }
       ]
     },
     {
@@ -101,12 +202,30 @@
       "readme": "clojure-apis/README.md",
       "section": "APIs e arquitetura",
       "chapters": [
-        { "title": "Instalação", "path": "clojure-apis/01-instalacao.md" },
-        { "title": "Hello World", "path": "clojure-apis/02-hello-world.md" },
-        { "title": "Funções práticas", "path": "clojure-apis/03-funcoes-praticas.md" },
-        { "title": "API REST", "path": "clojure-apis/04-api-rest.md" },
-        { "title": "Banco de dados", "path": "clojure-apis/05-banco-de-dados.md" },
-        { "title": "Consumir APIs", "path": "clojure-apis/06-consumir-apis.md" }
+        {
+          "title": "Instalação",
+          "path": "clojure-apis/01-instalacao.md"
+        },
+        {
+          "title": "Hello World",
+          "path": "clojure-apis/02-hello-world.md"
+        },
+        {
+          "title": "Funções práticas",
+          "path": "clojure-apis/03-funcoes-praticas.md"
+        },
+        {
+          "title": "API REST",
+          "path": "clojure-apis/04-api-rest.md"
+        },
+        {
+          "title": "Banco de dados",
+          "path": "clojure-apis/05-banco-de-dados.md"
+        },
+        {
+          "title": "Consumir APIs",
+          "path": "clojure-apis/06-consumir-apis.md"
+        }
       ]
     },
     {
@@ -115,8 +234,14 @@
       "readme": "casos-uso/README.md",
       "section": "APIs e arquitetura",
       "chapters": [
-        { "title": "Desafios de arquitetura", "path": "casos-uso/desafios-arquitetura.md" },
-        { "title": "Case: Engine de Precificação e Promoções -- Arquitetura Distribuída", "path": "casos-uso/tractian.md" }
+        {
+          "title": "Desafios de arquitetura",
+          "path": "casos-uso/desafios-arquitetura.md"
+        },
+        {
+          "title": "Case: Engine de Precificação e Promoções -- Arquitetura Distribuída",
+          "path": "casos-uso/tractian.md"
+        }
       ]
     },
     {
@@ -125,9 +250,30 @@
       "readme": "nodejs/README.md",
       "section": "APIs e arquitetura",
       "chapters": [
-        { "title": "Introdução, história e runtime interno", "path": "nodejs/01-introducao-historia-runtime.md" },
-        { "title": "Arquitetura limpa, hexagonal e SOLID", "path": "nodejs/02-arquitetura-limpa-hexagonal-solid.md" },
-        { "title": "Ecossistema, instalação, comparações e referências", "path": "nodejs/03-ecossistema-instalacao-comparacoes.md" }
+        {
+          "title": "Introdução, história e runtime interno",
+          "path": "nodejs/01-introducao-historia-runtime.md"
+        },
+        {
+          "title": "Arquitetura limpa, hexagonal e SOLID",
+          "path": "nodejs/02-arquitetura-limpa-hexagonal-solid.md"
+        },
+        {
+          "title": "Ecossistema, instalação, comparações e referências",
+          "path": "nodejs/03-ecossistema-instalacao-comparacoes.md"
+        }
+      ]
+    },
+    {
+      "id": "apis-arquitetura",
+      "title": "Princípios e protocolos de APIs",
+      "readme": "apis-arquitetura/README.md",
+      "section": "APIs e arquitetura",
+      "chapters": [
+        {
+          "title": "SOLID",
+          "path": "apis-arquitetura/01-solid.md"
+        }
       ]
     },
     {
@@ -136,7 +282,10 @@
       "readme": "logs-aplicacao/README.md",
       "section": "Operação e observabilidade",
       "chapters": [
-        { "title": "Níveis e melhores práticas", "path": "logs-aplicacao/01-levels-e-boas-praticas.md" }
+        {
+          "title": "Níveis e melhores práticas",
+          "path": "logs-aplicacao/01-levels-e-boas-praticas.md"
+        }
       ]
     },
     {
@@ -145,9 +294,18 @@
       "readme": "prometheus-observabilidade/README.md",
       "section": "Operação e observabilidade",
       "chapters": [
-        { "title": "Conceitos e métricas", "path": "prometheus-observabilidade/01-conceitos-metricas.md" },
-        { "title": "Coleta e PromQL", "path": "prometheus-observabilidade/02-coleta-promql.md" },
-        { "title": "Alertas e Grafana", "path": "prometheus-observabilidade/03-alertas-grafana.md" }
+        {
+          "title": "Conceitos e métricas",
+          "path": "prometheus-observabilidade/01-conceitos-metricas.md"
+        },
+        {
+          "title": "Coleta e PromQL",
+          "path": "prometheus-observabilidade/02-coleta-promql.md"
+        },
+        {
+          "title": "Alertas e Grafana",
+          "path": "prometheus-observabilidade/03-alertas-grafana.md"
+        }
       ]
     },
     {
@@ -156,12 +314,30 @@
       "readme": "devops/README.md",
       "section": "DevOps e infraestrutura",
       "chapters": [
-        { "title": "Conceitos DevOps, DevSecOps", "path": "devops/01-conceitos-devops-devsecops.md" },
-        { "title": "Docker", "path": "devops/02-docker.md" },
-        { "title": "Kubernetes", "path": "devops/03-kubernetes.md" },
-        { "title": "GitHub Actions", "path": "devops/04-github-actions.md" },
-        { "title": "Argo CD", "path": "devops/05-argocd.md" },
-        { "title": "Jenkins", "path": "devops/06-jenkins.md" }
+        {
+          "title": "Conceitos DevOps, DevSecOps",
+          "path": "devops/01-conceitos-devops-devsecops.md"
+        },
+        {
+          "title": "Docker",
+          "path": "devops/02-docker.md"
+        },
+        {
+          "title": "Kubernetes",
+          "path": "devops/03-kubernetes.md"
+        },
+        {
+          "title": "GitHub Actions",
+          "path": "devops/04-github-actions.md"
+        },
+        {
+          "title": "Argo CD",
+          "path": "devops/05-argocd.md"
+        },
+        {
+          "title": "Jenkins",
+          "path": "devops/06-jenkins.md"
+        }
       ]
     },
     {
@@ -170,9 +346,18 @@
       "readme": "ci-cd-aws/README.md",
       "section": "DevOps e infraestrutura",
       "chapters": [
-        { "title": "Conceitos e serviços", "path": "ci-cd-aws/01-conceitos-servicos.md" },
-        { "title": "Pipeline: build e artefatos", "path": "ci-cd-aws/02-pipeline-build-artefatos.md" },
-        { "title": "Deploy e IaC", "path": "ci-cd-aws/03-deploy-iac.md" }
+        {
+          "title": "Conceitos e serviços",
+          "path": "ci-cd-aws/01-conceitos-servicos.md"
+        },
+        {
+          "title": "Pipeline: build e artefatos",
+          "path": "ci-cd-aws/02-pipeline-build-artefatos.md"
+        },
+        {
+          "title": "Deploy e IaC",
+          "path": "ci-cd-aws/03-deploy-iac.md"
+        }
       ]
     },
     {
@@ -181,9 +366,18 @@
       "readme": "microsservicos-clojure-finagle/README.md",
       "section": "DevOps e infraestrutura",
       "chapters": [
-        { "title": "Visão geral e arquitetura", "path": "microsservicos-clojure-finagle/01-visao-geral-arquitetura.md" },
-        { "title": "Finagle e comunicação", "path": "microsservicos-clojure-finagle/02-finagle-comunicacao.md" },
-        { "title": "Arquitetura hexagonal e implementação", "path": "microsservicos-clojure-finagle/03-hexagonal-implementacao.md" }
+        {
+          "title": "Visão geral e arquitetura",
+          "path": "microsservicos-clojure-finagle/01-visao-geral-arquitetura.md"
+        },
+        {
+          "title": "Finagle e comunicação",
+          "path": "microsservicos-clojure-finagle/02-finagle-comunicacao.md"
+        },
+        {
+          "title": "Arquitetura hexagonal e implementação",
+          "path": "microsservicos-clojure-finagle/03-hexagonal-implementacao.md"
+        }
       ]
     },
     {
@@ -192,9 +386,18 @@
       "readme": "kafka-alto-desempenho/README.md",
       "section": "DevOps e infraestrutura",
       "chapters": [
-        { "title": "Conceitos e modelo", "path": "kafka-alto-desempenho/01-conceitos-modelo.md" },
-        { "title": "Particionamento e consumidores", "path": "kafka-alto-desempenho/02-particionamento-consumidores.md" },
-        { "title": "Padrões e integração", "path": "kafka-alto-desempenho/03-padroes-integracao.md" }
+        {
+          "title": "Conceitos e modelo",
+          "path": "kafka-alto-desempenho/01-conceitos-modelo.md"
+        },
+        {
+          "title": "Particionamento e consumidores",
+          "path": "kafka-alto-desempenho/02-particionamento-consumidores.md"
+        },
+        {
+          "title": "Padrões e integração",
+          "path": "kafka-alto-desempenho/03-padroes-integracao.md"
+        }
       ]
     },
     {
@@ -203,17 +406,50 @@
       "readme": "bancos-de-dados/README.md",
       "section": "Dados e persistência",
       "chapters": [
-        { "title": "Visão geral: relacional vs não relacional", "path": "bancos-de-dados/01-visao-geral.md" },
-        { "title": "Bancos relacionais: conceitos e SQL", "path": "bancos-de-dados/02-relacionais-conceitos-sql.md" },
-        { "title": "MySQL", "path": "bancos-de-dados/03-mysql.md" },
-        { "title": "PostgreSQL", "path": "bancos-de-dados/04-postgresql.md" },
-        { "title": "Oracle", "path": "bancos-de-dados/05-oracle.md" },
-        { "title": "Supabase", "path": "bancos-de-dados/06-supabase.md" },
-        { "title": "Bancos não relacionais: conceitos", "path": "bancos-de-dados/07-nao-relacionais-conceitos.md" },
-        { "title": "MongoDB", "path": "bancos-de-dados/08-mongodb.md" },
-        { "title": "DynamoDB e Redis", "path": "bancos-de-dados/09-dynamodb-redis.md" },
-        { "title": "ORMs: C#, Node.js, Clojure, Python, Java", "path": "bancos-de-dados/10-orms.md" },
-        { "title": "Transações e consistência", "path": "bancos-de-dados/11-transacoes-consistencia.md" }
+        {
+          "title": "Visão geral: relacional vs não relacional",
+          "path": "bancos-de-dados/01-visao-geral.md"
+        },
+        {
+          "title": "Bancos relacionais: conceitos e SQL",
+          "path": "bancos-de-dados/02-relacionais-conceitos-sql.md"
+        },
+        {
+          "title": "MySQL",
+          "path": "bancos-de-dados/03-mysql.md"
+        },
+        {
+          "title": "PostgreSQL",
+          "path": "bancos-de-dados/04-postgresql.md"
+        },
+        {
+          "title": "Oracle",
+          "path": "bancos-de-dados/05-oracle.md"
+        },
+        {
+          "title": "Supabase",
+          "path": "bancos-de-dados/06-supabase.md"
+        },
+        {
+          "title": "Bancos não relacionais: conceitos",
+          "path": "bancos-de-dados/07-nao-relacionais-conceitos.md"
+        },
+        {
+          "title": "MongoDB",
+          "path": "bancos-de-dados/08-mongodb.md"
+        },
+        {
+          "title": "DynamoDB e Redis",
+          "path": "bancos-de-dados/09-dynamodb-redis.md"
+        },
+        {
+          "title": "ORMs: C#, Node.js, Clojure, Python, Java",
+          "path": "bancos-de-dados/10-orms.md"
+        },
+        {
+          "title": "Transações e consistência",
+          "path": "bancos-de-dados/11-transacoes-consistencia.md"
+        }
       ]
     },
     {
@@ -222,9 +458,18 @@
       "readme": "datomic/README.md",
       "section": "Dados e persistência",
       "chapters": [
-        { "title": "Modelo de dados e conceitos", "path": "datomic/01-modelo-conceitos.md" },
-        { "title": "Transações e consultas", "path": "datomic/02-transacoes-consultas.md" },
-        { "title": "Arquitetura e operação", "path": "datomic/03-arquitetura-operacao.md" }
+        {
+          "title": "Modelo de dados e conceitos",
+          "path": "datomic/01-modelo-conceitos.md"
+        },
+        {
+          "title": "Transações e consultas",
+          "path": "datomic/02-transacoes-consultas.md"
+        },
+        {
+          "title": "Arquitetura e operação",
+          "path": "datomic/03-arquitetura-operacao.md"
+        }
       ]
     },
     {
@@ -233,9 +478,18 @@
       "readme": "dynamodb/README.md",
       "section": "Dados e persistência",
       "chapters": [
-        { "title": "Modelo de dados e chaves", "path": "dynamodb/01-modelo-chaves.md" },
-        { "title": "Operações e índices", "path": "dynamodb/02-operacoes-indices.md" },
-        { "title": "Capacidade e boas práticas", "path": "dynamodb/03-capacidade-boas-praticas.md" }
+        {
+          "title": "Modelo de dados e chaves",
+          "path": "dynamodb/01-modelo-chaves.md"
+        },
+        {
+          "title": "Operações e índices",
+          "path": "dynamodb/02-operacoes-indices.md"
+        },
+        {
+          "title": "Capacidade e boas práticas",
+          "path": "dynamodb/03-capacidade-boas-praticas.md"
+        }
       ]
     }
   ]
