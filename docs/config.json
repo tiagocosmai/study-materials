@@ -333,6 +333,10 @@
         {
           "title": "Webhooks",
           "path": "apis-arquitetura/16-webhooks.md"
+        },
+        {
+          "title": "MQTT",
+          "path": "apis-arquitetura/17-mqtt.md"
         }
       ]
     },
