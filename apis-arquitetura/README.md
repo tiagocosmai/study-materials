@@ -18,6 +18,7 @@ Série de artigos sobre **SOLID**, **Clean Code**, **ágil em APIs**, arquitetur
 10. [GraphQL](./10-graphql.md)
 11. [SOAP](./11-soap.md)
 12. [Falcor](./12-falcor.md)
+13. [Request/response padronizado](./13-normalizacao-request-response.md)
 
 ---
 

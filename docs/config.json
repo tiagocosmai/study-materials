@@ -317,6 +317,10 @@
         {
           "title": "Falcor",
           "path": "apis-arquitetura/12-falcor.md"
+        },
+        {
+          "title": "Request/response padronizado",
+          "path": "apis-arquitetura/13-normalizacao-request-response.md"
         }
       ]
     },
