@@ -69,6 +69,15 @@
       ]
     },
     {
+      "id": "gestao-metodologias",
+      "title": "Gestão e metodologias",
+      "readme": "gestao-metodologias/README.md",
+      "section": "Fundamentos e práticas",
+      "chapters": [
+        { "title": "Scrum", "path": "gestao-metodologias/01-scrum.md" }
+      ]
+    },
+    {
       "id": "paradigmas-programacao",
       "title": "Paradigmas de programação",
       "readme": "paradigmas-programacao/README.md",
