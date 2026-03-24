@@ -309,6 +309,10 @@
         {
           "title": "GraphQL",
           "path": "apis-arquitetura/10-graphql.md"
+        },
+        {
+          "title": "SOAP",
+          "path": "apis-arquitetura/11-soap.md"
         }
       ]
     },
