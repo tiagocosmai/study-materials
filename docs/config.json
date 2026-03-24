@@ -337,6 +337,10 @@
         {
           "title": "MQTT",
           "path": "apis-arquitetura/17-mqtt.md"
+        },
+        {
+          "title": "WebRTC",
+          "path": "apis-arquitetura/18-webrtc.md"
         }
       ]
     },
