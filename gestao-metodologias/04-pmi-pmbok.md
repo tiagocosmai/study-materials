@@ -98,6 +98,18 @@ flowchart LR
 
 ---
 
+## WBS e caminho crítico (visão preditiva)
+
+A **WBS** (Estrutura Analítica do Projeto) decompõe entregáveis em pacotes de trabalho **mutuamente exclusivos** e **somados ao todo** — evita dupla contagem e facilita estimativa. O **caminho crítico** é a sequência de atividades que determina a **duração mínima** do projeto; atrasos nele atrasam o fim; folgas em atividades fora do caminho crítico absorvem algum deslize. Em projetos ágeis, “WBS” aparece como **épicos → features → histórias**, e o “crítico” é frequentemente **dependência entre times** e **integração**, não só uma rede CPM desenhada no início.
+
+---
+
+## Valor agregado (EVM) — leitura mínima
+
+**EVM** integra escopo, cronograma e custo: **PV** (valor planejado), **EV** (valor agregado — trabalho realmente concluído no valor orçado), **AC** (custo real). Índices como **CPI** (`EV/AC`) e **SPI** (`EV/PV`) ajudam a detectar desvio cedo. Em contextos ágeis, o mapeamento de histórias para valor planejado exige **disciplina de baseline**; sem isso, EVM vira teatro. Use quando contrato ou PMO exigem controle formal; combine com **burndown** do Sprint para dupla visão operacional e de portfólio.
+
+---
+
 ## Tailoring (customização)
 
 **Tailoring** é a seleção de abordagem, processos, artefatos e ciclo de vida adequados ao projeto. Fatores comuns:

@@ -184,6 +184,24 @@ flowchart LR
 
 ---
 
+## Reunião de reposição (replenishment)
+
+Em fluxo contínuo, o backlog precisa ser **reabastecido** com cadência explícita — por exemplo, toda segunda às 10 h. Nessa reunião (geralmente PO + representantes técnicos):
+
+1. Revisam **políticas de prioridade** (valor, risco, dependências, data fixa).
+2. Puxam itens para a coluna “**Pronto para desenvolver**” até um **limite acordado**, respeitando WIP a jusante.
+3. Registram **premissas** no cartão (métrica de sucesso, contatos, flags regulatórias).
+
+Sem replenishment, o quadro vira fila infinita à esquerda ou sofre micro-interrupções diárias que destroem foco.
+
+---
+
+## Custo de atraso (Cost of Delay) — ideia central
+
+**Cost of Delay** combina **valor** com **urgência temporal**: quanto dinheiro ou oportunidade se perde por **não** entregar agora versus daqui a um mês. Não exige precisão contábil absoluta; exige **ordenação** melhor que “quem grita mais alto”. Em Kanban maduro, classes de serviço e políticas de pull são desenhadas para **minimizar** custo global de fila, não para maximizar utilização individual de cada desenvolvedor.
+
+---
+
 ## Evolução do processo (Kaizen no quadro)
 
 Experimentos saudáveis em Kanban:

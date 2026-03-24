@@ -187,6 +187,27 @@ export function dpmo(defects, units, opportunitiesPerUnit) {
 
 ---
 
+## Cartas de controle (SPC) — intuição
+
+**Cartas de controle** distinguem variação **comum** (inerente ao processo) de variação **especial** (causa atribuível: mudança de ferramenta, turno novo, release que alterou comportamento). Regras clássicas (Western Electric) marcam pontos fora de limites de controle ou sequências tendenciosas. Em **DevOps**, métricas como **taxa de falha de deploy** ou **MTTR** podem ser acompanhadas com o mesmo espírito: reagir a **sinais**, não a cada oscilação aleatória.
+
+Tipos comuns: cartas **Xbar-R** (variáveis contínuas), **p** (fração defeituosa), **c** (contagem de defeitos por unidade fixa). A escolha depende do tipo de dado e do tamanho de subgrupo.
+
+---
+
+## Charter de projeto Six Sigma (esqueleto)
+
+| Campo | Conteúdo |
+|-------|----------|
+| Problema | O que dói, em linguagem do cliente |
+| Objetivo | Meta mensurável (ex.: reduzir retrabalho em X%) |
+| Escopo | Onde o projeto começa e termina no fluxo |
+| Time | Sponsor, BB/GB, dono do processo |
+| Cronograma | Marcos de fase DMAIC |
+| Benefício | Estimativa financeira ou operacional |
+
+---
+
 ## Armadilhas em contextos de software
 
 - **Forçar DMAIC em descoberta de produto** — discovery beneficia mais de experimentação lean/ágil que de controle estatístico pesado.

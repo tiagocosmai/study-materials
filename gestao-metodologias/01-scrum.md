@@ -277,6 +277,30 @@ O Guia descreve um **único** Scrum Team. Em múltiplos times no mesmo produto, 
 
 ---
 
+## Sprint Planning em duas partes (como facilitar)
+
+Na prática, o time costuma estruturar o **Planning** assim:
+
+**Parte 1 — “Por quê este Sprint?”** O Product Owner propõe um objetivo provável e os itens de maior valor no topo do backlog; Developers avaliam capacidade, dependências e riscos. Sai uma **Sprint Goal** que dá coerência ao conjunto de itens — não é apenas uma lista solta de tarefas.
+
+**Parte 2 — “Como vamos entregar?”** Os Developers decompõem itens selecionados em trabalho do primeiro dia (e subsequentes), identificando pares, spikes necessários e integrações. O plano pode ser atualizado durante o Sprint no **Daily Scrum**; o compromisso é com a **meta**, não com cada linha do plano inicial se o aprendizado exigir mudança.
+
+Time-box: para Sprints de duas semanas, alocar algo entre **2 h e 4 h** total costuma ser razoável; Sprints de um mês escalam até o limite do Guia.
+
+---
+
+## Retrospectiva: formatos que funcionam
+
+A **Sprint Retrospective** inspeciona **como** o time trabalhou. Formatos leves:
+
+- **Start / Stop / Continue** — rápido e bom para times novos.
+- **4 Ls** (Liked, Learned, Lacked, Longed for) — equilibra positivo e gap.
+- **Starfish** (Keep, More, Less, Start, Stop) — nuance fina sobre intensidade de práticas.
+
+O Scrum Master facilita sem **dirigir** o conteúdo: acordos de melhoria devem ser **pequenos, mensuráveis e donados** por pessoas do time. Uma única ação clara para o próximo Sprint costuma vencer uma lista de dez intenções.
+
+---
+
 ## Referências
 
 - Schwaber, K. & Sutherland, J. *The Scrum Guide* (2020). https://scrumguides.org/
