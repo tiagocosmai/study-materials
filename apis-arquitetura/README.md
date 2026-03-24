@@ -11,6 +11,7 @@ Série de artigos sobre **SOLID**, **Clean Code**, **ágil em APIs**, arquitetur
 3. [Metodologia ágil (APIs)](./03-metodologia-agil.md)
 4. [Arquitetura hexagonal](./04-arquitetura-hexagonal.md)
 5. [Arquitetura limpa](./05-arquitetura-limpa.md)
+6. [Saga](./06-saga.md)
 
 ---
 

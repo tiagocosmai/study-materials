@@ -289,6 +289,10 @@
         {
           "title": "Arquitetura limpa",
           "path": "apis-arquitetura/05-arquitetura-limpa.md"
+        },
+        {
+          "title": "Saga",
+          "path": "apis-arquitetura/06-saga.md"
         }
       ]
     },
