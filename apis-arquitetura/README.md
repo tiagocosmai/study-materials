@@ -21,6 +21,7 @@ Série de artigos sobre **SOLID**, **Clean Code**, **ágil em APIs**, arquitetur
 13. [Request/response padronizado](./13-normalizacao-request-response.md)
 14. [WebSockets](./14-websockets.md)
 15. [Server-Sent Events](./15-server-sent-events-sse.md)
+16. [Webhooks](./16-webhooks.md)
 
 ---
 

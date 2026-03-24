@@ -329,6 +329,10 @@
         {
           "title": "Server-Sent Events",
           "path": "apis-arquitetura/15-server-sent-events-sse.md"
+        },
+        {
+          "title": "Webhooks",
+          "path": "apis-arquitetura/16-webhooks.md"
         }
       ]
     },
