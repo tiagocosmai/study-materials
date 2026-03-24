@@ -25,6 +25,7 @@ Série de artigos sobre **SOLID**, **Clean Code**, **ágil em APIs**, arquitetur
 17. [MQTT](./17-mqtt.md)
 18. [WebRTC](./18-webrtc.md)
 19. [gRPC](./19-grpc.md)
+20. [Debug (Clojure, C#, Spring, Python)](./20-debug-aplicacoes.md)
 
 ---
 

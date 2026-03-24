@@ -345,6 +345,10 @@
         {
           "title": "gRPC",
           "path": "apis-arquitetura/19-grpc.md"
+        },
+        {
+          "title": "Debug (Clojure, C#, Spring, Python)",
+          "path": "apis-arquitetura/20-debug-aplicacoes.md"
         }
       ]
     },
