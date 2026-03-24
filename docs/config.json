@@ -321,6 +321,10 @@
         {
           "title": "Request/response padronizado",
           "path": "apis-arquitetura/13-normalizacao-request-response.md"
+        },
+        {
+          "title": "WebSockets",
+          "path": "apis-arquitetura/14-websockets.md"
         }
       ]
     },
