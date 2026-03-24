@@ -313,6 +313,10 @@
         {
           "title": "SOAP",
           "path": "apis-arquitetura/11-soap.md"
+        },
+        {
+          "title": "Falcor",
+          "path": "apis-arquitetura/12-falcor.md"
         }
       ]
     },

@@ -17,6 +17,7 @@ Série de artigos sobre **SOLID**, **Clean Code**, **ágil em APIs**, arquitetur
 9. [RESTful](./09-restful.md)
 10. [GraphQL](./10-graphql.md)
 11. [SOAP](./11-soap.md)
+12. [Falcor](./12-falcor.md)
 
 ---
 
