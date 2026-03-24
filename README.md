@@ -28,8 +28,9 @@ Os estudos estão organizados por tema. No [site](https://tiagocosmai.github.io/
 | [**Versionamento, Git e Pull Requests**](./versionamento-git-pr/README.md) | Versionamento de aplicações (SemVer), Git/GitHub, Git Flow, commit semântico e melhores práticas para criação e validação de PRs. |
 | [**Teoria, análise e diagramas**](./teoria-analise-diagramas/README.md) | Algoritmos, estruturas de dados, fluxograma, diagrama de sequência/estados, UML e ER: índice de símbolos e exemplos em cenários reais e complexos. |
 | [**Paradigmas de programação**](./paradigmas-programacao/README.md) | Procedural, orientado a objetos, orientado a eventos, funcional (React e Clojure), declarativo e reativo: conceitos, quando usar, diagramas e exemplos em C, Java, TypeScript, React e Clojure. |
+| [**Gestão e metodologias**](./gestao-metodologias/README.md) | Scrum, Kanban, Six Sigma e PMI/PMBOK: fundamentos, diagramas Mermaid e exemplos ilustrativos em Spring Boot, C#, JavaScript e Python. |
 
-*Tópicos planejados:* SOLID · Clean Code · Metodologia ágil (Scrum, Kanban, Six Sigma) · PMI/PMBOK
+*Tópicos planejados:* SOLID · Clean Code
 
 ### APIs e arquitetura
 

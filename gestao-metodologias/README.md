@@ -9,6 +9,7 @@ Fundamentos e práticas de frameworks e corpos de conhecimento usados em gestão
 1. [Scrum — framework ágil para produtos complexos](./01-scrum.md)
 2. [Kanban — fluxo, WIP e melhoria contínua](./02-kanban.md)
 3. [Six Sigma — redução de variação e melhoria de processos](./03-six-sigma.md)
+4. [PMI e PMBOK — gestão de projetos e performance domains](./04-pmi-pmbok.md)
 
 ---
 

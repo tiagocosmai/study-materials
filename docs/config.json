@@ -76,7 +76,8 @@
       "chapters": [
         { "title": "Scrum", "path": "gestao-metodologias/01-scrum.md" },
         { "title": "Kanban", "path": "gestao-metodologias/02-kanban.md" },
-        { "title": "Six Sigma", "path": "gestao-metodologias/03-six-sigma.md" }
+        { "title": "Six Sigma", "path": "gestao-metodologias/03-six-sigma.md" },
+        { "title": "PMI / PMBOK", "path": "gestao-metodologias/04-pmi-pmbok.md" }
       ]
     },
     {
