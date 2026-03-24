@@ -281,6 +281,10 @@
         {
           "title": "Metodologia ágil (APIs)",
           "path": "apis-arquitetura/03-metodologia-agil.md"
+        },
+        {
+          "title": "Arquitetura hexagonal",
+          "path": "apis-arquitetura/04-arquitetura-hexagonal.md"
         }
       ]
     },
