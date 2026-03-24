@@ -88,6 +88,10 @@ c.loop_forever()
 
 ---
 
+## Tópicos compartilhados e payload
+
+Evite mensagens **não estruturadas** (string livre) em produção: use **JSON** ou **Protobuf** com schema versionado. Para **comandos** vs **eventos**, convenções de nome (`cmd/...` vs `evt/...`) ajudam ACLs e monitoração. **Retained messages** em MQTT permitem que novos assinantes recebam último estado — útil para telemetria, perigoso se o payload for grande ou sensível sem rotação.
+
 ## MQTT vs Kafka
 
 - **MQTT** — milhões de conexões pequenas, mensagens curtas, edge.

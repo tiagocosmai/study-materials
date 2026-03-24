@@ -103,6 +103,10 @@ def health():
 
 ---
 
+## Contratos entre serviços
+
+Defina **SLAs** de latência e disponibilidade por chamada síncrona; documente **timeouts** e **circuit breakers** (Resilience4j, Polly). Para evolução de contrato, prefira **versionamento explícito** (URL, header ou pacote gRPC) e testes de **consumer-driven contracts** (Pact). Em organizações maduras, um **catalog** de APIs (Backstage, Swagger UI agregado) reduz descoberta ad hoc.
+
 ## Anti-padrões
 
 - **Microsserviço por classe** — overhead sem ganho organizacional.

@@ -104,6 +104,10 @@ class Step:
 
 ---
 
+## Persistência do estado da saga
+
+Orquestradores costumam gravar **passo atual**, **payload** e **timeouts** em tabela própria ou banco dedicado para **recuperação** após crash. Coreografias dependem de **event sourcing** ou **logs** correlacionados por `sagaId` — sem isso, diagnosticar “onde parou” é caro. Ferramentas como **Temporal**, **Camunda** ou **AWS Step Functions** embutem parte desse modelo operacional.
+
 ## Quando evitar saga longa
 
 Sagas com dezenas de passos e compensações frágeis viram **sistemas distribuídos difíceis de raciocinar**. Às vezes **monólito modular** ou **transação local + integração assíncrona** simples resolve melhor.

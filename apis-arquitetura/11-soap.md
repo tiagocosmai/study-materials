@@ -92,6 +92,10 @@ soap.createClient(url, (err, client) => {
 
 **SOAP Fault** transporta `faultcode`, `faultstring`, `detail` — padronize mapeamento para erros de domínio e **não** exponha stack traces em produção.
 
+## WS-Security e políticas (visão enterprise)
+
+Em integrações B2B, **WS-Security** pode transportar tokens, assinatura XML e criptografia de partes da mensagem. O custo é **complexidade** e **performance** — use quando políticas de segurança exigirem, não por padrão em APIs internas novas. Ferramentas de **governança** (API Gateway corporativo) frequentemente mediam entre consumidores REST e provedores SOAP legados.
+
 ---
 
 ## Referências

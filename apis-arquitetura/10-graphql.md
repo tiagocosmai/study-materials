@@ -110,6 +110,10 @@ class Query:
 
 ---
 
+## Federation e subgraphs
+
+Em organizações grandes, **Apollo Federation** ou **GraphQL Mesh** agregam **subgraphs** mantidos por times diferentes. O **gateway** compõe o schema supergraph; exige **governança** de tipos compartilhados (`@key`, `@external`) e **versionamento** coordenado para não quebrar resolvers entre equipes.
+
 ## Segurança
 
 - **Limitar profundidade** e complexidade da query (*cost analysis*).

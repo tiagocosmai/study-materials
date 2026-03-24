@@ -67,6 +67,10 @@ Spring WebSocket ou FastAPI WebSocket podem repassar JSON de SDP da mesma forma.
 
 ---
 
+## NAT, ICE e TURN em produção
+
+**ICE** (Interactive Connectivity Establishment) testa caminhos candidatos até achar par P2P viável. Em redes corporativas restritas, **TURN** quase sempre entra — orchestre **cotas** e **autenticação** no servidor TURN. Monitore taxa de **failed connections** e latência por região para dimensionar clusters de sinalização e TURN.
+
 ## Gravação e SFU
 
 Videoconferências multi-parte usam **SFU** (Selective Forwarding Unit) ou **MCU** — não full mesh N×N. Produtos: Janus, mediasoup, LiveKit, Twilio, etc.
