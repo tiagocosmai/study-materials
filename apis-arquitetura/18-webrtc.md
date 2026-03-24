@@ -69,7 +69,7 @@ Spring WebSocket ou FastAPI WebSocket podem repassar JSON de SDP da mesma forma.
 
 ## NAT, ICE e TURN em produção
 
-**ICE** (Interactive Connectivity Establishment) testa caminhos candidatos até achar par P2P viável. Em redes corporativas restritas, **TURN** quase sempre entra — orchestre **cotas** e **autenticação** no servidor TURN. Monitore taxa de **failed connections** e latência por região para dimensionar clusters de sinalização e TURN.
+**ICE** (Interactive Connectivity Establishment) testa caminhos candidatos até achar par P2P viável. Em redes corporativas restritas, **TURN** quase sempre entra — **planeje cotas** e **autenticação** no servidor TURN. Monitore taxa de **failed connections** e latência por região para dimensionar clusters de sinalização e TURN.
 
 ## Gravação e SFU
 
