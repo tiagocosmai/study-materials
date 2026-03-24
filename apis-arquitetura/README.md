@@ -20,6 +20,7 @@ Série de artigos sobre **SOLID**, **Clean Code**, **ágil em APIs**, arquitetur
 12. [Falcor](./12-falcor.md)
 13. [Request/response padronizado](./13-normalizacao-request-response.md)
 14. [WebSockets](./14-websockets.md)
+15. [Server-Sent Events](./15-server-sent-events-sse.md)
 
 ---
 

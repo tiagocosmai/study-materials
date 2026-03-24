@@ -325,6 +325,10 @@
         {
           "title": "WebSockets",
           "path": "apis-arquitetura/14-websockets.md"
+        },
+        {
+          "title": "Server-Sent Events",
+          "path": "apis-arquitetura/15-server-sent-events-sse.md"
         }
       ]
     },
