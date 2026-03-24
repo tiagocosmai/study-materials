@@ -305,6 +305,10 @@
         {
           "title": "RESTful",
           "path": "apis-arquitetura/09-restful.md"
+        },
+        {
+          "title": "GraphQL",
+          "path": "apis-arquitetura/10-graphql.md"
         }
       ]
     },
