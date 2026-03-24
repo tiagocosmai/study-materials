@@ -301,6 +301,10 @@
         {
           "title": "HTTP",
           "path": "apis-arquitetura/08-http.md"
+        },
+        {
+          "title": "RESTful",
+          "path": "apis-arquitetura/09-restful.md"
         }
       ]
     },
