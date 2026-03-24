@@ -7,6 +7,7 @@ Fundamentos e práticas de frameworks e corpos de conhecimento usados em gestão
 ## Índice
 
 1. [Scrum — framework ágil para produtos complexos](./01-scrum.md)
+2. [Kanban — fluxo, WIP e melhoria contínua](./02-kanban.md)
 
 ---
 

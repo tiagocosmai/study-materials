@@ -74,7 +74,8 @@
       "readme": "gestao-metodologias/README.md",
       "section": "Fundamentos e práticas",
       "chapters": [
-        { "title": "Scrum", "path": "gestao-metodologias/01-scrum.md" }
+        { "title": "Scrum", "path": "gestao-metodologias/01-scrum.md" },
+        { "title": "Kanban", "path": "gestao-metodologias/02-kanban.md" }
       ]
     },
     {
