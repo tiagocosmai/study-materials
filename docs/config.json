@@ -75,7 +75,8 @@
       "section": "Fundamentos e práticas",
       "chapters": [
         { "title": "Scrum", "path": "gestao-metodologias/01-scrum.md" },
-        { "title": "Kanban", "path": "gestao-metodologias/02-kanban.md" }
+        { "title": "Kanban", "path": "gestao-metodologias/02-kanban.md" },
+        { "title": "Six Sigma", "path": "gestao-metodologias/03-six-sigma.md" }
       ]
     },
     {
