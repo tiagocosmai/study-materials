@@ -277,6 +277,10 @@
         {
           "title": "Clean Code",
           "path": "apis-arquitetura/02-clean-code.md"
+        },
+        {
+          "title": "Metodologia ágil (APIs)",
+          "path": "apis-arquitetura/03-metodologia-agil.md"
         }
       ]
     },
