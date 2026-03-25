@@ -385,6 +385,18 @@
       ]
     },
     {
+      "id": "observabilidade-estendida",
+      "title": "Observabilidade estendida",
+      "readme": "observabilidade-estendida/README.md",
+      "section": "Operação e observabilidade",
+      "chapters": [
+        {
+          "title": "Grafana",
+          "path": "observabilidade-estendida/01-grafana.md"
+        }
+      ]
+    },
+    {
       "id": "devops",
       "title": "DevOps",
       "readme": "devops/README.md",
