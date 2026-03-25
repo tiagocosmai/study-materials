@@ -393,6 +393,10 @@
         {
           "title": "Grafana",
           "path": "observabilidade-estendida/01-grafana.md"
+        },
+        {
+          "title": "Zabbix",
+          "path": "observabilidade-estendida/02-zabbix.md"
         }
       ]
     },

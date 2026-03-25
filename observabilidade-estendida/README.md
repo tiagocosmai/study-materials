@@ -8,6 +8,7 @@ Artigos sobre **visualização e alertas** (Grafana), **monitoramento clássico 
 
 
 1. [Grafana](./01-grafana.md)
+2. [Zabbix](./02-zabbix.md)
 
 ---
 
