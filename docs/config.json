@@ -397,6 +397,10 @@
         {
           "title": "Zabbix",
           "path": "observabilidade-estendida/02-zabbix.md"
+        },
+        {
+          "title": "Scanners de vulnerabilidades",
+          "path": "observabilidade-estendida/03-scanners-vulnerabilidades.md"
         }
       ]
     },

@@ -9,6 +9,7 @@ Artigos sobre **visualização e alertas** (Grafana), **monitoramento clássico 
 
 1. [Grafana](./01-grafana.md)
 2. [Zabbix](./02-zabbix.md)
+3. [Scanners de vulnerabilidades e validação local](./03-scanners-vulnerabilidades.md)
 
 ---
 
