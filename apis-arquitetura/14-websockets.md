@@ -102,7 +102,7 @@ asyncio.run(main())
 ## WebSocket vs SSE vs MQTT
 
 - **SSE** — servidor → cliente só, sobre HTTP (ver artigo SSE).
-- **MQTT** — broker pub/sub para IoT e baixa largura (ver artigo MQTT).
+- **MQTT** — broker pub/sub para IoT e baixa largura (ver [Mensageria — MQTT](../mensageria/05-mqtt.md)).
 - **WebSocket** — bidirecional, browser-friendly.
 
 ---

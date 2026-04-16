@@ -122,6 +122,8 @@ def get_usuario(id):
 
 ## Redis como fila
 
+Visão geral na sessão [Mensageria — Redis: filas e pub/sub](../mensageria/06-redis-filas-pubsub.md).
+
 Listas (**LPUSH/RPOP** ou **RPUSH/LPOP**) ou **Streams** (Redis 5+) permitem implementar filas. Abaixo: fila simples com lista.
 
 ### Produtor (Node.js)

@@ -37,7 +37,7 @@ Os estudos estão organizados por tema. No [site](https://tiagocosmai.github.io/
 | [**APIs com Clojure**](./clojure-apis/README.md) | Estudo dirigido para criar e consumir APIs em Clojure: do Hello World ao acesso a bancos de dados e APIs REST. Inclui instalação (WSL/Ubuntu e macOS). |
 | [**Casos de Uso**](./casos-uso/README.md) | Desafios de arquitetura: situações-problema com múltiplas soluções, prós/contras e diagramas (Kubernetes, Kafka, Redis, S3, microserviços). |
 | [**Node.js**](./nodejs/README.md) | Runtime V8 e libuv, *event loop*, história, arquitetura limpa, hexagonal, SOLID, frameworks, ORMs, instalação, comparação com Java e Python, referências. |
-| [**Princípios e protocolos de APIs**](./apis-arquitetura/README.md) | SOLID, Clean Code, ágil em APIs, hexagonal, clean architecture, saga, microsserviços, HTTP/REST, GraphQL, SOAP, Falcor, contratos, WebSockets, SSE, webhooks, MQTT, WebRTC, gRPC, debug multi-stack. |
+| [**Princípios e protocolos de APIs**](./apis-arquitetura/README.md) | SOLID, Clean Code, ágil em APIs, hexagonal, clean architecture, saga, microsserviços, HTTP/REST, GraphQL, SOAP, Falcor, contratos, WebSockets, SSE, webhooks, WebRTC, gRPC, debug multi-stack; MQTT e mensageria na sessão [Mensageria](./mensageria/README.md). |
 
 ### Operação e observabilidade
 
@@ -60,8 +60,14 @@ Os estudos estão organizados por tema. No [site](https://tiagocosmai.github.io/
 | [**DevOps**](./devops/README.md) | Conceitos (DevOps, DevSecOps, SRE, GitOps), Docker, Kubernetes, GitHub Actions, Argo CD e Jenkins. |
 | [**CI/CD na AWS**](./ci-cd-aws/README.md) | Integração e implantação contínuas na AWS (CodePipeline, CodeBuild, CodeDeploy, ECR). |
 | [**Microsserviços Clojure/Finagle**](./microsservicos-clojure-finagle/README.md) | Microsserviços escaláveis em Clojure com Finagle, programação funcional e arquitetura hexagonal. |
-| [**Kafka – alto desempenho**](./kafka-alto-desempenho/README.md) | Tarefas de alto desempenho e comunicação entre serviços com Apache Kafka. |
 | [**Variáveis de ambiente e configuração**](./variaveis-ambiente-configuracao/README.md) | Externalização (*12-factor*), Vault, Consul KV, Secret Managers (AWS, Azure, GCP), ConfigMap/Secret no Kubernetes e Helm (values, templates, segredos). |
+
+### Mensageria
+
+| Estudo | Descrição |
+|--------|-----------|
+| [**Mensageria**](./mensageria/README.md) | RabbitMQ (AMQP), Amazon SQS, BullMQ, comparativo Kafka/RabbitMQ/SQS, MQTT, Redis como fila/pub/sub; links para Saga, Webhooks e DynamoDB/Redis. |
+| [**Kafka – alto desempenho**](./kafka-alto-desempenho/README.md) | Conceitos, particionamento, consumidores e padrões de integração com Apache Kafka (mesma secção no site). |
 
 ### Dados e persistência
 
@@ -70,10 +76,6 @@ Os estudos estão organizados por tema. No [site](https://tiagocosmai.github.io/
 | [**Bancos de dados**](./bancos-de-dados/README.md) | Relacionais (MySQL, PostgreSQL, Oracle, Supabase), não relacionais (MongoDB, DynamoDB, Redis), ORMs (C#, Node.js, Clojure, Python, Java), transações e consistência: conceitos, scripts e exemplos. |
 | [**Datomic**](./datomic/README.md) | Armazenamento de dados no Datomic: modelo imutável, temporal, transações e Datalog. |
 | [**DynamoDB**](./dynamodb/README.md) | Armazenamento de dados no Amazon DynamoDB: modelo, chaves, operações e boas práticas. |
-
-### Filas e mensageria
-
-*Tópicos planejados:* RabbitMQ · SQS · Diferenças entre Kafka, RabbitMQ e SQS (além do estudo atual de Kafka)
 
 ### Frontend
 

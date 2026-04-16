@@ -1,5 +1,7 @@
 # MQTT — pub/sub leve para IoT e edge
 
+> Parte da sessão [Mensageria](./README.md). Para comparar com Kafka e filas geridas, ver [Kafka, RabbitMQ e SQS — comparativo](./04-kafka-rabbitmq-sqs-comparativo.md).
+
 ## Introdução
 
 **MQTT** (*Message Queuing Telemetry Transport*) é um protocolo **pub/sub** binário, pensado para **baixa largura de banda** e **conexões instáveis**. Um **broker** (Mosquitto, AWS IoT Core, HiveMQ) roteia mensagens por **tópicos** hierárquicos (`factory/line1/sensor/temp`).
@@ -97,7 +99,7 @@ Evite mensagens **não estruturadas** (string livre) em produção: use **JSON**
 - **MQTT** — milhões de conexões pequenas, mensagens curtas, edge.
 - **Kafka** — log durável, *replay*, *stream processing* em data centers.
 
-Pontes **MQTT → Kafka** são comuns em pipelines IoT.
+Pontes **MQTT → Kafka** são comuns em pipelines IoT. Aprofundamento em Kafka: [Kafka – alto desempenho](../kafka-alto-desempenho/README.md).
 
 ---
 

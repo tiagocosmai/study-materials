@@ -2,6 +2,8 @@
 
 Estudo sobre uso do **Apache Kafka** para tarefas de alto desempenho e comunicação entre microsserviços: conceitos, particionamento, consumidores, exactly-once, padrões e boas práticas.
 
+Para **RabbitMQ**, **SQS**, **BullMQ**, **MQTT**, **Redis** como fila e o **comparativo** com Kafka, ver a sessão [Mensageria](../mensageria/README.md).
+
 ---
 
 ## Índice

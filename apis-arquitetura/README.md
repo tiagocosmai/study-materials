@@ -1,6 +1,6 @@
 # APIs e arquitetura — princípios e protocolos
 
-Série de artigos sobre **SOLID**, **Clean Code**, **ágil em APIs**, arquiteturas **hexagonal** e **limpa**, **Saga**, **microsserviços**, protocolos (**HTTP**, **REST**, **GraphQL**, **SOAP**, **Falcor**), **padronização de contratos**, comunicação em tempo real (**WebSockets**, **SSE**, **WebRTC**, **MQTT**, **Webhooks**, **gRPC**) e **debug** em Clojure, C#, Spring Boot e Python (VS Code/Cursor). Inclui diagramas Mermaid e exemplos em **Java/Spring**, **C#**, **JavaScript** e **Python** quando aplicável.
+Série de artigos sobre **SOLID**, **Clean Code**, **ágil em APIs**, arquiteturas **hexagonal** e **limpa**, **Saga**, **microsserviços**, protocolos (**HTTP**, **REST**, **GraphQL**, **SOAP**, **Falcor**), **padronização de contratos**, comunicação em tempo real (**WebSockets**, **SSE**, **WebRTC**, **Webhooks**, **gRPC**) e **debug** em Clojure, C#, Spring Boot e Python (VS Code/Cursor). **MQTT** e mensageria em geral estão na sessão [Mensageria](../mensageria/README.md). Inclui diagramas Mermaid e exemplos em **Java/Spring**, **C#**, **JavaScript** e **Python** quando aplicável.
 
 ---
 
@@ -22,10 +22,9 @@ Série de artigos sobre **SOLID**, **Clean Code**, **ágil em APIs**, arquitetur
 14. [WebSockets](./14-websockets.md)
 15. [Server-Sent Events](./15-server-sent-events-sse.md)
 16. [Webhooks](./16-webhooks.md)
-17. [MQTT](./17-mqtt.md)
-18. [WebRTC](./18-webrtc.md)
-19. [gRPC](./19-grpc.md)
-20. [Debug (Clojure, C#, Spring, Python)](./20-debug-aplicacoes.md)
+17. [WebRTC](./18-webrtc.md)
+18. [gRPC](./19-grpc.md)
+19. [Debug (Clojure, C#, Spring, Python)](./20-debug-aplicacoes.md)
 
 ---
 

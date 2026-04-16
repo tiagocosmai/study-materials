@@ -7,6 +7,7 @@
     "Operação e observabilidade",
     "Prevenção e detecção de vulnerabilidades",
     "DevOps e infraestrutura",
+    "Mensageria",
     "Dados e persistência"
   ],
   "studies": [
@@ -336,10 +337,6 @@
           "path": "apis-arquitetura/16-webhooks.md"
         },
         {
-          "title": "MQTT",
-          "path": "apis-arquitetura/17-mqtt.md"
-        },
-        {
           "title": "WebRTC",
           "path": "apis-arquitetura/18-webrtc.md"
         },
@@ -534,10 +531,42 @@
       ]
     },
     {
+      "id": "mensageria",
+      "title": "Mensageria",
+      "readme": "mensageria/README.md",
+      "section": "Mensageria",
+      "chapters": [
+        {
+          "title": "RabbitMQ",
+          "path": "mensageria/01-rabbitmq.md"
+        },
+        {
+          "title": "Amazon SQS",
+          "path": "mensageria/02-amazon-sqs.md"
+        },
+        {
+          "title": "BullMQ",
+          "path": "mensageria/03-bullmq.md"
+        },
+        {
+          "title": "Kafka, RabbitMQ e SQS — comparativo",
+          "path": "mensageria/04-kafka-rabbitmq-sqs-comparativo.md"
+        },
+        {
+          "title": "MQTT",
+          "path": "mensageria/05-mqtt.md"
+        },
+        {
+          "title": "Redis — filas e pub/sub",
+          "path": "mensageria/06-redis-filas-pubsub.md"
+        }
+      ]
+    },
+    {
       "id": "kafka-alto-desempenho",
       "title": "Kafka – alto desempenho",
       "readme": "kafka-alto-desempenho/README.md",
-      "section": "DevOps e infraestrutura",
+      "section": "Mensageria",
       "chapters": [
         {
           "title": "Conceitos e modelo",
