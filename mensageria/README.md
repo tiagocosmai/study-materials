@@ -2,6 +2,8 @@
 
 Sessão dedicada a **filas**, **brokers**, **pub/sub** e **processamento assíncrono** em arquiteturas distribuídas: desde **AMQP (RabbitMQ)** e **filas geridas (SQS)** até **BullMQ** em Node, **MQTT** para IoT, **Redis** como fila leve e o estudo aprofundado de **Apache Kafka**. Inclui um capítulo de **comparativo** entre Kafka, RabbitMQ e SQS para escolha de tecnologia.
 
+Nos capítulos RabbitMQ, SQS, BullMQ, MQTT e Redis há **exemplos explícitos de produção e de consumo** (ficheiros ou processos separados) em **Node.js, Python, Go, Java, C#** quando aplicável, mais **diagramas de microsserviços** que mostram quem publica e quem consome.
+
 ---
 
 ## Índice

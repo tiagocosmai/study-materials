@@ -78,6 +78,49 @@ flowchart TB
 
 ---
 
+## Desenho de microsserviços (visão por tecnologia)
+
+Os capítulos [RabbitMQ](./01-rabbitmq.md), [SQS](./02-amazon-sqs.md), [BullMQ](./03-bullmq.md) e [Kafka](../kafka-alto-desempenho/README.md) incluem **exemplos separados de produtor e consumidor** em várias linguagens. Abaixo, topologias típicas.
+
+### Kafka — vários consumidores do mesmo tópico
+
+```mermaid
+flowchart LR
+  O[Order Service] -->|produce| T[payments topic]
+  T --> G1[Consumer group: billing]
+  T --> G2[Consumer group: analytics]
+```
+
+Cada **consumer group** avança o seu offset; billing e analytics leem **o mesmo stream** de forma independente.
+
+### RabbitMQ — fan-out com filas por serviço
+
+```mermaid
+flowchart TB
+  P[Order Service] --> X[topic exchange orders.*]
+  X --> Q1[queue billing]
+  X --> Q2[queue shipping]
+  Q1 --> B[Billing Service]
+  Q2 --> S[Shipping Service]
+```
+
+Cada fila recebe **cópia** da mensagem conforme *binding*; um serviço lento não consome a fila do outro.
+
+### SQS — pipeline linear + DLQ
+
+```mermaid
+flowchart LR
+  A[Service A] --> Q1[validate-queue]
+  Q1 --> B[Service B]
+  B --> Q2[process-queue]
+  Q2 --> C[Service C]
+  Q2 -.->|maxReceiveCount| DLQ[DLQ]
+```
+
+**Produtor** em cada etapa publica na fila seguinte; falhas repetidas vão para **DLQ** para inspeção manual.
+
+---
+
 ## Ponte com MQTT e IoT
 
 **MQTT** (capítulo [MQTT](./05-mqtt.md)) alimenta pipelines **MQTT → Kafka** em fábricas e cidades inteligentes: edge publica telemetria; Kafka agrega para analytics. **RabbitMQ** também pode receber MQTT via plugin, mas Kafka domina **volume histórico**.
