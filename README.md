@@ -69,6 +69,12 @@ Os estudos estão organizados por tema. No [site](https://tiagocosmai.github.io/
 | [**Mensageria**](./mensageria/README.md) | RabbitMQ (AMQP), Amazon SQS, BullMQ, comparativo Kafka/RabbitMQ/SQS, MQTT, Redis como fila/pub/sub; links para Saga, Webhooks e DynamoDB/Redis. |
 | [**Kafka – alto desempenho**](./kafka-alto-desempenho/README.md) | Conceitos, particionamento, consumidores e padrões de integração com Apache Kafka (mesma secção no site). |
 
+### Frontend
+
+| Estudo | Descrição |
+|--------|-----------|
+| [**Frontend**](./frontend/README.md) | Visão geral, HTML, CSS, JavaScript, Tailwind, React (Context, Redux, WebSockets), React Native, Vue, Angular, Svelte, Next.js, Flutter e microfrontends (Module Federation, single-spa). |
+
 ### Dados e persistência
 
 | Estudo | Descrição |
@@ -76,10 +82,6 @@ Os estudos estão organizados por tema. No [site](https://tiagocosmai.github.io/
 | [**Bancos de dados**](./bancos-de-dados/README.md) | Relacionais (MySQL, PostgreSQL, Oracle, Supabase), não relacionais (MongoDB, DynamoDB, Redis), ORMs (C#, Node.js, Clojure, Python, Java), transações e consistência: conceitos, scripts e exemplos. |
 | [**Datomic**](./datomic/README.md) | Armazenamento de dados no Datomic: modelo imutável, temporal, transações e Datalog. |
 | [**DynamoDB**](./dynamodb/README.md) | Armazenamento de dados no Amazon DynamoDB: modelo, chaves, operações e boas práticas. |
-
-### Frontend
-
-*Tópicos planejados:* React (Context API, Redux, Tailwind CSS, WebSockets) · React Native · Flutter · Microfrontends (Module Federation, Single-SPA)
 
 ### Qualidade e testes
 

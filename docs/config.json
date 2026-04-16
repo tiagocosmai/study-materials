@@ -8,6 +8,7 @@
     "Prevenção e detecção de vulnerabilidades",
     "DevOps e infraestrutura",
     "Mensageria",
+    "Frontend",
     "Dados e persistência"
   ],
   "studies": [
@@ -579,6 +580,66 @@
         {
           "title": "Padrões e integração",
           "path": "kafka-alto-desempenho/03-padroes-integracao.md"
+        }
+      ]
+    },
+    {
+      "id": "frontend",
+      "title": "Frontend",
+      "readme": "frontend/README.md",
+      "section": "Frontend",
+      "chapters": [
+        {
+          "title": "Visão geral do frontend",
+          "path": "frontend/01-visao-geral-frontend.md"
+        },
+        {
+          "title": "HTML",
+          "path": "frontend/02-html.md"
+        },
+        {
+          "title": "CSS",
+          "path": "frontend/03-css.md"
+        },
+        {
+          "title": "JavaScript",
+          "path": "frontend/04-javascript.md"
+        },
+        {
+          "title": "Tailwind CSS",
+          "path": "frontend/05-tailwind-css.md"
+        },
+        {
+          "title": "React",
+          "path": "frontend/06-react.md"
+        },
+        {
+          "title": "React Native",
+          "path": "frontend/07-react-native.md"
+        },
+        {
+          "title": "Vue.js",
+          "path": "frontend/08-vue.md"
+        },
+        {
+          "title": "Angular",
+          "path": "frontend/09-angular.md"
+        },
+        {
+          "title": "Svelte",
+          "path": "frontend/10-svelte.md"
+        },
+        {
+          "title": "Next.js",
+          "path": "frontend/11-nextjs.md"
+        },
+        {
+          "title": "Flutter",
+          "path": "frontend/12-flutter.md"
+        },
+        {
+          "title": "Microfrontends",
+          "path": "frontend/13-microfrontends.md"
         }
       ]
     },
