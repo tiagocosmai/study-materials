@@ -45,7 +45,13 @@ Os estudos estão organizados por tema. No [site](https://tiagocosmai.github.io/
 |--------|-----------|
 | [**Logs de aplicação**](./logs-aplicacao/README.md) | Níveis de log (TRACE a FATAL), quando usar cada um e melhores práticas: estrutura, segurança, correlação e operação. |
 | [**Prometheus e observabilidade**](./prometheus-observabilidade/README.md) | Monitoramento e observabilidade com Prometheus, PromQL, Alertmanager e Grafana. |
-| [**Observabilidade estendida**](./observabilidade-estendida/README.md) | Grafana (dashboards, API, alertas), Zabbix (agentes, triggers, LLD) e scanners de vulnerabilidade (Trivy, AWS Inspector, Datadog) com validação local e CI. |
+| [**Observabilidade estendida**](./observabilidade-estendida/README.md) | Grafana (Docker lab, provisionamento, API, alertas) e Zabbix (componentes, Docker lab, agente, triggers, LLD). |
+
+### Prevenção e detecção de vulnerabilidades
+
+| Estudo | Descrição |
+|--------|-----------|
+| [**Prevenção e detecção de vulnerabilidades**](./prevencao-deteccao-vulnerabilidades/README.md) | Abordagem preventiva vs detecção, defesa em profundidade e um capítulo por ferramenta: Trivy, Datadog, AWS Inspector, Snyk e Semgrep — instalação, projeto de laboratório, CI e exemplos em várias linguagens. |
 
 ### DevOps e infraestrutura
 

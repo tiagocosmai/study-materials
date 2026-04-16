@@ -487,7 +487,7 @@
     }
   }
 
-  fetch('config.json?v=' + (window.__CONFIG_VERSION || 2))
+  fetch('config.json?v=' + (window.__CONFIG_VERSION || 3))
     .then((r) => r.json())
     .then((c) => {
       config = c;

@@ -1,8 +1,10 @@
-# Grafana — dashboards, datasources e alertas
+# Grafana — dashboards, datasources, alertas e projeto local
 
 ## Introdução
 
 **Grafana** é uma plataforma **open source** (e oferta **Grafana Cloud**) para **visualizar métricas, logs e traces** a partir de múltiplas fontes de dados. Complementa o estudo [Prometheus e observabilidade](../prometheus-observabilidade/README.md): em muitos ambientes, o **Prometheus** coleta e armazena séries temporais e o **Grafana** consulta via **PromQL** e renderiza painéis; o mesmo Grafana agrega **Loki** (logs), **Tempo** (traces) e bancos como **PostgreSQL**, **CloudWatch**, **Azure Monitor**.
+
+Este capítulo aprofunda **como subir um ambiente de laboratório**, **modelar um projeto** com provisionamento em Git e **operar alertas** com diagramas que você pode reutilizar em documentação ou onboarding.
 
 ```mermaid
 flowchart TB
@@ -35,20 +37,146 @@ flowchart TB
 
 ---
 
-## Provisionamento como código
+## Projeto local: Docker Compose com Prometheus + Grafana
 
-Evite configurar tudo só pela UI em produção: use **provisioning** com arquivos YAML apontando para dashboards em disco ou URLs, e **datasources** versionados. Isso permite **review** em PR e **rollback** previsível.
+Um **projeto mínimo** ajuda a praticar datasources, painéis e alertas sem depender de cluster corporativo. A ideia é: **Prometheus** raspa uma aplicação de exemplo (ou `prometheus` auto-monitorado) e o **Grafana** consome a mesma rede Docker.
+
+### Estrutura de pastas sugerida
+
+```text
+grafana-lab/
+├── docker-compose.yml
+├── prometheus/
+│   └── prometheus.yml
+├── grafana/
+│   ├── provisioning/
+│   │   ├── datasources/
+│   │   │   └── datasources.yaml
+│   │   └── dashboards/
+│   │       └── dashboards.yaml
+│   └── dashboards/
+│       └── api-overview.json
+└── README.md
+```
+
+### `docker-compose.yml` (referência)
 
 ```yaml
-# excerpt: provisioning/dashboards/dashboards.yaml
+services:
+  prometheus:
+    image: prom/prometheus:v2.53.0
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+    ports:
+      - "9090:9090"
+    networks: [obs]
+
+  grafana:
+    image: grafana/grafana:11.3.0
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD: admin
+      GF_USERS_DEFAULT_THEME: dark
+    volumes:
+      - ./grafana/provisioning:/etc/grafana/provisioning:ro
+      - ./grafana/dashboards:/var/lib/grafana/dashboards:ro
+    ports:
+      - "3000:3000"
+    depends_on: [prometheus]
+    networks: [obs]
+
+networks:
+  obs:
+    driver: bridge
+```
+
+### `prometheus/prometheus.yml`
+
+```yaml
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: prometheus
+    static_configs:
+      - targets: ["prometheus:9090"]
+```
+
+### Provisionamento do datasource (`grafana/provisioning/datasources/datasources.yaml`)
+
+```yaml
+apiVersion: 1
+datasources:
+  - name: Prometheus
+    type: prometheus
+    access: proxy
+    url: http://prometheus:9090
+    isDefault: true
+    editable: false
+```
+
+### Provisionamento de dashboards (`grafana/provisioning/dashboards/dashboards.yaml`)
+
+```yaml
 apiVersion: 1
 providers:
   - name: default
-    folder: Services
+    folder: Lab
     type: file
     options:
       path: /var/lib/grafana/dashboards
 ```
+
+Suba com `docker compose up -d` e acesse **http://localhost:3000** (usuário/senha conforme variáveis). O Prometheus fica em **http://localhost:9090** para validar *targets* antes de montar painéis.
+
+```mermaid
+flowchart LR
+  subgraph host[Host desenvolvimento]
+    B[Browser]
+  end
+  B -->|3000| GF[Grafana]
+  GF -->|PromQL HTTP| PR[Prometheus]
+  PR -->|scrape| PR
+```
+
+---
+
+## Primeiro dashboard no laboratório
+
+1. Em **Connections → Data sources**, confirme **Prometheus** (provisionado).
+2. **Dashboards → New → New dashboard → Add visualization**.
+3. Escolha **Time series** e uma query simples: `prometheus_tsdb_head_series` ou `up`.
+4. Salve o dashboard na pasta **Lab** (coerente com o *provider* acima).
+
+Para **GitOps**, exporte o JSON (**Share → Export**) para `grafana/dashboards/` e versione no repositório.
+
+```mermaid
+sequenceDiagram
+  participant U as Usuário
+  participant G as Grafana
+  participant P as Prometheus
+  U->>G: Abre painel / refresh
+  G->>P: GET /api/v1/query_range
+  P-->>G: Matriz de samples
+  G-->>U: Renderiza time series
+```
+
+---
+
+## Variáveis e reutilização
+
+Variáveis de dashboard (`Settings → Variables`) permitem um único JSON servir **vários ambientes** ou **instâncias**:
+
+- Tipo **Query** em Prometheus: `label_values(up, job)` para lista de *jobs*.
+- Use `$job` na expressão: `rate(http_requests_total{job="$job"}[5m])`.
+
+Isso reduz duplicação e evita “copiar e colar” de painéis por time.
+
+---
+
+## Provisionamento como código (visão geral)
+
+Evite configurar tudo só pela UI em produção: use **provisioning** com arquivos YAML apontando para dashboards em disco ou URLs, e **datasources** versionados. Isso permite **review** em PR e **rollback** previsível.
 
 ```mermaid
 flowchart LR
@@ -67,6 +195,16 @@ O motor unificado de alertas permite regras **baseadas em dados Grafana** (Prome
 - **For** (*pending period*) para reduzir flapping.
 
 Para stacks só Prometheus, muitos times ainda usam **Alertmanager** para roteamento e **Grafana** só para visualização — as duas abordagens coexistem; documente qual é **fonte da verdade** para *silence* e *on-call*.
+
+```mermaid
+stateDiagram-v2
+  [*] --> Normal
+  Normal --> Pending: condição verdadeira
+  Pending --> Firing: duração > for
+  Pending --> Normal: condição falsa
+  Firing --> Normal: recuperação
+  Firing --> Notified: contact point
+```
 
 ---
 
@@ -147,6 +285,40 @@ var res = await client.PostAsync("/api/dashboards/db", new StringContent(payload
 res.EnsureSuccessStatusCode();
 ```
 
+### Go (cliente mínimo)
+
+```go
+package main
+
+import (
+	"bytes"
+	"encoding/json"
+	"fmt"
+	"net/http"
+	"os"
+)
+
+func main() {
+	base := os.Getenv("GRAFANA_URL")
+	token := os.Getenv("GRAFANA_TOKEN")
+	raw, _ := os.ReadFile("dashboards/api-overview.json")
+	var dash map[string]any
+	json.Unmarshal(raw, &dash)
+	body, _ := json.Marshal(map[string]any{"dashboard": dash, "overwrite": true})
+	req, _ := http.NewRequest(http.MethodPost, base+"/api/dashboards/db", bytes.NewReader(body))
+	req.Header.Set("Authorization", "Bearer "+token)
+	req.Header.Set("Content-Type", "application/json")
+	res, err := http.DefaultClient.Do(req)
+	if err != nil {
+		panic(err)
+	}
+	defer res.Body.Close()
+	if res.StatusCode >= 300 {
+		panic(fmt.Errorf("grafana: %s", res.Status))
+	}
+}
+```
+
 ### Spring Boot (WebClient — cliente administrativo)
 
 ```java
@@ -188,6 +360,18 @@ O modo **Explore** permite testar **PromQL**, **LogQL** (Loki) e consultar **tra
 - **OAuth2 / SSO** para acesso humano; **API keys** com escopo mínimo para automação.
 - **Datasource credentials** em Secret Manager / Vault, não em texto no JSON do dashboard.
 - **Network policies** em Kubernetes entre Grafana e Prometheus/Loki.
+
+---
+
+## Checklist de impressão / revisão
+
+| Passo | O que validar |
+|-------|----------------|
+| 1 | `docker compose` sobe sem erros de volume |
+| 2 | Datasource Prometheus “green” na UI |
+| 3 | Dashboard provisionado aparece na pasta **Lab** |
+| 4 | Query de teste retorna dados no Explore |
+| 5 | Script de API importa JSON com token de serviço |
 
 ---
 

@@ -5,6 +5,7 @@
     "Fundamentos e práticas",
     "APIs e arquitetura",
     "Operação e observabilidade",
+    "Prevenção e detecção de vulnerabilidades",
     "DevOps e infraestrutura",
     "Dados e persistência"
   ],
@@ -397,10 +398,34 @@
         {
           "title": "Zabbix",
           "path": "observabilidade-estendida/02-zabbix.md"
+        }
+      ]
+    },
+    {
+      "id": "prevencao-deteccao-vulnerabilidades",
+      "title": "Prevenção e detecção de vulnerabilidades",
+      "readme": "prevencao-deteccao-vulnerabilidades/README.md",
+      "section": "Prevenção e detecção de vulnerabilidades",
+      "chapters": [
+        {
+          "title": "Trivy",
+          "path": "prevencao-deteccao-vulnerabilidades/01-trivy.md"
         },
         {
-          "title": "Scanners de vulnerabilidades",
-          "path": "observabilidade-estendida/03-scanners-vulnerabilidades.md"
+          "title": "Datadog",
+          "path": "prevencao-deteccao-vulnerabilidades/02-datadog.md"
+        },
+        {
+          "title": "AWS Inspector",
+          "path": "prevencao-deteccao-vulnerabilidades/03-aws-inspector.md"
+        },
+        {
+          "title": "Snyk",
+          "path": "prevencao-deteccao-vulnerabilidades/04-snyk.md"
+        },
+        {
+          "title": "Semgrep",
+          "path": "prevencao-deteccao-vulnerabilidades/05-semgrep.md"
         }
       ]
     },

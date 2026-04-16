@@ -1,6 +1,8 @@
-# Observabilidade estendida — Grafana, Zabbix e scanners de vulnerabilidade
+# Observabilidade estendida — Grafana e Zabbix
 
-Artigos sobre **visualização e alertas** (Grafana), **monitoramento clássico de infraestrutura** (Zabbix) e **prevenção/detecção de vulnerabilidades** com foco em validação **local** e em pipeline (Trivy, AWS Inspector, integração com Datadog e ferramentas correlatas). Inclui diagramas Mermaid e exemplos em **Spring Boot**, **C#**, **JavaScript** e **Python** quando aplicável.
+Artigos sobre **visualização e alertas** (Grafana) e **monitoramento clássico de infraestrutura** (Zabbix), com diagramas Mermaid, **projetos locais com Docker Compose** e exemplos em **Node.js**, **Python**, **C#**, **Go**, **Java** e **Spring Boot** quando aplicável.
+
+Para **prevenção e detecção de vulnerabilidades** (Trivy, Datadog, AWS Inspector, Snyk, Semgrep), use a sessão dedicada: [Prevenção e detecção de vulnerabilidades](../prevencao-deteccao-vulnerabilidades/README.md).
 
 ---
 
@@ -8,7 +10,6 @@ Artigos sobre **visualização e alertas** (Grafana), **monitoramento clássico 
 
 1. [Grafana](./01-grafana.md)
 2. [Zabbix](./02-zabbix.md)
-3. [Scanners de vulnerabilidades e validação local](./03-scanners-vulnerabilidades.md)
 
 ---
 
@@ -16,4 +17,3 @@ Artigos sobre **visualização e alertas** (Grafana), **monitoramento clássico 
 
 - [Grafana documentation](https://grafana.com/docs/)
 - [Zabbix documentation](https://www.zabbix.com/documentation)
-- [Trivy](https://trivy.dev/) · [AWS Inspector](https://docs.aws.amazon.com/inspector/) · [Datadog Security](https://docs.datadoghq.com/security/)

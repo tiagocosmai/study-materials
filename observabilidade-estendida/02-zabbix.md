@@ -1,8 +1,10 @@
-# Zabbix — monitoramento de infraestrutura, agentes e triggers
+# Zabbix — monitoramento de infraestrutura, agentes e projeto com Docker
 
 ## Introdução
 
 **Zabbix** é uma plataforma **open source** de monitoramento para **redes, servidores, aplicações e nuvem**, com **coleta por agente**, **SNMP**, **JMX**, **checks sem agente** (HTTP, TCP, ICMP) e **auto-discovery**. Diferente de stacks só métricas (Prometheus + Grafana), o Zabbix tradicionalmente integra **coleta**, **armazenamento histórico**, **gráficos nativos**, **mapas**, **inventário** e **alertas** em um único produto — útil em NOCs e ambientes híbridos.
+
+Este capítulo inclui um **laboratório com Docker Compose** (server + banco + web + agente) para você praticar **hosts**, **itens** e **triggers** sem instalar pacotes `.deb` no host, além de exemplos de integração com aplicações em várias linguagens.
 
 ```mermaid
 flowchart TB
@@ -35,6 +37,106 @@ flowchart TB
 | **Proxy** | Coleta distribuída (WAN, isolamento) |
 
 Em **Kubernetes**, o *Helm chart* oficial ou operadores comunitários implantam server + frontend; hosts podem ser **pods** descobertos via API ou checks HTTP nos *services*.
+
+---
+
+## Laboratório: Docker Compose (Zabbix 6.4+)
+
+Para **estudo**, um *stack* com **PostgreSQL** + **server** + **web** + **agent** acelera o onboarding. A imagem oficial documenta variáveis como `DB_SERVER_HOST`, `POSTGRES_USER`, etc. Ajuste senhas antes de qualquer ambiente que não seja descartável.
+
+### Visão do fluxo de subida
+
+```mermaid
+sequenceDiagram
+  participant D as Docker
+  participant PG as PostgreSQL
+  participant ZS as Zabbix Server
+  participant ZW as Zabbix Web
+  participant ZA as Zabbix Agent2
+  D->>PG: healthcheck OK
+  D->>ZS: aguarda DB
+  ZS->>PG: schema / migrações
+  D->>ZW: PHP + nginx
+  D->>ZA: registra no server
+```
+
+### `docker-compose.yml` (referência de laboratório)
+
+```yaml
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: zabbix
+      POSTGRES_PASSWORD: zabbix
+      POSTGRES_DB: zabbix
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U zabbix -d zabbix"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks: [zbx]
+
+  zabbix-server:
+    image: zabbix/zabbix-server-pgsql:ubuntu-6.4-latest
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DB_SERVER_HOST: postgres
+      POSTGRES_USER: zabbix
+      POSTGRES_PASSWORD: zabbix
+      POSTGRES_DB: zabbix
+    ports:
+      - "10051:10051"
+    networks: [zbx]
+
+  zabbix-web:
+    image: zabbix/zabbix-web-nginx-pgsql:ubuntu-6.4-latest
+    depends_on: [zabbix-server]
+    environment:
+      ZBX_SERVER_HOST: zabbix-server
+      DB_SERVER_HOST: postgres
+      POSTGRES_USER: zabbix
+      POSTGRES_PASSWORD: zabbix
+      POSTGRES_DB: zabbix
+      PHP_TZ: UTC
+    ports:
+      - "8080:8080"
+    networks: [zbx]
+
+  zabbix-agent:
+    image: zabbix/zabbix-agent2:ubuntu-6.4-latest
+    depends_on: [zabbix-server]
+    environment:
+      ZBX_HOSTNAME: lab-docker-agent
+      ZBX_SERVER_HOST: zabbix-server
+      ZBX_SERVER_PORT: 10051
+      ZBX_PASSIVE_ALLOW: "true"
+    networks: [zbx]
+
+volumes:
+  pgdata:
+
+networks:
+  zbx:
+    driver: bridge
+```
+
+Após `docker compose up -d`, abra **http://localhost:8080** (credenciais padrão do laboratório Zabbix costumam ser `Admin` / `zabbix` — **altere** em qualquer uso além de demo). No **frontend**, confirme o host **lab-docker-agent** (pode exigir *link* manual ao template **Linux by Zabbix agent** conforme versão).
+
+```mermaid
+flowchart LR
+  subgraph compose[Docker Compose]
+    WEB[Web :8080]
+    SRV[Server :10051]
+    AG[Agent2]
+  end
+  U[Operador] --> WEB
+  AG -->|passivo / trapper| SRV
+```
 
 ---
 
@@ -95,21 +197,33 @@ def send_trap(host: str, key: str, value: str) -> None:
 send_trap("api-prod-1", "custom.queue.depth", "37")
 ```
 
-### JavaScript (Node — HTTP API Zabbix 6.0+ *history.push* conceito)
+### JavaScript (Node — HTTP API Zabbix 6.0+ JSON-RPC)
 
-Muitos times preferem **agent** ou **Prometheus remote_write** para apps; para Zabbix API JSON-RPC:
+Muitos times preferem **agent** ou **Prometheus remote_write** para apps; para **automação** (criar host, item), use a API JSON-RPC com **token** após `user.login`:
 
 ```javascript
-async function apiRequest(method, params) {
-  const body = { jsonrpc: "2.0", method, params, id: 1 };
-  const res = await fetch("https://zabbix.example.com/api_jsonrpc.php", {
+async function zbxCall(url, auth, method, params) {
+  const body = { jsonrpc: "2.0", method, params, id: 1, auth };
+  const res = await fetch(url, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body),
   });
-  return res.json();
+  const data = await res.json();
+  if (data.error) throw new Error(JSON.stringify(data.error));
+  return data.result;
 }
-// Autenticação: user.login + token em chamadas subsequentes
+
+async function main() {
+  const url = process.env.ZABBIX_API_URL;
+  const user = process.env.ZABBIX_USER;
+  const password = process.env.ZABBIX_PASSWORD;
+  const token = await zbxCall(url, null, "user.login", { username: user, password });
+  const hosts = await zbxCall(url, token, "host.get", { output: ["hostid", "host"], limit: 10 });
+  console.log(hosts);
+}
+
+main().catch(console.error);
 ```
 
 ### C# — health check exposto para Zabbix HTTP
@@ -133,6 +247,42 @@ public class ZabbixProbeController {
 }
 ```
 
+### Go — métrica simples para HTTP check ou trapper
+
+```go
+package main
+
+import (
+	"fmt"
+	"net/http"
+	"os"
+	"strconv"
+	"time"
+)
+
+func main() {
+	start := time.Now()
+	http.HandleFunc("/metrics/custom/uptime_seconds", func(w http.ResponseWriter, r *http.Request) {
+		sec := int(time.Since(start).Seconds())
+		fmt.Fprintf(w, "%d", sec)
+	})
+	http.HandleFunc("/health/zabbix", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "text/plain")
+		w.Write([]byte("1"))
+	})
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+	if _, err := strconv.Atoi(port); err != nil {
+		panic(err)
+	}
+	if err := http.ListenAndServe(":"+port, nil); err != nil {
+		panic(err)
+	}
+}
+```
+
 ---
 
 ## Capacidade e retenção
@@ -148,6 +298,29 @@ O crescimento do banco é função de **novos itens × frequência × retenção
 | Infra legada, SNMP, NOC único | Zabbix forte |
 | Cloud-native, SLOs com PromQL, CNCF | Prometheus + Grafana |
 | Híbrido | Coexistência: exportadores ou *integrations* |
+
+```mermaid
+flowchart TB
+  subgraph escolha[Decisão simplificada]
+    Q{SNMP / legado dominante?}
+    Q -->|sim| Z[Zabbix + templates]
+    Q -->|não| K{Kubernetes + SLO?}
+    K -->|sim| P[Prometheus + Grafana]
+    K -->|não| H[Híbrido: ambos]
+  end
+```
+
+---
+
+## Checklist do projeto de estudo
+
+| Etapa | Resultado esperado |
+|-------|---------------------|
+| 1 | `docker compose ps` mostra serviços *healthy* |
+| 2 | Login na UI web |
+| 3 | Host do agente visível e recebendo dados |
+| 4 | Pelo menos um gráfico de CPU ou carga |
+| 5 | (Opcional) `zabbix_sender` de métrica customizada |
 
 ---
 
