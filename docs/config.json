@@ -462,6 +462,38 @@
       ]
     },
     {
+      "id": "variaveis-ambiente-configuracao",
+      "title": "Variáveis de ambiente e configuração",
+      "readme": "variaveis-ambiente-configuracao/README.md",
+      "section": "DevOps e infraestrutura",
+      "chapters": [
+        {
+          "title": "Conceitos: variáveis e externalização",
+          "path": "variaveis-ambiente-configuracao/01-conceitos-variaveis-e-config.md"
+        },
+        {
+          "title": "HashiCorp Vault",
+          "path": "variaveis-ambiente-configuracao/02-hashicorp-vault.md"
+        },
+        {
+          "title": "HashiCorp Consul",
+          "path": "variaveis-ambiente-configuracao/03-hashicorp-consul.md"
+        },
+        {
+          "title": "Secret Managers na nuvem",
+          "path": "variaveis-ambiente-configuracao/04-secret-managers-nuvem.md"
+        },
+        {
+          "title": "Kubernetes: ConfigMap e Secret",
+          "path": "variaveis-ambiente-configuracao/05-kubernetes-configmap-secrets.md"
+        },
+        {
+          "title": "Helm Charts: values e templates",
+          "path": "variaveis-ambiente-configuracao/06-helm-charts-values-templates.md"
+        }
+      ]
+    },
+    {
       "id": "ci-cd-aws",
       "title": "CI/CD na AWS",
       "readme": "ci-cd-aws/README.md",

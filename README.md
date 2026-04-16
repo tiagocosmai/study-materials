@@ -61,8 +61,7 @@ Os estudos estão organizados por tema. No [site](https://tiagocosmai.github.io/
 | [**CI/CD na AWS**](./ci-cd-aws/README.md) | Integração e implantação contínuas na AWS (CodePipeline, CodeBuild, CodeDeploy, ECR). |
 | [**Microsserviços Clojure/Finagle**](./microsservicos-clojure-finagle/README.md) | Microsserviços escaláveis em Clojure com Finagle, programação funcional e arquitetura hexagonal. |
 | [**Kafka – alto desempenho**](./kafka-alto-desempenho/README.md) | Tarefas de alto desempenho e comunicação entre serviços com Apache Kafka. |
-
-*Tópicos planejados:* Variáveis de ambiente e configuração (Vault, Consul, Secret Managers, ConfigMap, Helm Charts)
+| [**Variáveis de ambiente e configuração**](./variaveis-ambiente-configuracao/README.md) | Externalização (*12-factor*), Vault, Consul KV, Secret Managers (AWS, Azure, GCP), ConfigMap/Secret no Kubernetes e Helm (values, templates, segredos). |
 
 ### Dados e persistência
 

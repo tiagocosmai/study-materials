@@ -15,6 +15,12 @@ Estudo dirigido sobre conceitos de DevOps, DevSecOps e ferramentas de pipeline, 
 
 ---
 
+## Estudo relacionado
+
+- [**Variáveis de ambiente e configuração**](../variaveis-ambiente-configuracao/README.md) — Vault, Consul, Secret Managers, ConfigMap, Secret e Helm Charts.
+
+---
+
 ## Sugestão de próximos artigos
 
 - **Terraform (IaC)** – Infraestrutura como código, providers (AWS, GCP, Azure), state, módulos.
