@@ -35,4 +35,4 @@ graph TB
 
 Test-Driven Development: escrever o teste que falha, implementar o mínimo para passar, refatorar. Ajuda a focar em comportamento e a manter boa cobertura; pode ser adotado em partes do código (ex.: regras de negócio).
 
-Para ferramentas e exemplos (unitários, integrados, Playwright, Cypress etc.), consulte o estudo de [Testes](../README.md) no índice do repositório.
+Para ferramentas e exemplos (unitários, integrados, Playwright, Cypress, Selenium etc.), consulte **[Qualidade e testes](../qualidade-testes/README.md)** no repositório.

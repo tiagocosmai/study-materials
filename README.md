@@ -85,7 +85,9 @@ Os estudos estão organizados por tema. No [site](https://tiagocosmai.github.io/
 
 ### Qualidade e testes
 
-*Tópicos planejados:* Testes (unitários, integrados, regressivos) · Playwright · Cypress · Selenium
+| Estudo | Descrição |
+|--------|-----------|
+| [**Qualidade e testes**](./qualidade-testes/README.md) | Pirâmide de testes, unitários, integração e regressão; exemplos em **Python**, **Node.js** e **Java**; automação **Playwright**, **Cypress** e **Selenium**. |
 
 ### Inteligência artificial
 

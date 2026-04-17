@@ -9,7 +9,8 @@
     "DevOps e infraestrutura",
     "Mensageria",
     "Frontend",
-    "Dados e persistência"
+    "Dados e persistência",
+    "Qualidade e testes"
   ],
   "studies": [
     {
@@ -732,6 +733,38 @@
         {
           "title": "Capacidade e boas práticas",
           "path": "dynamodb/03-capacidade-boas-praticas.md"
+        }
+      ]
+    },
+    {
+      "id": "qualidade-testes",
+      "title": "Qualidade e testes",
+      "readme": "qualidade-testes/README.md",
+      "section": "Qualidade e testes",
+      "chapters": [
+        {
+          "title": "Pirâmide, tipos e regressão",
+          "path": "qualidade-testes/01-piramide-tipos-regressao.md"
+        },
+        {
+          "title": "Testes unitários: Python, Node.js, Java",
+          "path": "qualidade-testes/02-testes-unitarios-python-node-java.md"
+        },
+        {
+          "title": "Integração e testes regressivos",
+          "path": "qualidade-testes/03-integracao-testes-regressivos.md"
+        },
+        {
+          "title": "Playwright",
+          "path": "qualidade-testes/04-playwright.md"
+        },
+        {
+          "title": "Cypress",
+          "path": "qualidade-testes/05-cypress.md"
+        },
+        {
+          "title": "Selenium WebDriver",
+          "path": "qualidade-testes/06-selenium.md"
         }
       ]
     }
