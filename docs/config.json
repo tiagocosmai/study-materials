@@ -10,7 +10,8 @@
     "Mensageria",
     "Frontend",
     "Dados e persistência",
-    "Qualidade e testes"
+    "Qualidade e testes",
+    "Inteligência artificial"
   ],
   "studies": [
     {
@@ -765,6 +766,38 @@
         {
           "title": "Selenium WebDriver",
           "path": "qualidade-testes/06-selenium.md"
+        }
+      ]
+    },
+    {
+      "id": "inteligencia-artificial",
+      "title": "Inteligência artificial",
+      "readme": "inteligencia-artificial/README.md",
+      "section": "Inteligência artificial",
+      "chapters": [
+        {
+          "title": "Engenharia de prompts",
+          "path": "inteligencia-artificial/01-engenharia-de-prompts.md"
+        },
+        {
+          "title": "Construção de agentes de IA",
+          "path": "inteligencia-artificial/02-construcao-de-agentes.md"
+        },
+        {
+          "title": "n8n",
+          "path": "inteligencia-artificial/03-n8n.md"
+        },
+        {
+          "title": "LangChain e Flowise",
+          "path": "inteligencia-artificial/04-langchain-e-flowise.md"
+        },
+        {
+          "title": "LLM e SLM",
+          "path": "inteligencia-artificial/05-llm-e-slm.md"
+        },
+        {
+          "title": "Clojure e IA",
+          "path": "inteligencia-artificial/06-clojure-e-ia.md"
         }
       ]
     }

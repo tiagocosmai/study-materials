@@ -91,7 +91,9 @@ Os estudos estão organizados por tema. No [site](https://tiagocosmai.github.io/
 
 ### Inteligência artificial
 
-*Tópicos planejados:* Engenharia de prompts · Construção de agentes de IA · n8n · LangChain / Flowise · LLM e SLM · Clojure + IA
+| Estudo | Descrição |
+|--------|-----------|
+| [**Inteligência artificial**](./inteligencia-artificial/README.md) | Engenharia de prompts, agentes, **n8n**, **LangChain** / **Flowise**, **LLM** vs **SLM**, **Clojure** na JVM com LangChain4j e interop. |
 
 ---
 
