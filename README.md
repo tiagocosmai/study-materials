@@ -93,7 +93,7 @@ Os estudos estão organizados por tema. No [site](https://tiagocosmai.github.io/
 
 | Estudo | Descrição |
 |--------|-----------|
-| [**Inteligência artificial**](./inteligencia-artificial/README.md) | Engenharia de prompts, agentes, **n8n**, **LangChain** / **Flowise**, **LLM** vs **SLM**, **Clojure** na JVM com LangChain4j e interop. |
+| [**Inteligência artificial**](./inteligencia-artificial/README.md) | Engenharia de prompts, agentes, **n8n**, **LangChain** / **Flowise**, **LLM** vs **SLM**, **Clojure** na JVM; capítulo dedicado a exemplos **Python**, **Node.js** e **Java** (SDK, HTTP, *tools*, LangChain / LangChain4j). |
 
 ---
 

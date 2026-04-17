@@ -75,6 +75,8 @@ Possível usar APIs web (*fetch*) para inferência **no cliente** — atenção 
 - [LangChain4j](https://docs.langchain4j.dev/)
 - [libpython-clj](https://github.com/clj-python/libpython-clj)
 
+Para o mesmo tipo de exemplos (**SDK**, **HTTP**, **LangChain**) em **Python**, **Node.js** e **Java** nativos, vê [Exemplos práticos — Python, Node.js e Java](./07-exemplos-praticos-python-node-java.md).
+
 ---
 
 *Clojure não é “o caminho mais curto” para notebooks de *deep learning*; brilha em **serviços estáveis** que combinam modelo + domínio + infra.*

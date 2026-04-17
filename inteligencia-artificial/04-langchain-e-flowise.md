@@ -61,6 +61,8 @@ Fluxo típico: **Chat trigger** → **Retriever** (Pinecone, etc.) → **LLM Cha
 - [LangGraph](https://langchain-ai.github.io/langgraph/)
 - [Flowise](https://docs.flowiseai.com/)
 
+**Ver também:** [Exemplos práticos — Python, Node.js e Java](./07-exemplos-praticos-python-node-java.md) — SDKs, HTTP e LangChain por *runtime*.
+
 ---
 
 *Abstração poupa tempo; quando o produto estabiliza, parte do pipeline costuma migrar para **código direto** e *observabilidade* explícita.*

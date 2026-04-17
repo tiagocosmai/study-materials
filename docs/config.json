@@ -798,6 +798,10 @@
         {
           "title": "Clojure e IA",
           "path": "inteligencia-artificial/06-clojure-e-ia.md"
+        },
+        {
+          "title": "Exemplos práticos — Python, Node.js e Java",
+          "path": "inteligencia-artificial/07-exemplos-praticos-python-node-java.md"
         }
       ]
     }

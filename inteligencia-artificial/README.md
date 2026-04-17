@@ -1,6 +1,6 @@
 # Inteligência artificial
 
-Sessão sobre **como desenhar, orquestrar e operar** sistemas com modelos de linguagem: **engenharia de prompts**, **agentes**, automação (**n8n**), frameworks (**LangChain**, **Flowise**), escolha entre **LLM** e **SLM**, e uso de **Clojure** no ecossistema JVM / interop.
+Sessão sobre **como desenhar, orquestrar e operar** sistemas com modelos de linguagem: **engenharia de prompts**, **agentes**, automação (**n8n**), frameworks (**LangChain**, **Flowise**), escolha entre **LLM** e **SLM**, **Clojure** na JVM e um capítulo de **exemplos práticos** em **Python**, **Node.js** e **Java** (alinhados ao estilo do capítulo Clojure: SDK, HTTP, *tools*, orquestração).
 
 ---
 
@@ -11,7 +11,7 @@ flowchart LR
   P[Prompts claros] --> A[Agentes + ferramentas]
   A --> O[Orquestração n8n / LangChain]
   O --> M[Modelo certo LLM vs SLM]
-  M --> X[Clojure quando JVM importa]
+  M --> X[Código Python / Node / Java / Clojure]
 ```
 
 ---
@@ -24,6 +24,7 @@ flowchart LR
 4. [LangChain e Flowise](./04-langchain-e-flowise.md)
 5. [LLM e SLM](./05-llm-e-slm.md)
 6. [Clojure e IA](./06-clojure-e-ia.md)
+7. [Exemplos práticos — Python, Node.js e Java](./07-exemplos-praticos-python-node-java.md)
 
 ---
 
