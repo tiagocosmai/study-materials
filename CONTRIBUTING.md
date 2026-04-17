@@ -12,16 +12,24 @@ Documentações em constante evolução. Sugestões e contribuições são bem-v
 
 O `README.md` principal lista cada sessão com links para o **README da pasta** e para **cada capítulo**. Essa lista é gerada a partir de `docs/config.json` pelo script [`scripts/generate_readme_index.py`](./scripts/generate_readme_index.py).
 
-Depois de alterares capítulos ou sessões no `config.json`:
+**Recomendado** — a partir da **raiz** do repositório (a pasta que contém `docs/` e `README.md`):
 
 ```bash
-cd study-materials   # ou a raiz do clone deste repositório
-python3 scripts/generate_readme_index.py > /tmp/readme-index.md
+cd study-materials
+python3 scripts/generate_readme_index.py --write
 ```
 
-Substitui no `README.md` **todo o conteúdo entre** `<!-- INDEX_START -->` e `<!-- INDEX_END -->` pela nova saída do script **incluindo** os próprios comentários no início e no fim (ou preserva os marcadores e cola apenas o miolo: desde `## Índice` até ao último capítulo).
+Isto substitui automaticamente o conteúdo **entre** `<!-- INDEX_START -->` e `<!-- INDEX_END -->` no `README.md`.
 
-Atualiza também `DESCRIPTIONS` no próprio script se precisares de uma **descrição** nova ou diferente para uma sessão.
+**Alternativa** (só impressão no terminal, sem alterar ficheiros):
+
+```bash
+python3 scripts/generate_readme_index.py
+```
+
+Se aparecer *“não encontrei `docs/config.json`”*, o diretório atual não é a raiz do repositório: entra em `study-materials` (ou o nome da pasta do clone) e volta a correr o comando.
+
+Atualiza também o dicionário `DESCRIPTIONS` no mesmo script se precisares de uma **descrição** nova para uma sessão.
 
 ## Citar este repositório
 

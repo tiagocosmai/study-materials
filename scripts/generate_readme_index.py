@@ -2,24 +2,30 @@
 """
 Gera o bloco Markdown do ## Índice no README.md raiz a partir de docs/config.json.
 
-Saída: Markdown completo da secção (começa por ## Índice).
+Sem argumentos: imprime o índice para stdout (para encaminhar a um ficheiro ou revisão).
 
-Integração manual no README principal:
-  1. Mantém os comentários HTML <!-- INDEX_START --> e <!-- INDEX_END --> no README.md.
-  2. python3 scripts/generate_readme_index.py > /tmp/readme-index.md
-  3. Substitui o conteúdo entre esses dois comentários pela nova saída (+ marcadores ou não,
-     conforme preferires).
+Com --write: substitui no README.md **entre** <!-- INDEX_START --> e <!-- INDEX_END -->.
 
-Descrições curtas por sessão: dicionário DESCRIPTIONS neste ficheiro (deve cobrir cada `id`
-presente em config.json, exceto home).
+O script deve ser executado a partir da **raiz do repositório** (pasta que contém `docs/` e
+`README.md`). Exemplo:
+
+  cd study-materials
+  python3 scripts/generate_readme_index.py --write
+
+Descrições por sessão: dicionário DESCRIPTIONS (avisos em stderr se faltar algum `id`).
 """
 from __future__ import annotations
 
+import argparse
 import json
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 CONFIG_PATH = ROOT / "docs" / "config.json"
+README_PATH = ROOT / "README.md"
+MARK_START = "<!-- INDEX_START -->"
+MARK_END = "<!-- INDEX_END -->"
 
 # Descrições curtas (1 linha) — alinhar ao propósito de cada sessão.
 DESCRIPTIONS: dict[str, str] = {
@@ -132,18 +138,46 @@ DESCRIPTIONS: dict[str, str] = {
 }
 
 
-def main() -> None:
-    cfg = json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
+def _ensure_repo_layout() -> None:
+    if not CONFIG_PATH.is_file():
+        print(
+            f"Erro: não encontrei `{CONFIG_PATH.relative_to(ROOT.parent) if ROOT.parent in CONFIG_PATH.parents else CONFIG_PATH}`.\n"
+            f"Este script espera estar na raiz do repositório (pasta com `docs/config.json`).\n"
+            f"  cd …/study-materials\n"
+            f"  python3 scripts/generate_readme_index.py [--write]",
+            file=sys.stderr,
+        )
+        sys.exit(1)
+
+
+def build_index_markdown(cfg: dict) -> str:
     section_order: list[str] = cfg["sectionOrder"]
     studies: list[dict] = cfg["studies"]
 
     by_section: dict[str, list[dict]] = {s: [] for s in section_order}
+    missing_sections: list[str] = []
+    all_ids: set[str] = set()
+
     for study in studies:
-        if study.get("id") == "home":
+        sid = study.get("id")
+        if sid == "home":
             continue
+        all_ids.add(sid)
         sec = study.get("section")
         if sec in by_section:
             by_section[sec].append(study)
+        elif sec:
+            missing_sections.append(f"{sid!r} (secção {sec!r} não está em sectionOrder)")
+
+    for sid in sorted(all_ids):
+        if sid not in DESCRIPTIONS:
+            print(
+                f"Aviso: falta descrição em DESCRIPTIONS para o estudo `{sid}`.",
+                file=sys.stderr,
+            )
+
+    for msg in missing_sections:
+        print(f"Aviso: {msg}", file=sys.stderr)
 
     lines: list[str] = []
     lines.append("## Índice\n")
@@ -175,7 +209,51 @@ def main() -> None:
                 lines.append(f"- [{ct}](./{cp})\n")
             lines.append("\n")
 
-    print("".join(lines).rstrip() + "\n")
+    return "".join(lines).rstrip() + "\n"
+
+
+def patch_readme(body: str) -> None:
+    if not README_PATH.is_file():
+        print(f"Erro: `{README_PATH}` não existe.", file=sys.stderr)
+        sys.exit(1)
+    text = README_PATH.read_text(encoding="utf-8")
+    if MARK_START not in text or MARK_END not in text:
+        print(
+            f"Erro: `{README_PATH}` não contém `{MARK_START}` e `{MARK_END}`.\n"
+            "Adiciona esses comentários HTML à volta da secção ## Índice ou usa só o modo stdout.",
+            file=sys.stderr,
+        )
+        sys.exit(1)
+    before, mid = text.split(MARK_START, 1)
+    _inner, after = mid.split(MARK_END, 1)
+    new_text = before + MARK_START + "\n" + body + "\n" + MARK_END + after
+    README_PATH.write_text(new_text, encoding="utf-8", newline="\n")
+    print(f"Atualizado: {README_PATH}", file=sys.stderr)
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(
+        description="Gera o índice do README a partir de docs/config.json."
+    )
+    parser.add_argument(
+        "--write",
+        action="store_true",
+        help="Escreve no README.md entre INDEX_START e INDEX_END (recomendado).",
+    )
+    args = parser.parse_args()
+
+    _ensure_repo_layout()
+    cfg = json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
+    body = build_index_markdown(cfg)
+
+    if args.write:
+        patch_readme(body)
+    else:
+        sys.stdout.write(body)
+        print(
+            "\n(dica: usa --write para atualizar o README.md automaticamente.)",
+            file=sys.stderr,
+        )
 
 
 if __name__ == "__main__":

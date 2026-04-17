@@ -325,7 +325,6 @@ Engenharia de prompts, agentes, n8n, LangChain / Flowise, LLM vs SLM, Clojure na
 - [Clojure e IA](./inteligencia-artificial/06-clojure-e-ia.md)
 - [Exemplos práticos — Python, Node.js e Java](./inteligencia-artificial/07-exemplos-praticos-python-node-java.md)
 
-
 <!-- INDEX_END -->
 
 ---
